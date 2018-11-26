@@ -9,3 +9,9 @@ url: "https://dfolio.github.io/"
 # Build settings
 #markdown: Pandoc
 permalink: pretty
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+syntax_highlighter: rouge
