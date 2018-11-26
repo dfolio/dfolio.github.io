@@ -7,5 +7,5 @@ baseurl: ""
 url: "https://dfolio.github.io"
 
 # Build settings
-markdown: Pandoc
+#markdown: Pandoc
 permalink: pretty
