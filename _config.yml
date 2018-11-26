@@ -2,9 +2,9 @@ theme: jekyll-theme-tactile
 title: D.Folio GitHub Pages
 description: Miscellaneous pages to share some various things that I am interested in, and working on as personal hobbies.
 
-# settings
-baseurl: ""
-url: "https://dfolio.github.io"
+# Site settings
+#baseurl: ""
+url: "https://dfolio.github.io/"
 
 # Build settings
 #markdown: Pandoc
