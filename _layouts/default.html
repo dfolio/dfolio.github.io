@@ -1,0 +1,62 @@
+---
+---
+<!DOCTYPE html>
+<html ⚡ lang="{{- lang | default: page.lang | default: site.lang | default: 'en'-}}">
+{%- include head.html -%}
+<body id="body" >
+  <div class="container-fluid" >
+
+<!--masterhead-->
+<div class="clearfix container-fluid" role="banner">
+  <div class="navbar site-banner masthead">
+    <header  class="align-items-center">
+      <div class="col-md-auto"><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+    </header>
+    <div class="flex-xl-nowrap masterhead-navbar"  role="navigation">
+      <nav class="navbar navbar-nav-scroll navbar-nav-main" id="masterhead-nav">
+        <ul class="navbar-nav flex-row">
+        {%for d in site.docs %}
+        {%-assign active= ''-%}
+        {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%-endif-%}
+        <li class="nav-item"><a class="nav-link {{active}}" href="{{d.url}}" title="{{ d.excerpt| default: d.title}}">{{d.title}}</a></li>
+        {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!--end masterhead-->
+
+<!--content-->
+<div  class="clearfix container-fluid" id="default-content">
+  <div class="row flex-xl-nowrap"  role="main">
+    {{ content }}
+  </div>
+</div>
+<!--end content-->
+
+<!--site footer-->
+<div class="clearfix container-fluid" >
+  <footer class="navbar d-print-none footer site-footer">
+     <div class="small footer-meta">
+       <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a></p>
+        <p class="small site-license">Except as otherwise noted, the content of this page is licensed under <a rel="license" class="url" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> (<a rel="license" class="url"  href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons" aria-hidden="true"></i>BY 4.0</a>).</p>
+     </div>
+      <div class="footer-social">
+        <ul class="nav-link footer-nav" id="site-social">
+    {%- if site.footer.links -%}
+      {%- for link in site.footer.links -%}
+        {%- if link.label and link.url -%}
+          <li class="nav-link-item"><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+        </ul>
+     </div>
+  </footer>
+</div>
+<!--end site footer-->
+</div>
+</body>
+</html>
