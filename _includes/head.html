@@ -1,0 +1,125 @@
+<head>
+<!-- General meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=yes">
+  {%- if page.indexing == false -%}<meta name="robots" content="noindex">{%- endif -%}
+  
+  <!--seo -->
+  {%- if site.url -%}{%- assign seo_url = site.url | append: site.baseurl -%}{%- endif -%}
+  {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url %}
+  {%- assign seo_url = seo_url | default: site.github.url -%}
+  {% assign title_separator = site.title_separator | default: '-' | replace: '|', '&#124;' %}
+  {%- if page.title -%}{%- assign seo_title = page.title | append: " " | append: title_separator | append: " " | append: site.title -%}{%- endif -%}
+  {%- if seo_title -%}{%- assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once -%}{%- endif -%}
+  {%- assign seo_description = page.description | default: page.excerpt | default: site.description -%}
+  {%- if seo_description -%}{%- assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once -%}{%- endif -%}
+  {%- assign author = page.author | default: page.authors[0] | default: site.author -%}
+  {%- assign seo_logo = page.header.logo | default: site.logo -%}
+  {%- unless seo_logo contains '://' -%}{%- assign seo_logo = seo_logo | absolute_url -%}{%- endunless -%}
+  {%- assign seo_favicons = page.favicons | default: layout.favicons | default: site.favicons -%}
+  {%- unless seo_favicons contains '://' -%}{%- assign seo_favicons = seo_favicons | absolute_url -%}{%- endunless -%}
+  {%- assign seo_favicons = seo_favicons | escape -%}
+  {%- if page.date -%}
+    {%- assign og_type = "article" -%}
+  {%- else -%}
+    {%- assign og_type = "website" -%}
+  {%- endif -%}
+  
+  <title>{{ seo_title | default: site.title }}</title>
+  
+  {%- if author -%}<meta name="author" content="{{ author.name | default: author }}">{%- endif -%}
+  {%- if seo_description -%}
+  <meta name="description" content="{{ seo_description }}">
+  <meta property="og:description" content="{{ seo_description }}">
+  {%- endif -%}
+  {%- if page.date_lastmod -%}
+  <meta property="article:published_time" content="{{ page.date_lastmod | date_to_xmlschema }}">
+  {%- elsif page.date -%}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {%- elsif page.date_created -%}
+  <meta property="article:published_time" content="{{ page.date_created | date_to_xmlschema }}">
+  {%- endif -%}
+  {%- if og_type == "article" and page.last_modified_at -%}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{%- endif -%}
+  {%-if page_logo_image -%}<meta property="og:image" content="{{ page_logo_image }}">{% endif %}
+  
+  <meta property="og:type" content="{{ og_type }}">
+  <meta property="og:locale" content="{{ site.locale | replace: "-", "_" | default: "en_US" }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+
+  <link rel="canonical" href="{{ canonical_url }}">
+  {%- if paginator.previous_page -%}<link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">{% endif %}
+  {%- if paginator.next_page -%}<link rel="next" href="{{ paginator.next_page_path | absolute_url }}">{% endif %}
+  
+  {% if seo_logo %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": {{ seo_url | jsonify }},
+      "logo": {{ seo_logo | jsonify }}
+    }
+  </script>
+  {% endif %}
+  {% if site.social %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
+      "name": {{ site.social.name | default: site.name | jsonify }},
+      "url": {{ seo_url | jsonify }},
+      "sameAs": {{ site.social.links | jsonify }}
+    }
+  </script>
+  {% endif %}
+
+  {%- if site.google_site_verification -%}<meta name="google-site-verification" content="{{ site.google_site_verification }}" />{% endif %}
+  {%- if site.bing_site_verification -%}<meta name="msvalidate.01" content="{{ site.bing_site_verification }}">{% endif %}
+  {%- if site.alexa_site_verification -%}<meta name="alexaVerifyID" content="{{ site.alexa_site_verification }}">{% endif %}
+  {%- if site.yandex_site_verification -%}<meta name="yandex-verification" content="{{ site.yandex_site_verification }}">{% endif %}
+  {%- if site.naver_site_verification -%}<meta name="naver-site-verification" content="{{ site.naver_site_verification }}">{% endif %}
+
+  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=16" sizes="16x16">
+  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=32" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=96" sizes="96x96">
+  <link rel="shortcut icon" href="{{ seo_favicons }}">
+
+  <!-- CDN css -->
+{%- for cdn in site.css_cdn -%}
+  <link rel="stylesheet" href="{{cdn.url}}" {%if cdn.hash %} integrity="{{cdn.hash}}" crossorigin="anonymous"{%endif%}>
+{%-endfor-%}
+  <!-- Custom css -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {%-for css in layout.css-%}
+  <link rel="stylesheet" href="{{ css | absolute_url}}">
+  {%- endfor -%}
+  {%-for css in page.css-%}
+  <link rel="stylesheet" href="{{ css | absolute_url}}">
+  {%- endfor -%}
+  {%- if page.style -%}
+  <style>
+  {{page.style | scssify}}
+  </style>
+  {%- endif -%}
+  
+  <!-- JS -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "all" } }
+            // can use autonumber: 'AMS'
+    });
+  </script>
+  {%- for cdn in site.data.site.js_cdn -%}
+  <script async src="{{-cdn.url-}}" integrity="{{-cdn.hash-}}" crossorigin="anonymous"></script>
+  {%-endfor-%}
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script async src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script async src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>

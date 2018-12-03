@@ -1,0 +1,93 @@
+.sidebar{
+  //font-family: $font-familly-sans;
+  font-weight: 400;
+  // Override collapse behaviors
+  @include media-breakpoint-up(md) {
+    display: block !important;
+  }
+  &:hover {
+    opacity: 1;
+  }
+
+   > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  p,
+  li {
+    line-height: 1.5;
+  }
+}
+.sidebar-left{
+  font-size: $font-size-base;
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-small;
+  }
+  @supports (position: sticky) {
+    position: sticky;
+    top: $sidebar-top;
+    z-index: 1000;
+    height: calc(100vh - #{$sidebar-top});
+    //max-height: calc(100vh -  #{$sidebar-top} -4rem);
+    overflow-y: auto;
+  }
+  @include media-breakpoint-up(md) {
+    border-right: 1px solid rgba($primary-dark, .2);
+  }
+}
+
+.sidebar-nav{
+  @supports (position: sticky) {
+    //max-height: calc(100vh -  #{$sidebar-top} -4rem);
+    overflow-y: auto;
+  }
+
+  display: flex;
+  align-items: center;
+  background: $body-bg;
+
+  * ul{
+    margin:  0  0  $spacer  $spacer/4;
+  }
+  li{
+    margin:  0;
+    @include hover-focus{
+      background-color: mix($body-bg, $Light, 20%);
+      opacity: 0.8;
+    }
+  }
+  a {
+    display: block;
+    margin: 0 1rem;
+    padding: 0.25em 0;
+    color: $link-color;
+    text-decoration: none;
+    @include transition($link-transition);
+    @include hover-focus-active {
+      font-weight: 500;
+      color: $link-hover-color-accent;
+    }
+    &.active{
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &.active{}
+
+ // Override collapse behaviors
+  @include media-breakpoint-up(md) {
+    display: block !important;
+  }
+}
+
+
+.sidebar-right{
+  @supports (position: sticky) {
+    position: sticky;
+    top: 1rem;
+    float:right;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+}

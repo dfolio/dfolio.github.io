@@ -1,0 +1,29 @@
+<!--sidebar -->
+<div class="sidebar sidebar-left">
+  <nav class="navbar sidebar-nav">    
+    <ul class="list-unstyled components sidebar-nav-list">
+    {%for d in site.docs %}
+    {%-assign active= ''-%}
+    {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%-endif-%}
+      <li class="sidebar-item"><a class="sidebar-link {{active}}" href="{{d.url}}" title="{{ d.excerpt| default: d.title }}">{{d.title}}</a>
+      {% assign dc = site.collections | where: "label", d.subcollection |first %}
+      {%capture subnav_docs%}
+      {%for dd in dc.docs %}
+      {%-assign active= ''-%}
+      {%-if page.url==dd.url-%}{%-assign active='active'-%}{%-endif-%}
+      <li class="sidebar-item"><a class="sidebar-link {{active}}" href="{{dd.url}}" title="{{ dd.excerpt| default: dd.title }}">{{dd.title}}</a></li>
+      {%endfor%}
+      {%endcapture%}
+      {%if subnav_docs%}
+        <ul class="list-unstyled sidebar-nav">
+        {{subnav_docs}}
+        </ul>
+      {%endif%}
+      </li>
+    {%endfor%}
+    </ul>
+  </nav>
+</div>
+<!-- end sidebar -->
+
+

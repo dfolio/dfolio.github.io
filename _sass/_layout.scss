@@ -1,0 +1,88 @@
+// Site/Page Masthead (banner)
+.masthead {
+  margin-bottom: $spacer / 2;
+  padding: $spacer/2 $spacer;
+  min-height: $spacer;
+  background-color: $site-banner-bg;
+  line-height: 1.5;
+  vertical-align: middle;
+  &, a {
+    //text-decoration: none;
+    color: $site-banner-fg;
+    @include transition($link-transition);
+  }
+  @include box-shadow($site-banner-box-shadow);
+
+  @include make-row();
+  header{
+    @include make-col-ready();
+    @include media-breakpoint-up(sm) {
+      @include make-col(6);
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(4);
+    }
+
+    flex-direction: row ;
+    align-items: center;
+
+    .site-title{
+      font-size:  1.5rem;
+      font-weight: 900;
+      vertical-align: middle;
+      color: inherit;
+     &:hover, a:hover {
+       color: $TurquoiseLight;
+       background-color: transparent;
+       @include transition($link-transition);
+     }
+    }
+  }
+}
+.masthead-navbar{
+  position: relative;
+  @include make-row();
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(6);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(8);
+  }
+
+  @include media-breakpoint-up(md) {
+    @supports (position: sticky) {
+      position: sticky;
+      top: 0;
+      z-index: 1071; // over everything in bootstrap
+    }
+  }
+
+  & nav{
+    @include make-col-ready();
+    width: 100%;
+  }
+
+  .navbar-nav-main{
+    @include make-col(12);
+  }
+}
+
+.docs-content{
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-sans-serif;
+  }
+  &>h1, &>h2 {margin-top: $spacer*2;}
+  &>h3 {margin-top: $spacer;   font-weight:800;}
+  &>h4 {margin-top: $spacer/2; font-weight:700;}
+  &>h5 {margin-top: $spacer/3; font-weight:600;}
+
+  p{text-align: justify;}
+  
+}
+
+@import "footer";
+@import "sidebar";
+@import "nav";
+@import "toc";
+@import "type";

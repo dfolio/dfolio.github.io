@@ -1,0 +1,29 @@
+@mixin note-variant($background, $border, $color, $before) {
+  color: $color;
+  @include gradient-bg($background);
+  border-color: $border;
+  
+  @include box-shadow(0 .25rem .5rem rgba($border, .5));
+  
+  hr {
+    border-top-color: darken($border, 10%);
+  }
+
+  .note-link,
+  a {
+    color: darken($color, 20%);
+  }
+  @if $before{
+    &::before {
+      display: block;
+      height: 0;
+      content: $before;
+      margin-left: -1.66em;
+      //font: 400%/1 Cochin,"Times New Roman", serif;
+      font-size: 2.5*$font-size-base;
+      font-weight: $font-weight-bold;
+      color: rgba(darken($color, 20%),0.8);
+    }
+  }
+}
+
