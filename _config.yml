@@ -1,17 +1,190 @@
-theme: jekyll-theme-tactile
-title: D.Folio GitHub Pages
-description: Miscellaneous pages to share some various things that I am interested in, and working on as personal hobbies.
+#theme:                      jekyll-theme-tactile
+
+# Global site settings
+locale                  :    "en-US"
+lang                    :    "en"
+
+title                   :    D.Folio GitHub Pages
+title_separator         :    "&mdash;"
+name                    :    "D. Folio"
+description             :    Miscellaneous pages to share some various things that I am interested in, and working on as personal hobbies.
+keywords                :    dfolio, github, webpage
+logo                    :    "/assets/media/logo.png"
+favicons                :    "https://avatars2.githubusercontent.com/u/36726631"
+
 
 # Site settings
-#baseurl: ""
-url: "https://dfolio.github.io/"
+baseurl                :     ""
+url                    :     "https://dfolio.github.io/"
+repository             :     "dfolio/dfolio.github.io"
+
+# Site links
+links: &links
+  - label:                 "GitHub"
+    icon:                  "fab fa-fw fa-twitter-square"
+    url:                   "https://dfolio.github.io/"
+  - label:                 "Facebook"
+    icon:                  "fab fa-fw fa-facebook-square"
+    # url:
+  - label:                 "Google+"
+    icon:                  "fab fa-fw fa-google-plus"
+    url:                   "https://plus.google.com/+DavidFOLIO"
+  - label:                 "Website"
+    icon:                  "fas fa-fw fa-link"
+    url:                   "http://dfolio.free.fr"
+
+
+# Site Author
+author:
+  name             :         "David Folio"
+  url              :         "http://dfolio.free.fr"
+  avatar           :         "/assets/media/dfolio.png"
+  bio              :         "I am an amazing person."
+  location         :         "France"
+  links            :         *links
+
+social:
+  type: Person
+  name: "David Folio"
+  links: 
+    - "https://dfolio.github.io/" 
+    - "https://plus.google.com/+DavidFOLIO"
+    - "http://dfolio.free.fr"
+
+# Site Footer
+footer:
+  links: *links
+
+css_cdn:
+  -
+    url:                     "//use.fontawesome.com/releases/v5.3.1/css/all.css"
+    hash:                    "sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    #v5.0.13 "sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+  -
+    url:                     "//cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+    #hash:                   "sha384-qpNsn9fNAkiBXwcwfxPTn1Ou6UU9P6pYGWQqLRIJOlPsAKOA+8XzN2coCnVnb8Fa"
+
+
+js_cdn:
+  # See https://www.srihash.org for info on how to generate the hashes
+  -
+    url:                     "//code.jquery.com/jquery-3.3.1.min.js"
+    hash:                    "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  -
+    url:                     "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    hash:                    "sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+  -
+    url:                     "//stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    hash:                    "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  -
+    url:       "//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+    hash:      "sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH"
+
+# Collections
+collections:
+  docs:
+    output:                  true
+    permalink:               /:collection/:path/
+  pandoc-df-thesis-template:
+    output:                  true
+    permalink:               /docs/:collection/:path/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path:                  ""
+      type:                  posts
+    values:
+      layout:                post
+  # _docs
+  - scope:
+      path:                  ""
+      type:                  docs
+    values:
+      layout:                docs
+      toc:                   true
+  # _pandoc-df-thesis-template
+  - scope:
+      path:                  ""
+      type:                  pandoc-df-thesis-template
+    values:
+      layout:                docs
+      toc:                   true
 
 # Build settings
-#markdown: Pandoc
-permalink: pretty
 
-highlighter: rouge
+
+# Outputting
+#permalink:                  pretty
+permalink:                   /:categories/:title/
+#paginate:                   5 # amount of posts to show
+#paginate_path:              /page:num/
+encoding:                    "utf-8"
+#markdown:                   Pandoc
+timezone:                    Europe/Paris
+highlighter:                 rouge
+
+markdown_ext:                "markdown,mkdown,mkdn,mkd,md"
 kramdown:
-  input: GFM
-  auto_ids: true
-syntax_highlighter: rouge
+  input:                     GFM
+  auto_ids:                  true
+  footnote_nr:               1
+  toc_levels:                1..6
+  enable_coderay:            false
+  parse_block_html:          true
+  hard_wrap:                 false
+  entity_output:             as_char
+  smart_quotes:              lsquo,rsquo,ldquo,rdquo
+  syntax_highlighter:         rouge
+
+
+# SCSS
+sass:
+  sass_dir:                  _sass
+  style:                     :compressed
+  load_paths:
+    - _sass
+    - node_modules
+# HTML Compression
+# - http://jch.penibelst.de/
+compress_html:
+  clippings:                 all
+  ignore:
+    envs:                    development
+
+# Excluded files
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+  - VERSION
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - config
+  - Gemfile
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+
+keep_files:
+  - .git
+  - .svn
+
+plugins:
+  - jekyll-github-metadata
+#  - jekyll-paginate
+  - jekyll-sitemap
+  - jemoji
+whitelist:
+  - jekyll-github-metadata
+#  - jekyll-paginate
+  - jekyll-sitemap
+  - jemoji
