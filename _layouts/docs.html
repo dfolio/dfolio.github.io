@@ -1,10 +1,11 @@
 ---
 layout: default
+toc_label: On this page
 ---
   <aside class="col-12 col-md-3 col-xl-2 page-leftbar d-print-none">
     {% include sidebar.html %}
   </aside>
-  
+
   <main class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5" >
     <article  itemscope itemtype="https://schema.org/CreativeWork">
 {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -19,7 +20,7 @@ layout: default
 {% if page.toc %}
   <aside class="d-none d-xl-block col-xl-2 sidebar-right d-print-none">
     <nav class="page-toc">
-      <header><h4 class="toc-title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: "" }}</h4></header>
+      <header><h7 class="toc-title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: layout.toc_label | default: "" }}</h7></header>
       {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
     </nav>
   </aside>
@@ -31,8 +32,8 @@ layout: default
   </div>
 </section>
 
-<footer class="docs-footer">
-  <p class="footer-author">Written by &copy;<a href="{{site.author.url}}" rel="author">{{site.author.name}}</a></p>
+<footer class="page-footer docs-footer">
+  <p class="footer-author">⌨ &copy;<a href="{{site.author.url}}" rel="author">{{site.author.name}}</a></p>
   {% if page.date_lastmod %}
       <p class="docs-date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>Updated: <time datetime="{{ page.date_lastmod | date_to_xmlschema }}">{{ page.date_lastmod | date: "%B %d, %Y" }}</time></p>
   {% elsif page.date_created %}
@@ -42,9 +43,8 @@ layout: default
   {% endif %}
 </footer>
 
+{%- if page.share-%}{%include social-share.html %}{%- endif -%}
 <!-- include post_pagination.html -->
 
     </article>
   </main>
-
-
