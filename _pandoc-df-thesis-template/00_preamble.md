@@ -36,7 +36,7 @@ You'll enjoy working in [Markdown] because:
 - you may take some times to fix some formatting issues (e.g. to place the figure exactly where you want and not on the fµ@$ing page!)
 
 
-## Are there any reasons not to use Markdown?
+## ... and why not use Markdown?
 
 There are some minor annoyances:
 - if you haven't worked with [Markdown] before then you'll find yourself referring to the style-guide fairly often at first (as for any new language).

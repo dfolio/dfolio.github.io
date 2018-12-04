@@ -66,6 +66,13 @@
   }
 }
 
+.site-home{
+  @include make-row();
+  @include make-col-ready();
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
+}
 .docs-content{
   h1, h2, h3, h4, h5, h6 {
     font-family: $font-family-sans-serif;
@@ -78,6 +85,19 @@
 
   p{text-align: justify;}
 
+}
+//Footnote
+.footnote {
+  color: mix($link-color, $primary,25%);
+  text-decoration: none;
+}
+.footnotes{
+  height:100%;
+  border-top: $footnote-rule;
+  margin-top: $spacer;
+  padding-left: $spacer;
+  font-size: $font-size-footnote;
+  ol, li, p{margin: 0;padding:0;}
 }
 
 @import "footer";

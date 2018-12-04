@@ -10,7 +10,7 @@ name                    :    "D. Folio"
 description             :    Miscellaneous pages to share some various things that I am interested in, and working on as personal hobbies.
 keywords                :    dfolio, github, webpage
 logo                    :    "/assets/media/logo.png"
-favicons                :    "https://avatars2.githubusercontent.com/u/36726631"
+favicons                :    "//avatars2.githubusercontent.com/u/36726631"
 
 
 # Site settings
@@ -18,17 +18,20 @@ baseurl                :     ""
 url                    :     "https://dfolio.github.io/"
 repository             :     "dfolio/dfolio.github.io"
 
+encoding:                    "utf-8"
+timezone:                    Europe/Paris
+
 # Site links
 links: &links
   - label:                 "GitHub"
     icon:                  "fab fa-fw fa-twitter-square"
-    url:                   "https://dfolio.github.io/"
+    url:                   "//dfolio.github.io/"
   - label:                 "Facebook"
     icon:                  "fab fa-fw fa-facebook-square"
     # url:
   - label:                 "Google+"
     icon:                  "fab fa-fw fa-google-plus"
-    url:                   "https://plus.google.com/+DavidFOLIO"
+    url:                   "//plus.google.com/+DavidFOLIO"
   - label:                 "Website"
     icon:                  "fas fa-fw fa-link"
     url:                   "http://dfolio.free.fr"
@@ -46,8 +49,8 @@ author:
 social:
   type: Person
   name: "David Folio"
-  links: 
-    - "https://dfolio.github.io/" 
+  links:
+    - "https://dfolio.github.io/"
     - "https://plus.google.com/+DavidFOLIO"
     - "http://dfolio.free.fr"
 
@@ -118,13 +121,11 @@ defaults:
 # Outputting
 #permalink:                  pretty
 permalink:                   /:categories/:title/
+
 #paginate:                   5 # amount of posts to show
 #paginate_path:              /page:num/
-encoding:                    "utf-8"
-#markdown:                   Pandoc
-timezone:                    Europe/Paris
-highlighter:                 rouge
 
+highlighter:                 rouge
 markdown_ext:                "markdown,mkdown,mkdn,mkd,md"
 kramdown:
   input:                     GFM
@@ -136,7 +137,7 @@ kramdown:
   hard_wrap:                 false
   entity_output:             as_char
   smart_quotes:              lsquo,rsquo,ldquo,rdquo
-  syntax_highlighter:         rouge
+  syntax_highlighter:        rouge
 
 
 # SCSS
@@ -146,12 +147,6 @@ sass:
   load_paths:
     - _sass
     - node_modules
-# HTML Compression
-# - http://jch.penibelst.de/
-compress_html:
-  clippings:                 all
-  ignore:
-    envs:                    development
 
 # Excluded files
 exclude:
