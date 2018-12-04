@@ -4,39 +4,43 @@
 .footer-nav,
 .site-footer,
 .page-footer{
-  margin: 0;
+  &, p{margin: 0;}
 }
-.site-footer, .page-footer {
+.site-footer,
+.page-footer {
   bottom: 0;
   margin-top: $spacer;
   padding: 0 $spacer;
-  //clear: both;
   font-size: $font-size-foot!important;
-
   @include make-row();
 
   justify-content: space-between !important;
-  align-items: flex-start !important;
+  align-items: flex-start;
   flex-shrink: 0;
 }
 .site-footer{
   //position: absolute;
+  @supports (position: sticky) {
+    position: sticky;
+    bottom: 0;
+    z-index: 99;
+  }
   margin-bottom: 0;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
 
-  color: rgba($site-banner-fg,0.6);
-  background-color: rgba(darken($site-banner-bg,20%),.8);
-  border-top: 2px solid darken($site-banner-bg,80%);
+  color: rgba($main-color-fg,0.6);
+  background-color: rgba(darken($main-color-bg,20%),.8);
+  border-top: 2px solid darken($main-color-bg,80%);
 
   & a {
-    color: lighten($site-banner-fg, 60%);
+    color: lighten($main-color-fg, 60%);
     @include transition($link-transition);
   }
   & a:hover {
      color: $accent;
      background-color: transparent;
   }
-
-  p{margin: 0;}
 }
 .footer-nav {
   list-style-type: none;
@@ -65,4 +69,13 @@
     }
   }
   .nav-link-item{ margin: 0 $spacer/4;}
+}
+.page-footer,
+.docs-footer{
+  align-items: center!important;
+  padding: $spacer/4;
+  color: rgba(lighten($main-color-bg, 10%),.9);
+  background-color: rgba($main-color-fg,.6);
+  @include gradient-bg($main-color-fg);
+  @include border-radius($border-radius);
 }

@@ -4,8 +4,11 @@
   border: 1px solid $toc-border;
   @include border-radius($toc-border-radius);
   @include box-shadow(0 .25rem .5rem rgba($toc-border, .5));
+  font-size: $font-size-footnote;
 
   .toc-title{
+    display: block;
+    width: 100%;
     color: $toc-bg;
     background:  $toc-color;
     font-weight: $font-weight-bold;
@@ -20,16 +23,24 @@
     margin: 0;
     padding: 0;
   }
-  
+
   a{
     display: block;
     padding: 0 .5rem;
+    color: $text-muted;
     @include transition($link-transition);
     @include hover-focus{
       color: $accent;
       background: rgba(lighten($toc-border,40%),.6);
     }
   }
-  
-  li ul > li a{  padding-left: 1.25rem; }
+  //ul li { border-bottom:  1px solid rgba(lighten($toc-border,20%),.8);}
+  li ul > li a{
+    padding-left: 1rem;
+    font-size: smaller;
+    font-weight: normal;
+  }
+  li ul li ul> li a{
+    padding-left: 1.5rem;
+  }
 }

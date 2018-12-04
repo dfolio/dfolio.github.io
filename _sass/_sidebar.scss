@@ -33,7 +33,7 @@
     overflow-y: auto;
   }
   @include media-breakpoint-up(md) {
-    border-right: 1px solid rgba($primary-dark, .2);
+    border-right: 1px solid rgba($main-color-bg, .2);
   }
 }
 

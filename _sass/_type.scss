@@ -1,48 +1,78 @@
 // stylelint-disable declaration-no-important, selector-list-comma-newline-after
 
 // Blockquotes
-.blockquote{
-  max-width: 80%;
-  margin: $spacer/2  $spacer*2 $spacer $spacer;
-  padding-left: $spacer/2;
-  border-left: 0.5rem solid $primary-light;
-  font-size: $blockquote-font-size;
-  p,footer{
-    margin:0;padding:0;
+.blockquote,
+.note {
+  p, footer {
+    margin: 0;
+    padding: 0;
     display: inline-block;
-    font-size: ($blockquote-font-size* 0.975);
   }
-  @include hover-focus{
-    border-left-color: $primary-dark;
+}
+
+.blockquote {
+  max-width: 80%;
+  margin: ($spacer / 2) ($spacer * 2) $spacer $spacer;
+  padding-left: $spacer / 2;
+  border-left: 0.5rem solid $main-color-fg;
+  font-size: $blockquote-font-size;
+
+  p, footer {
+    font-size: $blockquote-font-size * 0.975;
   }
+
+  @include hover-focus {
+    border-left-color: $main-color-bg;
+  }
+
   &::before {
     display: block;
     height: 0;
     content: "“";
     margin-left: -.95em;
-    font: italic 400%/1 Cochin,"Times New Roman", serif;
-    color: rgba($primary-dark,0.6);
+    font: italic 400% / 1 $font-family-serif;
+    color: rgba($main-color-bg, 0.6);
   }
 }
 
-/// Notes 
+/// Notes
 @import "mixins/note";
-.note{
+
+.note {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
   border: $alert-border-width solid transparent;
+
+  @include note-variant(rgba(lighten($note, 40%), 0.4), darken($note, 20%), $note);
   @include border-radius($alert-border-radius);
-  h2,h3,h4,h5,h6{
+
+  font-size: $font-size-footnote;
+
+  h2, h3, h4, h5, h6 {
+    font-size: $font-size-footnote;
+    font-weight: $font-weight-bold;
     color: inherit;
   }
 }
 
-.info{
-  @include note-variant(rgba(lighten($info,55%),.8),darken($info,20%),$info,"\24D8");
-}
-.warning{
-  @include note-variant(rgba(lighten($warning,55%),.8),darken($warning,20%),$warning,"\203C");
+.info {
+  @include note-variant-before(rgba(lighten($info, 55%), 0.8), darken($info, 20%), $info, "ⓘ");
 }
 
-//\2605'
+.warning {
+  @include note-variant-before(rgba(darken($warning, 20%), 0.6), darken($warning, 20%), lighten($warning,40%), "‼");
+}
+
+.important,
+.disclaimer {
+  @include note-variant-before(rgba(lighten($disclaimer, 55%), 0.8), darken($disclaimer, 20%), $disclaimer, "‼");
+}
+
+.danger {
+  @include note-variant-before(rgba(lighten($danger, 55%), 0.8), darken($danger, 20%), $danger, "⚠");
+}
+
+.success {
+  @include note-variant-before(rgba(lighten($success, 55%), 0.8), darken($success, 20%), $success, "★");
+}
