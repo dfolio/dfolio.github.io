@@ -1,6 +1,7 @@
-
+[DocBook]: http://docbook.org/
 [docx]: https://en.wikipedia.org/wiki/Office_Open_XML
 [EPUB]: http://idpf.org/epub
+[GitHub]: https://github.com
 [HTML]: http://www.w3.org/TR/html5/
 [Jekyll]: https://jekyllrb.com/
 [LaTeX]: http://www.latex-project.org/
@@ -14,5 +15,3 @@
 [pp]: https://cdsoft.fr/pp/
 [Ruby]: https:/www.ruby-lang.org
 [SASS]: https://github.com/sass/ruby-sass
-
-
