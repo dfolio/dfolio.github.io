@@ -13,7 +13,7 @@ For me, I've worked during a couple of decade with [LaTeX] with some satisfactio
 Quickly, it appears to me that to produce a document in various output formats, [LaTeX] is not suitable.
 Thus, I've started migrating from [LateX] to [Markdown] with [Pandoc].
 
-## User macros/command features
+## User defined macros
 
 However, for me, one most important missing features in writing a document in [Markdown], is the lack of definition of '_macros/commmand/functions_'. With [LaTeX], I usually define many macros to define parameters, and then to make the whole text consistent.
 For instance, a force symbol '$${f}$$' can be simply typeset as `$\mathbf{f}$`, but it can be conveniently defined with macros:
@@ -24,55 +24,54 @@ For instance, a force symbol '$${f}$$' can be simply typeset as `$\mathbf{f}$`, 
 ```
 
 This helps me to use the same convention over the entire document, and a simple change in the macros is propagated to the whole manuscript (this also help to not have to remember how a force symbol have to be typesetted).
-Such simple feature is not avaible in [Markdown].
+Such simple feature is not available in [Markdown].
 With [Pandoc] if only [LaTeX] output is used the above macros definition can be used, but with lost of the other format outputs...
 
 Hence, I've heard of [PP]: a generic Preprocessor (with [Pandoc] in mind).
 The idea is then simple: use [PP] to pre-process an "(df)-extended" [Markdown] markup with macros, and then use [Pandoc] to build in the desired dialect.
 To do so, we first have to define a set of [PP] macros, such as:
 
-```
+``` tex
 \define{Vector}{\mathbf{\1}}
 \define{Force}{\Vector{f}}
 ```
 
 Then one can use the macros in its (extended)-[Markdown] document and process it with [PP]+[Pandoc] :
 
+``` console
+$ pp --import=marcros.pp docs.md | pandoc -t <dialect> -o output_doc
 ```
-> pp --import=marcros.pp docs.md | pandoc -t <dialect> -o output_doc
-```
 
-Some special define can help the definitions of the macros for the output dialect (e.g. add something like`-DLATEX=1` or `-DHTML=1`).
+Some specials define can help the definitions of the macros for the output dialect (e.g. add something like`-DLATEX=1` or `-DHTML=1`).
 
-> **Note:** In 'pandoc-df-thesis-template', the different base [PP]-macros are in the `_data/` folder, with the `.pp` extensions, you should have:
->  - `_data/macros.pp`: the main macros that call the other according to the enabled flag (e.g. `-DLATEX=1` or `-DHTML=1`)
->  - `_data/html.pp`: macros for [HTML] outputs
->  - `_data/latex.pp`: macros for [LaTeX] outputs. Usually should be mostly empty. I encourage to directly define the [LaTeX] macros within a package or in an included tex-file to get the full capabality of [LaTeX] command definition.
+> **Note:** In 'pandoc-df-thesis-template', the different base [PP]-macros are in the `_data/` folder, with the `.pp` extensions. You should have:
+>  - `_data/macros.pp`: the main macros that call the other according to the enabled flag (e.g. `-DLATEX=1` or `-DHTML=1`);
+>  - `_data/html.pp`: macros for [HTML] outputs (e.g. `-DHTML=1`);
+>  - `_data/latex.pp`: macros for [LaTeX] outputs (e.g. `-DLATEX=1`). Usually should be mostly empty. I encourage to directly define the [LaTeX] macros within a package or in an included tex-file to get the full capability of [LaTeX] command definition.
+{: class="note"}
 
-> ### Get involved with the [PP] documentations
-> For further details on how to define [PP]-macros, please refer to the [PP] documenation.
-{: class="note info" }
+> ### Get involved with [PP]
+> For further details on how to define [PP]-macros and to discover [PP] capabilities, please refer to the [PP] documentation.
+{: class="note info"}
 
-## Glossaries/Nomenclatures features
+## Glossaries features
 
 One interesting feature of [LaTeX] for long dissertation relies on its capability to manage Glossaries/Nomenclatures/Index.
 But such features are lacking in common [Markdown] markup.
 To overcome this issue, once again I've taken advantage of [PP], currently to deal solely with the glossaries.
-This is achieve within the `_data/glossaries.pp` file, which provide two commands:
+This is achieved within the `_data/glossaries.pp` file, which provide two commands:
 
-`\AcroEntry{<label>}{<definition}{<lang>}`
-:   to define a new acronym `<label>` with the `<definition>`. The optional `<lang>` allows specifiying the definition language (e.g. in [HTML] this correspond to set the `lang` attribute).
+1. `\AcroEntry{<label>}{<definition}{<lang>}`:   to define a new acronym `<label>` with the `<definition>`. The optional `<lang>` allows specifiying the definition language (e.g. in [HTML] this correspond to set the `lang` attribute).
 
     **Example**: `\AcroEntry{DNA}{deoxyribonucleic acid}`
 
-    Then you can use `\<label>` (e.g. `\DNA`) to refer to the acronym. In the sametime the macros `\<label>short`, `\<label>long` and `\<label>full` are also provided.
+    Then you can use `\<label>` (e.g. `\DNA`) to refer to the acronym. In the same time the macros `\<label>short`, `\<label>long` and `\<label>full` are also provided.
 
 
-`\GlossEntry{<label>}{<name>}{<description>}`
-:  to define a new glossary entry `<label>` with the `<name>` and `<description>`.
+2. `\GlossEntry{<label>}{<name>}{<description>}`:  to define a new glossary entry `<label>` with the `<name>` and `<description>`.
 
     **Example**:
-    
+
     ```
     \GlossEntry{cell}{cell}
 ~~~~~~~~~~~~~~
@@ -80,7 +79,7 @@ The cell is the basic structural, functional, and biological unit of all known l
 A cell is the smallest unit of life. Cells are often called the "building blocks of life".
 ~~~~~~~~~~~~~~
     ```
-    
+
     Here again you can simply use `\<label>` (e.g. `\cell`) to refer to the glossary entry.
 
 
@@ -89,23 +88,23 @@ Obviously, you can define your own entries, directly in the `_data/glossaries.pp
 ## [Pandoc] features
 
 Basically, the input df-extended [Markdown] markup is parsed with [Pandoc] and the following extensions enabled `+raw_html+raw_tex+abbreviations+yaml_metadata_block+header_attributes+definition_lists`
-(see `PANDOC_MDEXT` in the Makefile).
+(see `PANDOC_MDEXT` in the `Makefile`).
 Seconldy, bibliography & citations and label & reference are also a big issue when writing long documents. Here, this is supported by using well-known [Pandoc] filters: [pandoc-citeproc] and [pandoc-crossref].
 For these features, the writer should refer to their corresponding documentation for further details.
 
-> ### [HTML] output with [Jekyll] features
+> ### [HTML] output with [Jekyll]
 > For [HTML] output with `BUILD_OUTPUT_MODE = multi`, [Jekyll] is used.
 > Hence, [Liquid] with [Jekyll](https://jekyllrb.com/docs/liquid/) markup can be considered for only this case.
 {: class="note info" }
 
 ## Sample text
 
-I don't recall here the various capabality of [Pandoc]+[Markdown], just briefly provide some few description of the df-extended-markdown.
+I don't recall here the various capabalities of [Pandoc]+[Markdown], just briefly provide some few descriptions of the df-extended-markdown.
 
-### Using Macros/Commands
+### Using Macros
 
 When migrating from [LaTeX] to [Markdown], it could be quite frustating to not retrieve some basic command and to have to _learn_ a new text markup rule.
-Basically, `\ref`, `\cite`, etc. are properly processed from [LaTeX] -> [Markdown], but they doesn't [Markdown] -> X.
+Basically, `\ref`, `\cite`, etc. are properly processed from [LaTeX] -> [Markdown], but they don't [Markdown] -> X.
 If you like to use some _useful_ [LaTeX] package same apply.
 For me, one interesting package is `siunitx`[^1] to print out properly units and numbers.
 
@@ -158,11 +157,10 @@ $${\displaystyle {\frac {D\mathbf {u} }{Dt}}={\frac {1}{\rho }}\nabla \cdot {\bo
 
 For [LaTeX] output format the command will be leaved as it is and processed at the compilation time.
 
-
 > #### Beware of other output formats
 > For other [Pandoc] output formats (e.g. [EPUB], [docx] and [odt])
 > the [HTML] pre-processing is used.
-{: class="note warning" }
+{: class="note important" }
 
 
 ### Using acronym
