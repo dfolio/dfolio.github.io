@@ -1,7 +1,7 @@
 ---
 permalink: sw.js
 ---
-var CACHE_NAME="dfolio-cache-v1",urlsToCache=["/",
+var CACHE_NAME="dfolio-cache-v1",urlsToCache=[
 {%- for page in site.html_pages -%}'{{ page.url }}',{%- endfor -%}
 {%- for col in site.collections -%}
 {%- for cp in col.docs -%}'{{ cp.url }}',{%- endfor -%}
