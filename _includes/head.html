@@ -43,7 +43,7 @@
   <meta property="article:published_time" content="{{ page.date_created | date_to_xmlschema }}">
   {%- endif -%}
   {%- if og_type == "article" and page.last_modified_at -%}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{%- endif -%}
-  {%-if page_logo_image -%}<meta property="og:image" content="{{ page_logo_image }}">{% endif %}
+  {%-if seo_logo -%}<meta property="og:image" content="{{ seo_logo }}">{% endif %}
 
   <meta property="og:type" content="{{ og_type }}">
   <meta property="og:locale" content="{{ site.locale | replace: "-", "_" | default: "en_US" }}">
@@ -83,10 +83,15 @@
   {%- if site.yandex_site_verification -%}<meta name="yandex-verification" content="{{ site.yandex_site_verification }}">{% endif %}
   {%- if site.naver_site_verification -%}<meta name="naver-site-verification" content="{{ site.naver_site_verification }}">{% endif %}
 
-  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=16" sizes="16x16">
-  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=32" sizes="32x32">
-  <link rel="icon" type="image/png" href="{{ seo_favicons }}?s=96" sizes="96x96">
-  <link rel="shortcut icon" href="{{ seo_favicons }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- CDN css -->
 {%- for cdn in site.css_cdn -%}
