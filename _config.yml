@@ -11,7 +11,7 @@ description             :    Miscellaneous pages to share some various things th
 keywords                :    dfolio, github, webpage
 logo                    :    "/assets/media/logo.png"
 favicons                :    "https://avatars2.githubusercontent.com/u/36726631"
-
+theme_color             :    "#24292e"
 
 # Site settings
 baseurl                :     ""
