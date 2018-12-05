@@ -45,16 +45,15 @@
 
 @mixin note-variant-before($background, $border, $color, $before) {
   @include note-variant($background, $border, $color);
-
   @if $before {
     &::before {
       display: flex;
       align-items: center;
       height: 0;
       content: $before;
-      margin-left: -3rem;
+      margin-left: -3.3rem;
       color: rgba(darken($color, 40%), 0.8);
-      font: $font-weight-bold (2.5 * $font-size-base / 1) $font-family-serif;
+      font: $font-weight-bold (2 * $font-size-base / 1) $font-family-serif;
     }
   }
 }
