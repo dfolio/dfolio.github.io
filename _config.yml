@@ -7,11 +7,10 @@ lang                    :    "en"
 title                   :    D.Folio GitHub Pages
 title_separator         :    "&mdash;"
 name                    :    "D. Folio"
-description             :    Miscellaneous pages to share some various things that I am interested in, and working on as personal hobbies.
+description             :     GitHub-pages to share some various things that D.Folio works on as personal hobbies
 keywords                :    dfolio, github, webpage
 logo                    :    "/assets/media/logo.png"
-favicons                :    "https://avatars2.githubusercontent.com/u/36726631"
-theme_color             :    "#24292e"
+theme_color             :    "#ffffff"
 
 # Site settings
 baseurl                :     ""
