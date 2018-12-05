@@ -59,10 +59,6 @@ footer:
 
 css_cdn:
   -
-    url:                     "https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    hash:                    "sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    #v5.0.13 "sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-  -
     url:                     "https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
     #hash:                   "sha384-qpNsn9fNAkiBXwcwfxPTn1Ou6UU9P6pYGWQqLRIJOlPsAKOA+8XzN2coCnVnb8Fa"
 
@@ -72,6 +68,13 @@ js_cdn:
   -
     url:       "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
     hash:      "sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH"
+    async:    true
+  - 
+    url:       "https://use.fontawesome.com/releases/v5.5.0/js/all.js"
+    hash:      "sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
+    defer:    true
+
+
 
 # Collections
 collections:
