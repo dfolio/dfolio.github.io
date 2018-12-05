@@ -119,7 +119,7 @@
     });
   </script>
   {%- for cdn in site.js_cdn -%}
-  <script {%if cdn.async%}async{%endif%} {%if cdn.async%}defer{%endif%} src="{{-cdn.url-}}" {%if cdn.hash%}integrity="{{-cdn.hash-}}" crossorigin="anonymous"{%endif%}></script>
+  <script {%if cdn.async%}async{%endif%} {%if cdn.defer%}defer{%endif%} src="{{-cdn.url-}}" {%if cdn.hash%}integrity="{{-cdn.hash-}}" crossorigin="anonymous"{%endif%}></script>
   {%-endfor-%}
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
