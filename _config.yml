@@ -71,15 +71,6 @@ css_cdn:
 js_cdn:
   # See https://www.srihash.org for info on how to generate the hashes
   -
-    url:                     "https://code.jquery.com/jquery-3.3.1.min.js"
-    hash:                    "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  -
-    url:                     "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-    hash:                    "sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-  -
-    url:                     "https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    hash:                    "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  -
     url:       "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
     hash:      "sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH"
 
