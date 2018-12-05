@@ -5,8 +5,8 @@ excerpt: "The motivation behind pandoc-df-thesis-template."
 date_lastmod: 2018-11-25T22:21:33-05:00
 toc: true
 date_created: 2018-12-02 09:32:34 +0100
-date_lastmod: 2018-12-03 09:32:34.1543825954 +0100
-toc: false
+date_lastmod: 2018-12-05 13:42:21.1544013741 +0100
+toc: true
 ---
 
 {%-include _links.md -%}
@@ -36,7 +36,7 @@ You'll enjoy working in [Markdown] because:
 - you may take some times to fix some formatting issues (e.g. to place the figure exactly where you want and not on the fµ@$ing page!)
 
 
-## ... and why not use Markdown?
+## ... any drawbacks with Markdown?
 
 There are some minor annoyances:
 - if you haven't worked with [Markdown] before then you'll find yourself referring to the style-guide fairly often at first (as for any new language).

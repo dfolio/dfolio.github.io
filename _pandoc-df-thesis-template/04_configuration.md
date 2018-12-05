@@ -2,7 +2,8 @@
 title: "Configuration"
 permalink: /docs/pandoc-df-thesis-template/configurations/
 excerpt: "Configuring the pandoc-df-thesis"
-date_lastmod: 2018-11-25T22:21:33-05:00
+date_created: 2018-12-04 09:56:15.1543913775 +0100
+date_lastmod: 2018-12-04 09:56:15.1543913775 +0100
 toc: true
 ---
 
@@ -18,7 +19,7 @@ You may start by first adapt the `Makefile`.
 - Select the output mode for HTML and TeX:
 
   ``` Makefile
-  #Select the output mode for HTML and TeX 
+  #Select the output mode for HTML and TeX
   #BUILD_OUTPUT_MODE    ?= multi
   BUILD_OUTPUT_MODE   ?= simple
   #Select the prefered build strategy
@@ -29,7 +30,7 @@ You may start by first adapt the `Makefile`.
 
 ### Check programs
 If you have just downloaded or cloned the template without any modification, if you run in the template folder: `make`, and if no error reported, you can start using the template :+1:.
-On the contrary, you should check the origin of the error, by first looking if some important applications for the template are present or not on your system. 
+On the contrary, you should check the origin of the error, by first looking if some important applications for the template are present or not on your system.
 You can check your installation `make _check_programs`, and you will get an output like:
 
 ``` sh
@@ -95,4 +96,3 @@ This also allows you to check if the proper applications is used
 ## The VARSDATA (default: `_data/variables.yml`)
 
 ## The METADATA (default: `_data/metadata.yml`)
-

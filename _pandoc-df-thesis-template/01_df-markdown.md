@@ -2,7 +2,8 @@
 title: "df-Extended Markdown"
 permalink: /docs/pandoc-df-thesis-template/df-markdown/
 excerpt: "The pandoc-df-thesis extended Markdown"
-date_lastmod: 2018-11-25T22:21:33-05:00
+date_created: 2018-12-04 09:56:15.1543913775 +0100
+date_lastmod: 2018-12-05 13:43:56.1544013836 +0100
 toc: true
 ---
 {%-include _links.md -%}

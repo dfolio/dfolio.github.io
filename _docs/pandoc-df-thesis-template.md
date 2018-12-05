@@ -4,7 +4,7 @@ title: "Pandoc df thesis template"
 permalink: /docs/pandoc-df-thesis-template/
 excerpt: "D. Folio (df) template for writing a thesis dissertation using Pandoc"
 date_created: 2018-12-02 22:09:07.1543784947 +0100
-date_lastmod: 2018-12-02 22:17:02.1543785422 +0100
+date_lastmod: 2018-12-05 09:17:34.3371062257 +0100
 toc: false
 share: true
 ---
