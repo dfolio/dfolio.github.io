@@ -1,9 +1,27 @@
+@mixin make-note($margin-bottom, $padding-x, $padding-y, $border-width) {
+  position: relative;
+  padding: $padding-y $padding-x;
+  margin-bottom: $margin-bottom;
+  border: $border-width solid transparent;
+
+  @include border-radius($alert-border-radius);
+
+  font-size: $font-size-footnote;
+
+  h2, h3, h4, h5, h6 {
+    font-size: $font-size-footnote;
+    font-weight: $font-weight-bold;
+    color: inherit;
+  }
+}
+
 @mixin note-variant($background, $border, $color) {
-  color: $color;
-  @include gradient-bg($background);
   border-color: $border;
-  line-height:1.5em;
-  @include box-shadow(0 .25rem .5rem rgba($border, .5));
+  color: darken($color, 20%);
+  line-height: 1.5em;
+
+  @include gradient-bg($background);
+  @include box-shadow(0 0.25rem 0.5rem rgba($border, 0.5));
 
   hr {
     border-top-color: darken($border, 10%);
@@ -11,23 +29,32 @@
 
   .note-link,
   a {
-    color: darken($color, 20%);
+    color: darken($color, 40%);
+  }
+
+  hr {
+    border-top-color: darken($border, 10%);
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  strong {
+    color: $color;
+    font-weight: $font-weight-bold;
   }
 }
 
 @mixin note-variant-before($background, $border, $color, $before) {
   @include note-variant($background, $border, $color);
-  @if $before{
+
+  @if $before {
     &::before {
       display: flex;
       align-items: center;
       height: 0;
       content: $before;
-      margin-left: -1.66em;
-      //font: 400%/1 Cochin,"Times New Roman", serif;
-      font-size: 2.5*$font-size-base;
-      font-weight: $font-weight-bold;
-      color: rgba(darken($color, 20%),0.8);
+      margin-left: -3rem;
+      color: rgba(darken($color, 40%), 0.8);
+      font: $font-weight-bold (2.5 * $font-size-base / 1) $font-family-serif;
     }
   }
 }

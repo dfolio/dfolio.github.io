@@ -43,10 +43,11 @@ $Light: rgba(#efefef, 0.8);
 $primary: rgba($BlueDark, 1);
 $secondary: $TurquoiseLight;
 $accent: $Coquelicot;
-$success: $green;// accentuation & active
-$disclaimer: $orange;
+$success: $green;
+
+// accentuation & active
+
 $danger: $Coquelicot;
-$note: #264c72;
 $light: $Light;
 $dark: $Dark;
 $download: $BlueLight;
@@ -57,12 +58,20 @@ $body-bg: $white;
 $body-color: $gray-900;
 $text-color: $body-color;
 $brand-color: $primary;
+
 //Site main color (eg. used in masthead and footer)
-$main-color-bg: rgba($BlueDark, .8);
-$main-color-fg: rgba($Light, .8);
+$main-color-bg: rgba($BlueDark, 0.8);
+$main-color-fg: rgba($Light, 0.8);
+
 //masthead
+$masthead-height: 4rem;
 $masthead-box-shadow: 0 0.5rem 1rem rgba($main-color-bg, 0.8), inset 0 -1px 0 rgba($main-color-bg, 0.9);
+
 //footer
+$site-footer-height: 3rem;
+
+// Sidebar
+$sidebar-top: $masthead-height + $site-footer-height + 2*$spacer;
 
 // Links
 // Style anchor elements.
@@ -83,9 +92,6 @@ $border-radius: 0.25rem !default;
 $border-radius-lg: 0.3rem !default;
 $border-radius-sm: 0.2rem !default;
 
-// Sidebar
-$sidebar-top: 5rem;
-
 // Spacing
 $spacer: 2rem;
 $spacing-unit: $spacer;
@@ -93,11 +99,11 @@ $grid-gutter-width: 1rem;
 $nav-sticky-top: 6rem;
 
 // Navbar
-$navbar-padding-y: $spacer / 2;
-$navbar-padding-x: $spacer / 2;
-$navbar-nav-link-padding-x: 0.25rem;
-$nav-link-padding-y: 0.5rem;
-$nav-link-padding-x: 0.25rem;
+$navbar-padding-y: $spacer / 4;
+$navbar-padding-x: $spacer / 4;
+$navbar-nav-link-padding-x: 0.2rem;
+$nav-link-padding-y: 0.25rem;
+$nav-link-padding-x: $navbar-nav-link-padding-x;
 $nav-link-disabled-color: $gray-600;
 
 // ToC
@@ -107,14 +113,11 @@ $toc-border: $main-color-bg;
 $toc-border-radius: $border-radius;
 
 //
-$blockquote-small-color: $gray-600 !default;
-$blockquote-font-size: $font-size-base * 0.95;
-
 // Alerts
 // Define alert colors, border radius, and padding.
-$alert-padding-y: 0.75rem !default;
-$alert-padding-x: 1.25rem !default;
-$alert-margin-bottom: 1rem !default;
+$alert-padding-y: $spacer / 4;
+$alert-padding-x: $spacer / 2;
+$alert-margin-bottom: $spacer / 2;
 $alert-border-radius: $border-radius !default;
 $alert-link-font-weight: $font-weight-bold !default;
 $alert-border-width: 2px;
@@ -122,6 +125,21 @@ $alert-border-width: 2px;
 $alert-bg-level: -10 !default;
 $alert-border-level: -9 !default;
 $alert-color-level: 6 !default;
+
+// blockQuote, note, example
+$quote: silver;
+$issue: $red;
+$example: #e0cb52;
+$disclaimer: $orange;
+
+/*$note: #264c72; //blue?*/
+$note: #52e052;
+
+/*green?*/
+
+$blockquote-small-color: $gray-600 !default;
+$blockquote-font-size: $font-size-base * 0.95;
+$blockquote-color: $quote;
 
 // Footnotes
 $footnote-rule: 2px solid $BlueDark;

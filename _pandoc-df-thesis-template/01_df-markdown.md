@@ -9,13 +9,13 @@ toc: true
 
 Although [Markdown] is a very interesting text markup, due to its inherent simplicity it's remains some drawbacks.
 The considered issues should be envisioned with respect to the writing backgrounds.
-For me, I've worked during a couple of decade with [LaTeX] with some satisfaction. Especially when I've to write some _short_ articles, and, similarly, long manuscript [LaTeX] remains powerful.. But in all cases, the generated document can be shared only in PDF (I leave out close formats like DVI or Ghostscript).
+For me, I've worked during a couple of decades with [LaTeX] with some satisfaction. Especially when I've to write some _short_ articles, and, similarly, long manuscript [LaTeX] remains powerful. But in all cases, the generated document can be shared only in PDF (I leave out close formats like DVI or Ghostscript).
 Quickly, it appears to me that to produce a document in various output formats, [LaTeX] is not suitable.
 Thus, I've started migrating from [LateX] to [Markdown] with [Pandoc].
 
 ## User defined macros
 
-However, for me, one most important missing features in writing a document in [Markdown], is the lack of definition of '_macros/commmand/functions_'. With [LaTeX], I usually define many macros to define parameters, and then to make the whole text consistent.
+However, for me, one most important missing features in writing a document in [Markdown], is the lack of definition of "_macros / commmand / functions_". With [LaTeX], I usually define many macros to define parameters, and then to make the whole text consistent.
 For instance, a force symbol '$${f}$$' can be simply typeset as `$\mathbf{f}$`, but it can be conveniently defined with macros:
 
 ``` latex
@@ -25,10 +25,10 @@ For instance, a force symbol '$${f}$$' can be simply typeset as `$\mathbf{f}$`, 
 
 This helps me to use the same convention over the entire document, and a simple change in the macros is propagated to the whole manuscript (this also help to not have to remember how a force symbol have to be typesetted).
 Such simple feature is not available in [Markdown].
-With [Pandoc] if only [LaTeX] output is used the above macros definition can be used, but with lost of the other format outputs...
+With [Pandoc] if only [LaTeX] output is used the above macros' definition can be used, but with lost of the other format outputs...
 
 Hence, I've heard of [PP]: a generic Preprocessor (with [Pandoc] in mind).
-The idea is then simple: use [PP] to pre-process an "(df)-extended" [Markdown] markup with macros, and then use [Pandoc] to build in the desired dialect.
+The idea is then simple: use [PP] to pre-process a “df)-extended” [Markdown] markup with macros, and then use [Pandoc] to build in the desired dialect.
 To do so, we first have to define a set of [PP] macros, such as:
 
 ``` tex
@@ -61,24 +61,27 @@ But such features are lacking in common [Markdown] markup.
 To overcome this issue, once again I've taken advantage of [PP], currently to deal solely with the glossaries.
 This is achieved within the `_data/glossaries.pp` file, which provide two commands:
 
-1. `\AcroEntry{<label>}{<definition}{<lang>}`:   to define a new acronym `<label>` with the `<definition>`. The optional `<lang>` allows specifiying the definition language (e.g. in [HTML] this correspond to set the `lang` attribute).
+1. `\AcroEntry{<label>}{<definition}{<lang>}`: to define a new acronym `<label>` with the `<definition>`. The optional `<lang>` allows specifying the definition language (e.g. in [HTML] this corresponds to set the `lang` attribute).
 
-    **Example**: `\AcroEntry{DNA}{deoxyribonucleic acid}`
+    > A basic example of defining a new acronym can be:
+    >`\AcroEntry{DNA}{deoxyribonucleic acid}`
+    {: .example :}
 
     Then you can use `\<label>` (e.g. `\DNA`) to refer to the acronym. In the same time the macros `\<label>short`, `\<label>long` and `\<label>full` are also provided.
 
 
 2. `\GlossEntry{<label>}{<name>}{<description>}`:  to define a new glossary entry `<label>` with the `<name>` and `<description>`.
 
-    **Example**:
-
-    ```
+    > A basic example of defining a new glossary entry is as follows with the
+    > [PP] markup
+    > ```
     \GlossEntry{cell}{cell}
 ~~~~~~~~~~~~~~
 The cell is the basic structural, functional, and biological unit of all known living organisms.
 A cell is the smallest unit of life. Cells are often called the "building blocks of life".
 ~~~~~~~~~~~~~~
-    ```
+    > ```
+    {: .example :}
 
     Here again you can simply use `\<label>` (e.g. `\cell`) to refer to the glossary entry.
 

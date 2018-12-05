@@ -1,15 +1,20 @@
-.sidebar{
+.sidebar {
+  @include clearfix;
+
   //font-family: $font-familly-sans;
   font-weight: 400;
+
   // Override collapse behaviors
   @include media-breakpoint-up(md) {
     display: block !important;
   }
+
+
   &:hover {
     opacity: 1;
   }
 
-   > * {
+  > * {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -19,75 +24,96 @@
     line-height: 1.5;
   }
 }
-.sidebar-left{
+
+.sidebar-left {
   font-size: $font-size-base;
+
   @include media-breakpoint-down(md) {
+    position: relative;
+
+    @supports (transform-style: preserve-3d) {
+      transform: translate3d(0, 0, 0);
+    }
+
     font-size: $font-size-small;
+
+    @include make-row;
   }
-  @supports (position: sticky) {
-    position: sticky;
-    top: $sidebar-top;
-    z-index: 1000;
-    height: calc(100vh - #{$sidebar-top});
-    //max-height: calc(100vh -  #{$sidebar-top} -4rem);
-    overflow-y: auto;
-  }
+
+
   @include media-breakpoint-up(md) {
-    border-right: 1px solid rgba($main-color-bg, .2);
+    @supports (position: sticky) {
+      position: sticky;
+      top:  $masthead-height + $spacer;
+      z-index: -1;
+      height: calc(100vh - #{$sidebar-top});
+      overflow-y: auto;
+    }
+
+    border-right: 1px solid rgba($main-color-bg, 0.2);
   }
 }
 
-.sidebar-nav{
+.sidebar-nav {
   @supports (position: sticky) {
-    //max-height: calc(100vh -  #{$sidebar-top} -4rem);
     overflow-y: auto;
   }
 
-  display: flex;
-  align-items: center;
   background: $body-bg;
 
-  * ul{
-    margin:  0  0  $spacer  $spacer/4;
-  }
-  li{
-    margin:  0;
-    @include hover-focus{
-      background-color: mix($body-bg, $Light, 20%);
-      opacity: 0.8;
-    }
-  }
-  a {
-    display: block;
-    margin: 0 1rem;
-    padding: 0.25em 0;
-    color: $link-color;
-    text-decoration: none;
-    @include transition($link-transition);
-    @include hover-focus-active {
-      font-weight: 500;
-      color: $link-hover-color-accent;
-    }
-    &.active{
-      font-weight: $font-weight-bold;
-    }
-  }
-
-  &.active{}
-
- // Override collapse behaviors
+  // Override collapse behaviors
   @include media-breakpoint-up(md) {
     display: block !important;
   }
+
+
+  @include media-breakpoint-down(md) {
+    @include make-col-ready;
+  }
 }
 
-
-.sidebar-right{
+.sidebar-right {
   @supports (position: sticky) {
     position: sticky;
     top: 1rem;
-    float:right;
+    float: right;
     z-index: 1000;
     overflow-y: auto;
+  }
+}
+
+.sidebar-nav-list {
+  * ul {margin: 0 0 $spacer/4 $spacer/2;}
+  padding:0;
+  @include media-breakpoint-down(md) {
+    @include make-col(11);
+  }
+}
+
+.sidebar-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+
+  @include hover-focus {
+    //background-color: mix($body-bg, $Light, 20%);
+    opacity: 0.8;
+  }
+  .active {
+    font-weight: $font-weight-bold;
+  }
+}
+.sidebar-link {
+  display: block;
+  padding: $nav-link-padding-y $nav-link-padding-x;
+  color: $link-color;
+  text-decoration: none;
+
+  @include transition($link-transition);
+  @include hover-focus-active {
+    color: $link-hover-color-accent;
+    background-color: mix($body-bg, $Light, 20%);
+    font-weight: $font-weight-bold;
   }
 }

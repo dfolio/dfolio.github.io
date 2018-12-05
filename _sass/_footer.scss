@@ -25,6 +25,9 @@
     bottom: 0;
     z-index: 99;
   }
+  @include media-breakpoint-up(md) {
+    height: $site-footer-height;
+  }
   margin-bottom: 0;
   justify-content: space-between !important;
   align-items: flex-start !important;

@@ -62,5 +62,5 @@ Specifically: the [LaTeX] distribution, [Pandoc], [PP]
 
 You can check your installation by running: `make _check_programs`, and check if there are any “**Not Found**” message.
 
-> For any  troubleshooting read, and eventually [create an issue](//github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](//github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
+> For any  troubleshooting read, and eventually [create an issue](https://github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](https://github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
 {: class="note important" }

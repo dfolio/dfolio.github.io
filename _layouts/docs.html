@@ -6,8 +6,8 @@ toc_label: On this page
     {% include sidebar.html %}
   </aside>
 
-  <main class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5" >
-    <article  itemscope itemtype="https://schema.org/CreativeWork">
+  <main class="col-12 col-md-9 col-xl-10 page-main" >
+    <article class="py-2 pl-2" itemscope itemtype="https://schema.org/CreativeWork">
 {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
 {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
 {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
@@ -24,9 +24,9 @@ toc_label: On this page
       {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
     </nav>
   </aside>
-  <div class="col-12 col-xl-10 docs-content">
+  <div class="col-12 col-xl-10 px-2 docs-content">
 {%else%}
-  <div class="col-12 docs-content">
+  <div class="col-12 pl-2 docs-content">
 {% endif %}
     {{ content }}
   </div>

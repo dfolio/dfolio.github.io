@@ -2,7 +2,7 @@
 //
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
-.navbar{
+.navbar {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +10,9 @@
   margin-bottom: 0;
   list-style: none;
   align-items: center;
-  justify-content: space-between; // space out brand from logo
+  justify-content: space-between;
+
+  // space out brand from logo
   padding: $navbar-padding-y $navbar-padding-x;
 
   // Because flex properties aren't inherited, we need to redeclare these first
@@ -23,12 +25,15 @@
     justify-content: space-between;
   }
 }
+
 // Navbar nav
 //
 // Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 .navbar-nav {
   display: flex;
-  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  flex-direction: column;
+
+  // cannot use `inherit` to get the `.navbar`s value
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -38,6 +43,7 @@
     padding-left: 0;
   }
 }
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -49,11 +55,13 @@
 .nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
+
   @include transition($link-transition);
   @include hover-focus-active {
     color: $link-hover-color-accent;
     text-decoration: none;
   }
+
 
   // Disabled state lightens text
   &.disabled {

@@ -1,9 +1,7 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-
 @charset "utf-8";
-
 @import "variables";
 
 //bootstrap mixins and functions
@@ -18,8 +16,8 @@
 @import "bootstrap/scss/grid";
 
 @import "bootstrap/scss/utilities";
-  
-// 
+
+//
 @import "layout";
 
 //syntax_highlighter

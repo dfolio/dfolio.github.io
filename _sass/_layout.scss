@@ -2,7 +2,7 @@
 .masthead {
   margin-bottom: $spacer / 2;
   padding: $spacer/2 $spacer;
-  min-height: $spacer;
+
   background-color: $main-color-bg;
   line-height: 1.5;
   vertical-align: middle;
@@ -13,6 +13,9 @@
   }
   @include box-shadow($masthead-box-shadow);
 
+  @include media-breakpoint-up(md) {
+    height: $masthead-height;
+  }
   @include make-row();
   header{
     @include make-col-ready();
@@ -69,10 +72,10 @@
 .site-home{
   @include make-row();
   @include make-col-ready();
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between; // space out brand from logo
 }
+
 .docs-content{
   h1, h2, h3, h4, h5, h6 {
     font-family: $font-family-sans-serif;

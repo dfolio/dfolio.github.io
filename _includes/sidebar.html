@@ -1,7 +1,7 @@
 <!--sidebar -->
 <div class="sidebar sidebar-left">
-  <nav class="navbar sidebar-nav">    
-    <ul class="list-unstyled components sidebar-nav-list">
+  <nav class="navbar sidebar-nav">
+    <ul class="nav sidebar-nav-list">
     {%for d in site.docs %}
     {%-assign active= ''-%}
     {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%-endif-%}
@@ -15,7 +15,7 @@
       {%endfor%}
       {%endcapture%}
       {%if subnav_docs%}
-        <ul class="list-unstyled sidebar-nav">
+        <ul class="sidebar-nav-list">
         {{subnav_docs}}
         </ul>
       {%endif%}
@@ -25,5 +25,3 @@
   </nav>
 </div>
 <!-- end sidebar -->
-
-

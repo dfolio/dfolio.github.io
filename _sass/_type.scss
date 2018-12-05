@@ -14,7 +14,7 @@
   max-width: 80%;
   margin: ($spacer / 2) ($spacer * 2) $spacer $spacer;
   padding-left: $spacer / 2;
-  border-left: 0.5rem solid $main-color-fg;
+  border-left: 0.5rem solid $blockquote-color;
   font-size: $blockquote-font-size;
 
   p, footer {
@@ -22,8 +22,9 @@
   }
 
   @include hover-focus {
-    border-left-color: $main-color-bg;
+    border-left-color: rgba(darken($blockquote-color, 20%), 0.6);
   }
+
 
   &::before {
     display: block;
@@ -31,7 +32,7 @@
     content: "“";
     margin-left: -.95em;
     font: italic 400% / 1 $font-family-serif;
-    color: rgba($main-color-bg, 0.6);
+    color: rgba($blockquote-color, 0.8);
   }
 }
 
@@ -39,20 +40,43 @@
 @import "mixins/note";
 
 .note {
-  position: relative;
-  padding: $alert-padding-y $alert-padding-x;
-  margin-bottom: $alert-margin-bottom;
-  border: $alert-border-width solid transparent;
-
+  @include make-note($alert-margin-bottom, $alert-padding-x, $alert-padding-y, $alert-border-width);
   @include note-variant(rgba(lighten($note, 40%), 0.4), darken($note, 20%), $note);
-  @include border-radius($alert-border-radius);
+}
+body{
+  counter-reset: issue example;
+}
+.issue {
+  counter-increment: issue;
+  @include make-note($alert-margin-bottom, $alert-padding-x, $alert-padding-y, $alert-border-width);
+  @include note-variant(rgba(lighten($issue, 55%), 0.8), darken($issue, 20%), $issue);
 
-  font-size: $font-size-footnote;
+  overflow: auto;
 
-  h2, h3, h4, h5, h6 {
-    font-size: $font-size-footnote;
+  &::before, & > .marker {
+    text-transform: uppercase;
+
+    /* content: "Issue " counter(issue) " ";*/
+  }
+}
+
+.example {
+  counter-increment: example;
+  @include make-note($spacer / 2, $spacer / 2, $spacer / 4, 0.5rem);
+  @include note-variant(rgba(lighten($example, 40%), 0.6), darken($example, 20%), $example);
+  border-style: none;
+  border-left-style: solid;
+  overflow: auto;
+  clear: both;
+
+  &::before, & > .marker {
+    text-transform: uppercase;
     font-weight: $font-weight-bold;
-    color: inherit;
+    content: "Example " counter(example) " ";
+  }
+  pre,
+  .highlight{
+    background-color: rgba(lighten($example, 60%), 0.6);
   }
 }
 
@@ -61,11 +85,12 @@
 }
 
 .warning {
-  @include note-variant-before(rgba(darken($warning, 20%), 0.6), darken($warning, 20%), lighten($warning,40%), "‼");
+  @include note-variant-before(rgba(darken($warning, 25%), 0.66), darken($warning, 20%), lighten($warning, 80%), "‼");
 }
 
-.important,
-.disclaimer {
+.advisement,
+.disclaimer,
+.important {
   @include note-variant-before(rgba(lighten($disclaimer, 55%), 0.8), darken($disclaimer, 20%), $disclaimer, "‼");
 }
 

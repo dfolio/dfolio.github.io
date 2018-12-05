@@ -25,9 +25,9 @@ The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <ht
 > Basically, with some few efforts this template can be used on another operating system (e.g. Windows and MacOS)... this is planed in future prospects (when I've got time!).
 > {: class="note warning" }
 
-> For any troubleshooting read, and (eventually) [create an issue](//github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](//github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
+> For any troubleshooting read, and (eventually) [create an issue](https://github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](https://github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
 > {: class="note important" }
 
 ## Contribute
 
-Feel free (under the [CC-By-4.0 terms](//github.com/dfolio/pandoc-df-thesis-template/blob/master/LICENSE)) to modify/adapt this template for your own purpose (I will appreciate some feedback :+1:).
+Feel free (under the [CC-By-4.0 terms](https://github.com/dfolio/pandoc-df-thesis-template/blob/master/LICENSE)) to modify/adapt this template for your own purpose (I will appreciate some feedback :+1:).
