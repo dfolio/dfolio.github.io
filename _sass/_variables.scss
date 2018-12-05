@@ -104,10 +104,11 @@ $navbar-padding-x: $spacer / 4;
 $navbar-nav-link-padding-x: 0.2rem;
 $nav-link-padding-y: 0.25rem;
 $nav-link-padding-x: $navbar-nav-link-padding-x;
-$nav-link-disabled-color: $gray-600;
+$nav-link-color: $primary;
+$nav-link-disabled-color: lighten($nav-link-color,20%);
 
 // ToC
-$toc-color: $primary;
+$toc-color: $nav-link-color;
 $toc-bg: $body-bg;
 $toc-border: $main-color-bg;
 $toc-border-radius: $border-radius;

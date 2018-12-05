@@ -1,18 +1,11 @@
 .sidebar {
   @include clearfix;
 
-  //font-family: $font-familly-sans;
-  font-weight: 400;
-
   // Override collapse behaviors
   @include media-breakpoint-up(md) {
     display: block !important;
   }
 
-
-  &:hover {
-    opacity: 1;
-  }
 
   > * {
     margin-top: 1rem;
@@ -44,8 +37,8 @@
   @include media-breakpoint-up(md) {
     @supports (position: sticky) {
       position: sticky;
-      top:  $masthead-height + $spacer;
-      z-index: -1;
+      top: $spacer;
+      z-index: 999;
       height: calc(100vh - #{$sidebar-top});
       overflow-y: auto;
     }
@@ -59,7 +52,7 @@
     overflow-y: auto;
   }
 
-  background: $body-bg;
+  background: rgba($body-bg, 0.4);
 
   // Override collapse behaviors
   @include media-breakpoint-up(md) {
@@ -83,8 +76,12 @@
 }
 
 .sidebar-nav-list {
-  * ul {margin: 0 0 $spacer/4 $spacer/2;}
-  padding:0;
+  * ul {
+    margin: 0 0 ($spacer / 4) ($spacer / 2);
+  }
+
+  padding: 0;
+
   @include media-breakpoint-down(md) {
     @include make-col(11);
   }
@@ -96,24 +93,24 @@
   width: 100%;
   margin: 0;
 
-  @include hover-focus {
-    //background-color: mix($body-bg, $Light, 20%);
-    opacity: 0.8;
+  &:not(:last-child) {
+    border-bottom: 1px solid $nav-link-color;
   }
+
   .active {
     font-weight: $font-weight-bold;
   }
 }
+
 .sidebar-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
-  color: $link-color;
+  color: $nav-link-color;
   text-decoration: none;
 
   @include transition($link-transition);
   @include hover-focus-active {
     color: $link-hover-color-accent;
-    background-color: mix($body-bg, $Light, 20%);
     font-weight: $font-weight-bold;
   }
 }
