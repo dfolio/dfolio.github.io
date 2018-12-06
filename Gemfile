@@ -16,6 +16,7 @@ group :jekyll_plugins do
 #  gem 'jekyll-toc'
 #  gem 'jekyll-scholar'
 #  gem 'jekyll-redirect-from'
+  gem 'jekyll-include-cache'
   gem "jekyll-github-metadata"
   gem "jekyll-paginate"
   gem "jemoji"
