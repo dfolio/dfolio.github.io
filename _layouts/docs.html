@@ -3,7 +3,7 @@ layout: default
 toc_label: On this page
 ---
   <aside class="col-12 col-md-3 col-xl-2 page-leftbar d-print-none">
-    {% include sidebar.html %}
+    {% include_cached sidebar.html %}
   </aside>
 
   <main class="col-12 col-md-9 col-xl-10 page-main" >
@@ -21,7 +21,7 @@ toc_label: On this page
   <aside class="d-none d-xl-block col-xl-2 sidebar-right d-print-none">
     <nav class="page-toc">
       <header><h7 class="toc-title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: layout.toc_label | default: "" }}</h7></header>
-      {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
+      {% include_cached toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
     </nav>
   </aside>
   <div class="col-12 col-xl-10 px-2 docs-content">
