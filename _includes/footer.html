@@ -1,0 +1,20 @@
+<div class="clearfix container-fluid" >
+  <footer class="navbar d-print-none footer site-footer">
+     <div class="small footer-meta">
+       <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a></p>
+        <p class="small site-license">Except as otherwise noted, the content of this page is licensed under <a rel="license" class="url" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> (<a rel="license" class="url"  href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons" aria-hidden="true"></i>BY 4.0</a>).</p>
+     </div>
+      <div class="footer-social">
+        <ul class="nav-link footer-nav" id="site-social">
+    {%- if site.footer.links -%}
+      {%- for link in site.footer.links -%}
+        {%- if link.label and link.url -%}
+          <li class="nav-link-item"><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+        </ul>
+     </div>
+  </footer>
+</div>
+

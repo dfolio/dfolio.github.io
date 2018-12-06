@@ -74,7 +74,13 @@ js_cdn:
     hash:      "sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
     defer:    true
 
-
+google_site_verification : "Kz1t3CXSmXhESbiqvIXWkrMQCKodNkaOW8KazdTKqiI" # Replace this with your ID, or delete
+# Analytics
+analytics:
+  provider               : "google-gtag" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "UA-464536-9" # Replace this with your ID, or delete
+    anonymize_ip         : false
 
 # Collections
 collections:
@@ -171,8 +177,11 @@ plugins:
 #  - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+  - jekyll-include-cache
+# mimic GitHub Pages with --safe
 whitelist:
   - jekyll-github-metadata
 #  - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+  - jekyll-include-cache

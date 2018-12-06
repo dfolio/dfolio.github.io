@@ -1,0 +1,17 @@
+<!-- CDN css -->
+{%- for cdn in site.css_cdn -%}
+<link rel="stylesheet" href="{{cdn.url}}" {%if cdn.hash %} integrity="{{cdn.hash}}" crossorigin="anonymous"{%endif%}>
+{%-endfor-%}
+<!-- Custom css -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{%-for css in layout.css-%}
+<link rel="stylesheet" href="{{ css | absolute_url}}">
+{%- endfor -%}
+{%-for css in page.css-%}
+<link rel="stylesheet" href="{{ css | absolute_url}}">
+{%- endfor -%}
+{%- if page.style -%}
+<style>
+{{page.style | scssify}}
+</style>
+{%- endif -%}

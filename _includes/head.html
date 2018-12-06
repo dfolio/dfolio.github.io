@@ -93,38 +93,5 @@
   <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- CDN css -->
-{%- for cdn in site.css_cdn -%}
-  <link rel="stylesheet" href="{{cdn.url}}" {%if cdn.hash %} integrity="{{cdn.hash}}" crossorigin="anonymous"{%endif%}>
-{%-endfor-%}
-  <!-- Custom css -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  {%-for css in layout.css-%}
-  <link rel="stylesheet" href="{{ css | absolute_url}}">
-  {%- endfor -%}
-  {%-for css in page.css-%}
-  <link rel="stylesheet" href="{{ css | absolute_url}}">
-  {%- endfor -%}
-  {%- if page.style -%}
-  <style>
-  {{page.style | scssify}}
-  </style>
-  {%- endif -%}
-
-  <!-- JS -->
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        TeX: { equationNumbers: { autoNumber: "all" } }
-            // can use autonumber: 'AMS'
-    });
-  </script>
-  {%- for cdn in site.js_cdn -%}
-  <script {%if cdn.async%}async{%endif%} {%if cdn.defer%}defer{%endif%} src="{{-cdn.url-}}" {%if cdn.hash%}integrity="{{-cdn.hash-}}" crossorigin="anonymous"{%endif%}></script>
-  {%-endfor-%}
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script async src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script async src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
+  {%- include_cached styles.html -%}
 </head>
