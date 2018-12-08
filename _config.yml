@@ -1,5 +1,5 @@
 #theme:                      jekyll-theme-tactile
-
+version: 1.1.5
 # Global site settings
 locale                  :    "en-US"
 lang                    :    "en"
@@ -23,7 +23,7 @@ timezone:                    Europe/Paris
 # Site links
 links: &links
   - label:                 "GitHub"
-    icon:                  "fab fa-fw fa-twitter-square"
+    icon:                  "fab fa-fw fa-github"
     url:                   "https://dfolio.github.io/"
   - label:                 "Facebook"
     icon:                  "fab fa-fw fa-facebook-square"
