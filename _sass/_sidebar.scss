@@ -96,9 +96,43 @@
   &:not(:last-child) {
     border-bottom: 1px solid $nav-link-color;
   }
-
   .active {
     font-weight: $font-weight-bold;
+  }
+  p,
+  .download {  
+    font-size: $font-size-footnote;
+    font-weight: normal;
+  }
+  
+  p{margin-bottom: $spacer/4;}
+  
+  .download {
+    font-size: $font-size-footnote;
+    margin:0 0 $spacer 0;
+    padding:0;
+    background-color: rgba($download-bg,.2);
+    @include gradient-bg($download-bg);
+    @include border-radius($btn-border-radius);
+    @include box-shadow($box-shadow);
+    @include transition($link-transition);
+    li{
+      border-right: 1px solid $primary;
+      text-align: center;
+      vertical-align: middle;
+    }
+    li+li{
+      border-left: 1px solid $primary;
+    }
+    li+li+li{
+      border-right:none;
+    }
+    
+    a{
+      color:$download-fg;
+      display: block;
+      padding: $spacer/4 0;
+    }
   }
 }
 
@@ -112,5 +146,11 @@
   @include hover-focus-active {
     color: $link-hover-color-accent;
     font-weight: $font-weight-bold;
+  }
+  
+  @include media-breakpoint-up(xl) {
+    &.active::after{
+      content: "►";
+    }
   }
 }

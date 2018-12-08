@@ -2,6 +2,7 @@
   position: relative;
   padding: $padding-y $padding-x;
   margin-bottom: $margin-bottom;
+  margin-left: $spacer;
   border: $border-width solid transparent;
 
   @include border-radius($alert-border-radius);
@@ -51,7 +52,7 @@
       align-items: center;
       height: 0;
       content: $before;
-      margin-left: -3.3rem;
+      margin-left: -$spacer*2;
       color: rgba(darken($color, 40%), 0.8);
       font: $font-weight-bold (2 * $font-size-base / 1) $font-family-serif;
     }

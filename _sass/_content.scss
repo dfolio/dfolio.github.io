@@ -1,0 +1,37 @@
+
+.site-home{
+  //@include make-col-ready();
+  //align-items: center;
+  //justify-content: center; // space out brand from logo
+  margin: $spacer/2 $spacer;
+}
+
+.docs-content{
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-sans-serif;
+  }
+  &>h1,
+  &>h2 {margin-top: $spacer*2; font-weight:900;}
+  &>h3 {margin-top: $spacer;   font-weight:800;}
+  &>h4 {margin-top: $spacer/2; font-weight:700;}
+  &>h5 {margin-top: $spacer/3; font-weight:600;}
+
+  p{text-align: justify;}
+
+}
+//Footnote
+.footnote {
+  color: mix($link-color, $primary,25%);
+  text-decoration: none;
+}
+.footnotes{
+  height:100%;
+  border-top: $footnote-rule;
+  margin-top: $spacer;
+  padding-left: $spacer;
+  font-size: $font-size-footnote;
+  ol, li, p{margin: 0;padding:0;}
+}
+
+
+

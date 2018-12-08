@@ -24,8 +24,6 @@
   @include hover-focus {
     border-left-color: rgba(darken($blockquote-color, 20%), 0.6);
   }
-
-
   &::before {
     display: block;
     height: 0;
@@ -88,7 +86,6 @@ body{
   @include note-variant-before(rgba(darken($warning, 25%), 0.66), darken($warning, 20%), lighten($warning, 80%), "‼");
 }
 
-.advisement,
 .disclaimer,
 .important {
   @include note-variant-before(rgba(lighten($disclaimer, 55%), 0.8), darken($disclaimer, 20%), $disclaimer, "‼");

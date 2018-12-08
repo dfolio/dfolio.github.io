@@ -51,7 +51,17 @@
   margin-bottom: 0;
   list-style: none;
 }
+//.nav-item {}
+.nav-text {
+  display: inline-block;
+  padding-top: $nav-link-padding-y;
+  padding-bottom: $nav-link-padding-y;
+}
 
+.nav-social{
+  justify-content:flex-end!important; 
+}
+  
 .nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;

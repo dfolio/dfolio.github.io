@@ -3,8 +3,8 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 
 $enable-rounded: true;
 $enable-shadows: true;
@@ -14,13 +14,16 @@ $enable-hover-media-query: false;
 
 // Deprecated, no longer affects any compiled CSS
 $enable-grid-classes: true;
-$enable-print-styles: false;
+$enable-print-styles: true;
+$enable-print-dark: true;
 
 // Fonts
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
 $font-family-serif: "TeX Gyre Termes", Times, "Latin Modern Roman", "Computer Modern", serif;
+$font-family-monospace:  Monaco, Consolas, "Lucida Console", "Liberation Mono", "Courier New", monospace;
+
 $font-size-small: $font-size-sm;
 $font-size-foot: max($font-size-base * 0.85, 0.751rem);
 $font-size-footnote: max($font-size-base * 0.86, 0.751rem);
@@ -37,21 +40,36 @@ $CyanLight: rgba(#cff, 1);
 $CyanDark: rgba(#3ff, 1);
 $Canary: rgba(#ff9, 1);
 
-$Dark: rgba(#212121, 1);
+$Dark: rgba(#24292e, 1);
 $Light: rgba(#efefef, 0.8);
 
-$primary: rgba($BlueDark, 1);
-$secondary: $TurquoiseLight;
+//$primary: rgba($BlueDark, 1);
+//$secondary: $TurquoiseLight;
 $accent: $Coquelicot;
 $success: $green;
 
 // accentuation & active
-
 $danger: $Coquelicot;
 $light: $Light;
 $dark: $Dark;
 $download: $BlueLight;
 $more: adjust-hue(darken($light, 10%), 25deg);
+
+$theme-colors: () ;//!default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
 
 // Body
 $body-bg: $white;
@@ -60,12 +78,15 @@ $text-color: $body-color;
 $brand-color: $primary;
 
 //Site main color (eg. used in masthead and footer)
-$main-color-bg: #24292e;
+$main-color-bg: theme-color("dark");
 $main-color-fg: white;
+$main-color-hover: theme-color("secondary");
 
 //masthead
 $masthead-height: 4rem;
-$masthead-box-shadow: 0 0.5rem 1rem rgba($main-color-bg, 0.8), inset 0 -1px 0 rgba($main-color-bg, 0.9);
+$masthead-bg: $main-color-bg;
+$masthead-fg: white;
+$masthead-box-shadow: 0 0.5rem 1rem rgba($masthead-bg, 0.8), inset 0 -1px 0 rgba($masthead-bg, 0.9);
 
 //footer
 $site-footer-height: 3rem;
@@ -104,12 +125,12 @@ $navbar-padding-x: $spacer / 4;
 $navbar-nav-link-padding-x: 0.2rem;
 $nav-link-padding-y: 0.25rem;
 $nav-link-padding-x: $navbar-nav-link-padding-x;
-$nav-link-color: $primary;
+$nav-link-color: $main-color-bg;
 $nav-link-disabled-color: lighten($nav-link-color,20%);
 
 // ToC
 $toc-color: $nav-link-color;
-$toc-bg: $body-bg;
+$toc-bg: rgba(darken($body-bg,5%),.8);
 $toc-border: $main-color-bg;
 $toc-border-radius: $border-radius;
 
@@ -132,6 +153,9 @@ $quote: silver;
 $issue: $red;
 $example: #e0cb52;
 $disclaimer: $orange;
+//Download
+$download-bg: darken(rgba(theme-color("primary"),.8),20%);
+$download-fg: lighten(theme-color("primary"),60%);
 
 /*$note: #264c72; //blue?*/
 $note: #52e052;
