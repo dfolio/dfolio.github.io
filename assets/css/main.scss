@@ -2,23 +2,19 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-@import "variables";
+@at-root {
+  @-ms-viewport { width: device-width; } // stylelint-disable-line at-rule-no-vendor-prefix
+}
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
 
-//bootstrap mixins and functions
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-// Optional
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
-@import "bootstrap/scss/code";
-@import "bootstrap/scss/grid";
-
-@import "bootstrap/scss/utilities";
-
-//
-@import "layout";
-
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+@import "needed";
 //syntax_highlighter
 @import "syntax";
