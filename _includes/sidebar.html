@@ -4,8 +4,25 @@
     <ul class="nav sidebar-nav-list">
     {%for d in site.docs %}
     {%-assign active= ''-%}
-    {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%-endif-%}
+    {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%endif%}
+    {%if d.collection_details  %}
+      {%capture collection_details%}
+      <div class="d-none d-xl-block">
+      <p class="text-muted">{{d.description | default: d.excerpt}}</p>
+      {%-if d.github-%}
+      <p class="text-muted sticky-bottom">Get the project on <a href="{{d.github}}"><i class="fab fa-fw fa-github"aria-hidden="true"></i>GitHub</a>:
+        <ul class="nav download">
+          <li class="nav-item col-4"><a href="{{d.github}}/zipball/master">Download <strong><i class="fas fa-file-archive"aria-hidden="true"></i>ZIP File</strong></a></li>
+          <li class="nav-item col-4"><a href="{{d.github}}/tarball/master">Download <strong><i class="fas fa-file-archive"aria-hidden="true"></i>TAR File</strong></a></li>
+          <li class="nav-item col-4"><a href="{{d.github}}/tarball/master">Explore on <strong><i class="fab fa-fw fa-github"aria-hidden="true"></i>GitHub</strong></a></li>
+        </ul>
+      </p>
+      {%-endif-%}
+      </div>
+      {%endcapture%}
+    {%endif%}
       <li class="sidebar-item"><a class="sidebar-link {{active}}" href="{{d.url}}" title="{{ d.excerpt| default: d.title }}">{{d.title}}</a>
+      {{ collection_details}}
       {% assign dc = site.collections | where: "label", d.subcollection |first %}
       {%capture subnav_docs%}
       {%for dd in dc.docs %}

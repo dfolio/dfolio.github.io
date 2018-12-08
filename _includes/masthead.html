@@ -1,11 +1,11 @@
 <div class="clearfix container-fluid" role="banner">
-  <div class="navbar site-banner masthead">
-    <header  class="align-items-center">
+  <div class="navbar sticky-top masthead">
+    <header  class="col-12 col-md-3 align-items-center">
       <div class="col-md-auto"><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       </div>
     </header>
-    <div class="flex-xl-nowrap masterhead-navbar"  role="navigation">
-      <nav class="navbar navbar-nav-scroll navbar-nav-main" id="masterhead-nav">
+    <div class="col-12 col-md-9 flex-xl-nowrap masthead-navbar"  role="navigation">
+      <nav class="col-12 navbar navbar-nav-scroll navbar-nav-main" id="masthead-nav">
         <ul class="navbar-nav flex-row">
         {%for d in site.docs %}
         {%-assign active= ''-%}

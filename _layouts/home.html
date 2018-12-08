@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<main class="col-12 col-md-10 py-md-3 pl-md-5 mx-auto site-home" id="home" >
+<main class="col-10 mx-auto site-home" id="home" >
   <article class="home" itemscope itemtype="https://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -12,8 +12,8 @@ layout: default
       <h1 id="page-title" class="title page-title" itemprop="headline">{{ page.title  | smartify}}</h1>
     </header>
 
-    <section  class="page-content" itemprop="text">
-      <div class="col-12 col-xl-10 home-content">
+    <section class="page-content" itemprop="text">
+      <div class="col-12 home-content">
         {{ content }}
       </div>
     </section>
