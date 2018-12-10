@@ -157,14 +157,28 @@ $disclaimer: $orange;
 $download-bg: darken(rgba(theme-color("primary"),.8),20%);
 $download-fg: lighten(theme-color("primary"),60%);
 
-/*$note: #264c72; //blue?*/
-$note: #52e052;
-
-/*green?*/
+//$note: #264c72; //blue?
+$note: #52e052; // green?
+$note-border-radius: $border-radius !default;
+$note-border-width: $alert-border-width!default;
+$note-padding-y: $spacer / 4!default;
+$note-padding-x: $spacer / 2!default;
+$note-margin-bottom: $spacer / 2!default;
+$note-link-font-weight: $font-weight-bold !default;
 
 $blockquote-small-color: $gray-600 !default;
 $blockquote-font-size: $font-size-base * 0.95;
 $blockquote-color: $quote;
+
+// Collapsable
+$collapsable-bg: $body-bg!default;
+$collapsable-border-width: 1px!default;
+$collapsable-border-color: rgba($main-color-bg,0.4);
+$collapsable-border-radius:  $border-radius !default;
+$btn-toggle-color-off: rgba(lighten($main-color-bg,20%),0.6);
+$btn-toggle-color-on: theme-color("success");
+$btn-toggle-radius: 1.25rem!default;
+$btn-toggle-xy: 2px;
 
 // Footnotes
 $footnote-rule: 2px solid $BlueDark;

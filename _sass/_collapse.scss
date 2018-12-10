@@ -1,0 +1,83 @@
+// stylelint-disable selector-no-qualifying-type
+
+@import "bootstrap/scss/transitions";
+
+.collapsable{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  margin-bottom: $spacer/2;
+  @include gradient-bg($collapsable-bg);
+  background-clip: border-box;
+  border: $collapsable-border-width solid $collapsable-border-color;
+  @include border-radius($collapsable-border-radius);
+  @include box-shadow(0 0.25rem 0.5rem rgba($collapsable-border-color, 0.5));
+}
+.collapsable-toggle{
+  //background-color: rgba(darken($collapsable-bg,5%),.8);
+  //border-bottom: $collapsable-border-width solid $collapsable-border-color;
+  justify-content:flex-end; 
+  &, p, label{margin:0; padding:0;}
+  p{display:flex;}
+  label {margin-right: $spacer/2;}
+}
+.collapsable-body{
+  flex: 1 1 auto;
+  padding-left: $spacer/4;
+}
+
+
+
+
+.btn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.btn-toggle + .btn-toggle-lbl {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+input.btn-toggle-round-flat + .btn-toggle-lbl {
+  padding: $btn-toggle-xy/2;
+  width: $btn-toggle-radius*2;
+  height: $btn-toggle-radius;
+  background-color: $btn-toggle-color-off;
+  
+  @include border-radius($btn-toggle-radius);
+  @include transition(background 0.4s);
+}
+input.btn-toggle-round-flat + .btn-toggle-lbl:before, input.btn-toggle-round-flat + .btn-toggle-lbl:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+input.btn-toggle-round-flat + .btn-toggle-lbl:before {
+  top: $btn-toggle-xy/2;
+  left: $btn-toggle-xy/2;
+  bottom: $btn-toggle-xy/2;
+  right: $btn-toggle-xy/2;
+  background-color: rgba(lighten($btn-toggle-color-off,80%),.6);
+  @include border-radius($btn-toggle-radius);
+  @include transition(background 0.4s);
+}
+input.btn-toggle-round-flat + .btn-toggle-lbl:after {
+  top: $btn-toggle-xy;
+  left:$btn-toggle-xy;
+  bottom: $btn-toggle-xy;
+  width: $btn-toggle-radius*0.86;
+  background-color: $btn-toggle-color-off;
+ 
+  @include border-radius($btn-toggle-radius);
+  @include transition(margin 0.4s, background 0.4s);
+}
+input.btn-toggle-round-flat:checked + .btn-toggle-lbl {
+  background-color: $btn-toggle-color-on;
+}
+input.btn-toggle-round-flat:checked + .btn-toggle-lbl:after {
+  margin-left: $btn-toggle-radius;
+  background-color: $btn-toggle-color-on;
+}

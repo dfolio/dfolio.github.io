@@ -38,7 +38,7 @@
 @import "mixins/note";
 
 .note {
-  @include make-note($alert-margin-bottom, $alert-padding-x, $alert-padding-y, $alert-border-width);
+  @include make-note($note-margin-bottom, $note-padding-x, $note-padding-y, $note-border-width,$note-border-radius);
   @include note-variant(rgba(lighten($note, 40%), 0.4), darken($note, 20%), $note);
 }
 body{
@@ -46,7 +46,7 @@ body{
 }
 .issue {
   counter-increment: issue;
-  @include make-note($alert-margin-bottom, $alert-padding-x, $alert-padding-y, $alert-border-width);
+  @include make-note($note-margin-bottom, $note-padding-x, $note-padding-y, $note-border-width,$note-border-radius);
   @include note-variant(rgba(lighten($issue, 55%), 0.8), darken($issue, 20%), $issue);
 
   overflow: auto;
@@ -60,7 +60,7 @@ body{
 
 .example {
   counter-increment: example;
-  @include make-note($spacer / 2, $spacer / 2, $spacer / 4, 0.5rem);
+  @include make-note($spacer / 2, $spacer / 2, $spacer / 4, 0.5rem,$note-border-radius);
   @include note-variant(rgba(lighten($example, 40%), 0.6), darken($example, 20%), $example);
   border-style: none;
   border-left-style: solid;

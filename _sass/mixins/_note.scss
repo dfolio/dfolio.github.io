@@ -1,11 +1,11 @@
-@mixin make-note($margin-bottom, $padding-x, $padding-y, $border-width) {
+@mixin make-note($margin-bottom, $padding-x, $padding-y, $border-width, $border-radius) {
   position: relative;
   padding: $padding-y $padding-x;
   margin-bottom: $margin-bottom;
   margin-left: $spacer;
   border: $border-width solid transparent;
 
-  @include border-radius($alert-border-radius);
+  @include border-radius($border-radius);
 
   font-size: $font-size-footnote;
 
