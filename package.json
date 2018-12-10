@@ -1,0 +1,27 @@
+{
+  "name": "dfolio.github.io",
+  "version": "1.2.0",
+  "description": "This repository is to provide some pages to share some various things that I am interested in, and working on as personal hobbies. Basically it is a cornerstone for most of my personal projects and anything I'm involed in. This could become a replacement for my [current site](http://dfolio.free.fr) <http://dfolio.free.fr>.",
+  "main": "index.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dfolio/dfolio.github.io.git"
+  },
+  "keywords": [
+    "dfolio",
+    "jekyll",
+    "bootstrap"
+  ],
+  "author": "dfolio",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/dfolio/dfolio.github.io/issues"
+  },
+  "homepage": "https://github.com/dfolio/dfolio.github.io#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.0"
+  }
+}

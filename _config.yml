@@ -35,7 +35,6 @@ links: &links
     icon:                  "fas fa-fw fa-link"
     url:                   "http://dfolio.free.fr"
 
-
 # Site Author
 author:
   name             :         "David Folio"
@@ -57,24 +56,38 @@ social:
 footer:
   links: *links
 
-css_cdn:
-  -
-    url:                     "https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
-    #hash:                   "sha384-qpNsn9fNAkiBXwcwfxPTn1Ou6UU9P6pYGWQqLRIJOlPsAKOA+8XzN2coCnVnb8Fa"
+#css_cdn:
+#  -
+#    url:                     "https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+#    #hash:                   "sha384-qpNsn9fNAkiBXwcwfxPTn1Ou6UU9P6pYGWQqLRIJOlPsAKOA+8XzN2coCnVnb8Fa"
 
 
+# See https://www.srihash.org for info on how to generate the hashes
 js_cdn:
-  # See https://www.srihash.org for info on how to generate the hashes
   -
     url:       "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
     hash:      "sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH"
     async:    true
-  - 
+    defer:    true
+  -
     url:       "https://use.fontawesome.com/releases/v5.5.0/js/all.js"
     hash:      "sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
+    async:    true
     defer:    true
+  -
+    url:        "https://code.jquery.com/jquery-3.2.1.slim.min.js"  
+    hash:       "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    defere:     true
+  -
+    url:        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+    hash:       "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    defer:      true
+  - 
+    url:       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    hash:      "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    defer:     true
 
-google_site_verification : "Kz1t3CXSmXhESbiqvIXWkrMQCKodNkaOW8KazdTKqiI" # Replace this with your ID, or delete
+google_site_verification : "Kz1t3CXSmXhESbiqvIXWkrMQCKodNkaOW8KazdTKqiI"
 # Analytics
 analytics:
   provider               : "google-gtag" # false (default), "google", "google-universal", "custom"

@@ -247,7 +247,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.12)
   github-pages
-  jekyll (~> 3.7.3)
   jekyll-github-metadata
   jekyll-include-cache
   jekyll-paginate
