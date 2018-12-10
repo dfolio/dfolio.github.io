@@ -6,7 +6,8 @@
 [Jekyll]: https://jekyllrb.com/
 [LaTeX]: http://www.latex-project.org/
 [Liquid]: https://shopify.github.io/liquid/
-[Markdown]: //daringfireball.net/projects/markdown/
+[Markdown]: https://daringfireball.net/projects/markdown/
+[Make]: https://en.wikipedia.org/wiki/Make_(software)
 [Node.js]: https://nodejs.org
 [odt]: http://en.wikipedia.org/wiki/OpenDocument
 [Pandoc]: http://pandoc.org

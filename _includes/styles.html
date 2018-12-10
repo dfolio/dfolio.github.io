@@ -17,4 +17,9 @@
 {{page.style | scssify}}
 </style>
 {%- endif -%}
+{%- if page.collapse -%}
+<style>
+{%- include collapse.css -%}
+</style>
+{%- endif -%}
 
