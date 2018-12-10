@@ -12,7 +12,9 @@ collection_details: true
 github: "https://github.com/dfolio/pandoc-df-thesis-template"
 ---
 {%-include _links.md -%}
-The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <http://pandoc.org>. Based on a “modified” markdown sources, this thesis template can deal with many outputs dialect basically supported by [Pandoc]:
+The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <http://pandoc.org>. 
+
+Based on a “_(df)modified_” markdown sources, this dissertation template can deal with many outputs dialect basically supported by [Pandoc]:
 
 - `pdf`: (**preferred**) output generated from (lua/pdf)[LaTeX];
 - `html`: single (based solely on [Pandoc]) and multi (based on [Jekyll]) [HTML] file, e.g. for web-publications;
@@ -21,8 +23,14 @@ The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <ht
 - `odt`: [LibreOffice/OpenOffice OpenDocument][odt];
 - `docx`: [Microsoft Word][docx];
 
-> This template is not intended to be a standalone direct use template. Some basic behaviors that you may not want have been defined and hard-coded in the `Makefile`. To _disable_ some unwanted rules, it is necessary to know how to modify the `Makefile` properly.
-> {: class="note warning" }
+With the use of a full featured `Makefile` all the build process is performed automatically, obviously once it is [configured properly]({% link _pandoc-df-thesis-template/04_configuration.md %}#Makefile "How to configure the Makefile")!
+
+
+{: class="note disclaimer" }
+> This template is not intended to be a _standalone direct use_ template:
+> - Some packages (e.g. [Pandoc], [PP], [LaTeX]...) must be [installed]({% link _pandoc-df-thesis-template/03_installation.md %} "Installation steps") prior to take advantage of this template.
+> - Some basic behaviors that you may not want have been defined and hard-coded in the `Makefile`. To _disable_ some unwanted rules, it is necessary to know how to modify the `Makefile` properly.
+
 
 > At this time, this template is designed for mainly linux distribution.
 > Basically, with some few efforts this template can be used on another operating system (e.g. Windows and MacOS)... this is planed in future prospects (when I've got time!).
