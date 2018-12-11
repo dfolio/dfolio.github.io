@@ -6,7 +6,6 @@
     display: block !important;
   }
 
-
   > * {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -19,20 +18,15 @@
 }
 
 .sidebar-left {
-  font-size: $font-size-base;
-
   @include media-breakpoint-down(md) {
     position: relative;
+    font-size: 90%;
 
     @supports (transform-style: preserve-3d) {
       transform: translate3d(0, 0, 0);
     }
-
-    font-size: $font-size-small;
-
     @include make-row;
   }
-
 
   @include media-breakpoint-up(md) {
     @supports (position: sticky) {
@@ -58,8 +52,6 @@
   @include media-breakpoint-up(md) {
     display: block !important;
   }
-
-
   @include media-breakpoint-down(md) {
     @include make-col-ready;
   }
@@ -76,40 +68,36 @@
 }
 
 .sidebar-nav-list {
-  * ul {
-    margin: 0 0 ($spacer / 4) ($spacer / 2);
-  }
-
   padding: 0;
-
-  @include media-breakpoint-down(md) {
-    @include make-col(11);
+  * ul {
+    font-size: 95%;
+    margin: 0 0 ($spacer / 4) ($spacer / 2);
+    justify-content: end;
   }
 }
 
 .sidebar-item {
+  list-style: none;
   position: relative;
-  display: inline-block;
-  width: 100%;
+  //display: flex;
+  //width: 100%;
   margin: 0;
+  //justify-content: end;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid $nav-link-color;
-  }
+  //&:not(:last-child) {border-bottom: 1px solid $nav-link-color;}
   .active {
-    font-weight: $font-weight-bold;
+    font-weight: bolder;
   }
   p,
   .download {  
-    font-size: $font-size-footnote;
+    font-size: 80%;
     font-weight: normal;
   }
   
   p{margin-bottom: $spacer/4;}
   
   .download {
-    font-size: $font-size-footnote;
-    margin:0 0 $spacer 0;
+    margin:0 0 $spacer/2 0;
     padding:0;
     background-color: rgba($download-bg,.2);
     @include gradient-bg($download-bg);
@@ -118,6 +106,7 @@
     @include transition($link-transition);
     li{
       border-right: 1px solid $primary;
+      padding:0;
       text-align: center;
       vertical-align: middle;
     }
@@ -131,11 +120,15 @@
     a{
       color:$download-fg;
       display: block;
-      padding: $spacer/4 0;
+      padding: 2px 0;
     }
   }
 }
-
+.sidebar-text{
+  color: lighten($nav-link-color,20%);
+  font-weight: $font-weight-bold;
+  text-transform: capitalize;
+}
 .sidebar-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
