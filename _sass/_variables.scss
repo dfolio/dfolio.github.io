@@ -126,6 +126,7 @@ $navbar-nav-link-padding-x: 0.2rem;
 $nav-link-padding-y: 0.25rem;
 $nav-link-padding-x: $navbar-nav-link-padding-x;
 $nav-link-color: $main-color-bg;
+$nav-link-active-color: $accent;
 $nav-link-disabled-color: lighten($nav-link-color,20%);
 
 // ToC
@@ -182,3 +183,35 @@ $btn-toggle-xy: 2px;
 
 // Footnotes
 $footnote-rule: 2px solid $BlueDark;
+
+// syntax highlighting
+$base00: #f8f8f8 !default;//
+$base01: #2e3c43 !default;//unused?
+$base02: #314549 !default;//unused?
+$base03: #546e7a !default;//unused?
+$base04: #999999 !default;//
+$base05: #999999 !default;//
+$base06: #eeffff !default;//not defined
+$base07: #ffffff !default;//unused
+$base08: #008080 !default;//
+$base09: #009999 !default;//
+$base0a: #445588 !default;//
+$base0b: #c3e88d !default;
+$base0c: #000000 !default;//
+$base0d: #82aaff !default;
+$base0e: #000000 !default;//
+$base0f: #ffdddd !default;//df defined
+
+$hl-font:  Monaco, Consolas, "Lucida Console", monospace !default;
+$hl-font-size:($font-size-base * .88) ;
+$hl-color: #999999;//highlight color
+$hl-bg: rgba(#f8f8f8,.9);//highlight bg color
+$hl-c:     #999999;//highlight comments
+$hl-err:   #a61717;//highlight errors
+$hl-k:     #000000;//highlight keywords
+$hl-o:     #000080;//highlight operator
+$hl-v:     #a07178;//highlight variable
+
+
+
+
