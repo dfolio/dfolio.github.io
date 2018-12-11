@@ -1,8 +1,21 @@
 # Develop override settings
 url: http://localhost:4000
+local: true
 
 analytics:
   provider: false
 
 sass:
   style: expanded
+
+atom:
+  buildCommand:
+    - bundle
+    - exec
+    - jekyll
+    - build
+  buildEnv:
+    JEKYLL_ENV: development
+  postDirs:
+    - _newsletters
+  defaultPostDir: _drafts
