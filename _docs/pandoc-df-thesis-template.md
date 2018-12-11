@@ -19,7 +19,7 @@ Based on a “_(df)modified_” markdown sources, this dissertation template can
 - `pdf`: (**preferred**) output generated from (lua/pdf)[LaTeX];
 - `html`: single (based solely on [Pandoc]) and multi (based on [Jekyll]) [HTML] file, e.g. for web-publications;
 - `epub`: [EPUB] v3 ebook;
-- `docbook5`: XML/[DocBook](v5) and HTML chunked files (**limited support**);
+- `docbook5`: XML/[DocBook] (v5) and HTML chunked files (**limited support**);
 - `odt`: [LibreOffice/OpenOffice OpenDocument][odt];
 - `docx`: [Microsoft Word][docx];
 

@@ -12,7 +12,7 @@ toc: true
 1. Install or check if the following pre-requires are available:
    - [Pandoc] for converting the [Markdown] to the output format of your choice.
      - Also recommended: [Pandoc-citeproc](https://github.com/jgm/pandoc-citeproc), [Pandoc-crossref](http://lierdakil.github.io/pandoc-crossref/), .
-   - [PP](**mandatory**) : A generic Preprocessor (with [Pandoc] in mind).
+   - [PP] (**mandatory**) : A generic Preprocessor (with [Pandoc] in mind).
     [PP] allows to pre-process the [Markdown] sources, enabling **macros** (or commands) in the “modified” markdown sources.
    - A [LaTeX] distribution (e.g. [TeXLive](http://www.tug.org/texlive/), [MacTeX](https://tug.org/mactex/)…) to produce the PDF output.
      - Also recommended: [LuaLateX](http://www.luatex.org/), [BibLatex](https://github.com/plk/biblatex/) (with `biber`), [glossaries](http://www.ctan.org/pkg/glossaries/) packages
