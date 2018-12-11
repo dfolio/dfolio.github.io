@@ -2,10 +2,9 @@
 title: "Preamble"
 permalink: /docs/pandoc-df-thesis-template/preamble/
 excerpt: "The motivation behind pandoc-df-thesis-template."
-date_lastmod: 2018-11-25T22:21:33-05:00
-toc: true
-date_created: 2018-12-02 09:32:34 +0100
-date_lastmod: 2018-12-05 13:42:21.1544013741 +0100
+group: Getting Started
+date_created: 2018-12-02 17:17:49 +0100
+date_lastmod: 2018-12-11 13:54:35.395434002 +0100
 toc: true
 ---
 

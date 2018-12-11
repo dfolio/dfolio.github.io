@@ -19,7 +19,7 @@ Based on a “_(df)modified_” markdown sources, this dissertation template can
 - `pdf`: (**preferred**) output generated from (lua/pdf)[LaTeX];
 - `html`: single (based solely on [Pandoc]) and multi (based on [Jekyll]) [HTML] file, e.g. for web-publications;
 - `epub`: [EPUB] v3 ebook;
-- `docbook5`: XML/[DocBook](v5) and HTML chunked files;
+- `docbook5`: XML/[DocBook](v5) and HTML chunked files (**limited support**);
 - `odt`: [LibreOffice/OpenOffice OpenDocument][odt];
 - `docx`: [Microsoft Word][docx];
 
@@ -30,14 +30,14 @@ With the use of a full featured `Makefile` all the build process is performed au
 > This template is not intended to be a _standalone direct use_ template:
 > - Some packages (e.g. [Pandoc], [PP], [LaTeX]...) must be [installed]({% link _pandoc-df-thesis-template/03_installation.md %} "Installation steps") prior to take advantage of this template.
 > - Some basic behaviors that you may not want have been defined and hard-coded in the `Makefile`. To _disable_ some unwanted rules, it is necessary to know how to modify the `Makefile` properly.
+> - From now, it is difficult to consider using this template without the `Makefile`!!!
 
+At this time, this template is designed for mainly linux distribution.
+Basically, with some few efforts this template can be used on another operating system (e.g. Windows and MacOS)... this is planed in future prospects (when I've got time!).
+{: class="note warning" }
 
-> At this time, this template is designed for mainly linux distribution.
-> Basically, with some few efforts this template can be used on another operating system (e.g. Windows and MacOS)... this is planed in future prospects (when I've got time!).
-> {: class="note warning" }
-
-> For any troubleshooting read, and (eventually) [create an issue](https://github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](https://github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
-> {: class="note important" }
+For any troubleshooting read, and (eventually) [create an issue](https://github.com/dfolio/pandoc-df-thesis-template/issues) on [pandoc-df-thesis-template](https://github.com/dfolio/pandoc-df-thesis-template/) [GitHub] repository.
+{: class="note important" }
 
 ## Contribute
 

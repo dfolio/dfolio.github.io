@@ -1,21 +1,21 @@
 ---
-title: "Getting Started"
+title: "Quick-Start Guide"
 permalink: /docs/pandoc-df-thesis-template/getting-started/
 excerpt: "How to quickly install and setup pandoc-df-thesis-template."
+group: Getting Started
 date_created: 2018-12-02 18:33:18 +0100
-date_lastmod: 2018-12-04 08:16:08.1543907768 +0100
 toc: true
 ---
 
 {%-include _links.md -%}
 
 1. Install or check if the following pre-requires are available:
-   - A [LaTeX] distribution (e.g. [TeXLive](http://www.tug.org/texlive/), [MacTeX](https://tug.org/mactex/)…)
-     - Also recommended: [LuaLateX](http://www.luatex.org/), [BibLatex](https://github.com/plk/biblatex/) (with `biber`), [glossaries](http://www.ctan.org/pkg/glossaries/) packages
    - [Pandoc] for converting the [Markdown] to the output format of your choice.
      - Also recommended: [Pandoc-citeproc](https://github.com/jgm/pandoc-citeproc), [Pandoc-crossref](http://lierdakil.github.io/pandoc-crossref/), .
    - [PP](**mandatory**) : A generic Preprocessor (with [Pandoc] in mind).
     [PP] allows to pre-process the [Markdown] sources, enabling **macros** (or commands) in the “modified” markdown sources.
+   - A [LaTeX] distribution (e.g. [TeXLive](http://www.tug.org/texlive/), [MacTeX](https://tug.org/mactex/)…) to produce the PDF output.
+     - Also recommended: [LuaLateX](http://www.luatex.org/), [BibLatex](https://github.com/plk/biblatex/) (with `biber`), [glossaries](http://www.ctan.org/pkg/glossaries/) packages
 
 2. Optionally look for the following packages:
    - [Jekyll] that is used to generate `BUILD_HTML_FORMAT=htmlmulti` (e.g. for web-publishing)
@@ -26,11 +26,16 @@ toc: true
    - [Bootstrap](https://getbootstrap.com): Build responsive, mobile-first projects on the web.
 
 3. Clone the [repository](https://github.com/dfolio/pandoc-df-thesis-template) on [Github](https://github.com/) in the proper place on your machine, e.g.:
-
+   
    ```console
    $ git clone https://github.com/dfolio/pandoc-df-thesis-template.git
    ```
-
+   Or alternatively you can download the compressed 
+   [ZIP archive](https://github.com/dfolio/pandoc-df-thesis-template/zipball/master) 
+   or [TAR archive](https://github.com/dfolio/pandoc-df-thesis-template/tarball/master) 
+   of the repository, and extract it on the proper place.
+   
+   
 4. Edit the `Makefile` (optional), and the `_data/variables.yml` (advised).
 
     >  **Note**: the basis metadata (title, authors, etc.) are defined in `_data/variables.yml`!
