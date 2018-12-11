@@ -5,7 +5,7 @@
 {%- include head.html -%}
 <body id="body" >
   <div class="container-fluid" >
-  {%- include_cached masthead.html -%}
+  {%- include masthead.html -%}
 
 <div  class="clearfix container-fluid" id="default-content">
   <div class="row flex-xl-nowrap py-2 justify-content-center" role="main">
@@ -13,8 +13,8 @@
   </div>
 </div>
 
-{%- include footer.html -%}
+{%- include_cached footer.html -%}
 </div>
-{%- include_cached scripts.html -%}
+{%- include scripts.html -%}
 </body>
 </html>
