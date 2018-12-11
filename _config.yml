@@ -1,5 +1,5 @@
 #theme:                      jekyll-theme-tactile
-version: 1.2.2
+version: 1.2.1
 # Global site settings
 locale                  :    "en-US"
 lang                    :    "en"
@@ -74,12 +74,10 @@ js_cdn:
     hash:      "sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
     async:    true
     defer:    true
-
-js_bootstrap:
   -
     url:        "https://code.jquery.com/jquery-3.2.1.slim.min.js"  
     hash:       "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    defer:     true
+    defere:     true
   -
     url:        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
     hash:       "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -179,7 +177,6 @@ exclude:
   - log
   - node_modules
   - package.json
-  - Makefile
   - Rakefile
   - README
   - tmp
