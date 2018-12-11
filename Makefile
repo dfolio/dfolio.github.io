@@ -11,7 +11,7 @@ ASSETS_DIR    ?=assets
 JS_DIR        ?=$(ASSETS_DIR)/js
 ASSETS_VENDOR_DIR ?= $(ASSETS_DIR)/vendor
 FAVICO_DIR    ?=$(ASSETS_DIR)/favicons
-
+SUBDIRS       ?=_docs _pandoc-df-thesis-template
 LOCAL_DIR     ?=_site
 # created by npm (nodejs)
 NODEDIR       ?=node_modules
@@ -29,10 +29,13 @@ RSYNC     ?= rsync
 CAT       ?= cat
 CP        ?= cp -f
 DATE      ?= date
+DIFF      ?= diff
 ECHO      ?= echo
+EGREP     ?= egrep
 MKDIR     ?= mkdir -p
 MV        ?= mv -f
 SED       ?= sed
+STAT      ?= stat
 TAR       ?= tar
 TPUT      ?= tput
 TOUCH     ?= touch
@@ -87,9 +90,13 @@ endif
 # $(call test-exists,file)
 test-exists    = [ -e '$1' ]
 
+# Note that $(DIFF) returns success when the files are the SAME....
+# $(call test-different,source,destination)
+test-different            = ! $(DIFF) -q '$1' '$2' >/dev/null 2>&1
+
 # Don't call this directly - it is here to avoid calling wildcard more than
 # once in remove-files.
-remove-files-helper = $(if $1,$(RM) $1,$(sh_true))
+remove-files-helper = $(if $1,$(RM) $1,:)
 
 # $(call remove-files,source destination)
 remove-files        = $(call remove-files-helper,$(wildcard $1))
@@ -120,6 +127,15 @@ $(call test-exists,$1) && $(call copy-helper,$1,$2) || \
   $(call echo-error, " '$1' does not exist and cannot be copied to '$2'")
 endef
 
+# Replace destination by source only if they are different, and remove source
+# $(call replace-if-different-and-remove,source,destination)
+define replace-if-different-and-remove
+$(call test-different,$1,$2) && $(MV) '$(strip $1)' '$(strip $2)' || \
+  $(call remove-files,'$(strip $1)')
+endef
+define replace-temporary-if-different-and-remove
+ $(if $(KEEP_TEMP),:,$(call replace-if-different-and-remove, $1,$2))
+endef
 
 # Terminal color definitions
 REAL_TPUT := $(if $(NO_COLOR),,$(shell $(WHICH) $(TPUT)))
@@ -190,6 +206,9 @@ define run-node
 $(call echo-run,$(NPM),$1); $(strip $(NPM)) $1 $(if $2,$2,)
 endef
 
+################################################################################
+# Files of Insterests
+MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
 
 ################################################################################
 # Dependancies
@@ -210,8 +229,11 @@ clean_bundle  +=.bundle Gemfile.lock
 .DEFAULT_GOAL  ?= all
 all:build
 
+
+
+#$(QUIET)$(echo_dt) "MD:'$(MD)"
 test:
-	$(QUIET)$(echo_dt) "BUILD_DEPS:'$(BUILD_DEPS) '"
+	$(QUIET)$(echo_dt) "MD:'$(MD)"
 
 ################################################################################
 # MAIN TARGETS
@@ -219,16 +241,18 @@ test:
 
 # Build local 
 .PHONY: build
+b: build;
 build $(LOCAL_DIR): $(BUILD_DEPS)
 	$(QUIET)$(call echo-build,$(JEKYLL),local)
 	$(call run-jekyll,build,--destination "$(LOCAL_DIR)")  \
 			$(call echo-end,local)
 
-serve: $(SERVE_DEPS) $(LOCAL_DIR)
+s: serve;
+serve: $(SERVE_DEPS) | $(LOCAL_DIR)
 	$(QUIET)$(call echo-build,$(JEKYLL),serve)
 	$(call run-jekyll,serve, --watch --incremental)
 	
-USE_PROOFER := $(if $(shell $(WHICH) $(HTMLPROOF) 2>/dev/null),yes,)
+USE_PROOFER := $(if $(shell $(WHICH) $(PROOFER) 2>/dev/null),yes,)
 check:
 	$(QUIET)$(call echo-build,$(JEKYLL),doctor)
 	$(call run-jekyll,doctor)  \
@@ -238,6 +262,9 @@ ifneq ($(USE_PROOFER),)
 	--check-html --http-status-ignore 999 --internal-domains localhost:4000 --assume-extension)		
 endif
 
+changelog:
+	$(QUIET)$(ECHO) "git log  --pretty --decorate"
+#https://github.com/github-changelog-generator/github-changelog-generator
 ################################################################################
 # INTERMEDIATE TARGETS
 $(LOCAL_DIR)/assets/css/%.css: $(ASSETS_DIR)/css/%.scss | $(LOCAL_DIR)
