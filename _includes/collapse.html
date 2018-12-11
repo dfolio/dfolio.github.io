@@ -1,19 +1,25 @@
 {%- comment -%}
 Usage: {% include collapse.html content=collapse_content id="ID" %},
 where 'collapse_content' is a capture with the content
-and 'id'' is an unique identifier of the 
+and 'id'' is an unique identifier of the blockquote
+'<i class="fas fa-toggle-on"></i>'
 {%- endcomment -%}
 {%- assign css_class = include.type | default: "info" -%}
 {%- assign id = include.id | default: "" -%}
 {%- assign label = include.label | default: "Toggle" -%}
-{%- assign icon ='<i class="fas fa-toggle-on"></i>'-%}
-
-
-<div class="collapsable"  markdown="block">
-<div class="nav collapsable-toggle align-middle"><label class="btn-lbl" for="btn-toggle-{{id}}">{{label}}</label><input id="btn-toggle-{{id}}" class="btn-toggle btn-toggle-round-flat" type="checkbox" data-toggle="collapse" data-target="#collapse-{{id}}" aria-expanded="false" aria-controls="collapse-{{id}}">
+{%- assign is_expanded = include.expanded| default:false-%}
+{%- if is_expanded-%}
+{%- assign expanded ="true"-%}
+{%- assign show ="show"-%}
+{%-else-%}
+{%- assign expanded ="false"-%}
+{%- assign show ="collapsed"-%}
+{%- endif-%}
+<div class="collapsable"  markdown="0" id="collapse-parent-{{id}}">
+<div class="nav collapsable-toggle align-middle" id="collapse-head-{{id}}"><label class="btn-lbl" for="btn-toggle-{{id}}">{{label}}</label><input id="btn-toggle-{{id}}" class="{{show}} btn-toggle btn-toggle-round-flat" type="checkbox" data-toggle="collapse" data-target="#collapse-{{id}}" aria-expanded="{{expanded}}" aria-controls="collapse-{{id}}">
 <label class="btn-toggle-lbl" for="btn-toggle-{{id}}"></label>
 </div>
-<div class="collapse collapsable-body" id="collapse-{{id}}"  markdown="1">
+<div class="collapse collapsable-body" aria-labelledby="collapse-head-{{id}}" data-parent="#collapse-parent-{{id}}" id="collapse-{{id}}"  markdown="1">
 {{- include.content | markdownify -}}
 </div>
 </div>
