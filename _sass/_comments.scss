@@ -1,0 +1,47 @@
+// stylelint-disable selector-no-qualifying-type
+
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/input-group";
+.page-comments{
+  color: $comments-color;
+  @include gradient-bg($comments-color-bg);
+  @include border-radius($border-radius);
+  font-size: $comments-font-size;
+}
+
+.page-comments-title {
+  margin-top: $spacer;
+  margin-bottom: $spacer/4;
+  padding-top: $spacer;
+  font-size: $comments-font-size*1.125;
+  border-top: 1px solid $border-color;
+  text-transform: uppercase;
+}
+
+.page-comments-form {
+  @include transition($transition-base);
+  &.disabled{
+    input,
+    button,
+    textarea,
+    label {
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: alpha(opacity=65);
+      box-shadow: none;
+      opacity: 0.65;
+    }
+  }
+}
+.comment{
+  @include clearfix();
+  margin: $spacer/2 0;
+  &:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.required {
+  color: theme-color("danger");
+  font-weight: bold;
+}
