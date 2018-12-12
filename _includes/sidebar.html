@@ -10,11 +10,16 @@
       <div class="d-none d-sm-block sidebar-item-details">
       <p class="text-muted">{{d.description | default: d.excerpt}}</p>
       {%-if d.github-%}
-      <div class="navbar sticky-bottom"><p class="text-muted">Get the project on <a href="{{d.github}}"><i class="fab fa-fw fa-github"aria-hidden="true"></i>GitHub</a></p>
+      <div class="navbar sticky-bottom"><p class="text-muted">Get the project on <a href="{{d.github}}"><i class="fab fa-fw fa-github"aria-hidden="true"></i>GitHub</a>
+      </p>
         <ul class="d-none d-xl-flex nav download">
           <li class="col-4 nav-item"><a href="{{d.github}}/zipball/master"><strong><i class="fas fa-download"aria-hidden="true"></i> <span class="sr-only">Download</span> <i class="fas fa-file-archive"aria-hidden="true"></i> ZIP-File</strong></a></li>
           <li class="col-4 nav-item"><a href="{{d.github}}/tarball/master"><strong><i class="fas fa-download"aria-hidden="true"></i> <span class="sr-only">Download</span> <i class="fas fa-file-archive"aria-hidden="true"></i> TAR-File</strong></a></li>
           <li class="col-4 nav-item"><a href="{{d.github}}/tarball/master">Explore  <strong><i class="fab fa-fw fa-github"aria-hidden="true"></i><span class="sr-only">GitHub</span></strong></a></li>
+        </ul>
+        <ul class="d-none d-xl-flex nav">
+        <li class="nav-item"><a href="http://github.com/dfolio/pandoc-df-thesis-template" title="Repo Size"><img src="https://img.shields.io/github/repo-size/dfolio/pandoc-df-thesis-template.svg" alt="Repo Size"></a></li>
+        <li class="nav-item"><a href="https://raw.githubusercontent.com/dfolio/pandoc-df-thesis-template/master/LICENSE" rel="license" title="Read the CC-BY-4.0 license"><img src="https://img.shields.io/github/license/dfolio/pandoc-df-thesis-template.svg" alt="License"></a></li>
         </ul>
       </div>
       {%-endif-%}

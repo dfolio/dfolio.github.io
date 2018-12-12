@@ -7,8 +7,7 @@
   }
 
   > * {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: $spacer/2 auto ;
   }
 
   p,
@@ -28,17 +27,15 @@
     @include make-row;
   }
 
-  @include media-breakpoint-up(md) {
-    @supports (position: sticky) {
-      position: sticky;
-      top: $spacer;
-      z-index: 999;
-      height: calc(100vh - #{$sidebar-top});
-      overflow-y: auto;
-    }
-
-    border-right: 1px solid rgba($main-color-bg, 0.2);
+  @supports (position: sticky) {
+    position: sticky;
+    top: $spacer;
+    z-index: 999;
+    height: calc(100vh - #{$sidebar-top});
+    overflow-y: auto;
   }
+
+  border-right: 1px solid rgba($main-color-bg, 0.2);
 }
 
 .sidebar-nav {
@@ -79,26 +76,20 @@
 .sidebar-item {
   list-style: none;
   position: relative;
-  //display: flex;
-  //width: 100%;
   margin: 0;
-  //justify-content: end;
-
-  //&:not(:last-child) {border-bottom: 1px solid $nav-link-color;}
   .active {
     font-weight: bolder;
   }
+}
+.sidebar-item-details{
   p,
-  .download {  
+  ul {  
     font-size: 80%;
     font-weight: normal;
+    margin: 0;
+    padding: 0;
   }
-  
-  p{margin-bottom: $spacer/4;}
-  
   .download {
-    margin:0 0 $spacer/2 0;
-    padding:0;
     background-color: rgba($download-bg,.2);
     @include gradient-bg($download-bg);
     @include border-radius($btn-border-radius);

@@ -3,16 +3,20 @@ subcollection: pandoc-df-thesis-template
 title: "Pandoc df thesis template"
 permalink: /docs/pandoc-df-thesis-template/
 excerpt: "D. Folio (df) template for writing a thesis dissertation using Pandoc"
-v: 1
+version: 1.4.1
 date_created: 2018-12-02 22:09:07.1543784947 +0100
 date_lastmod: 2018-12-05 09:17:34.3371062257 +0100
 toc: false
 share: true
 collection_details: true
 github: "https://github.com/dfolio/pandoc-df-thesis-template"
+travis: https://travis-ci.com/dfolio/dfolio.github.io.svg?branch=master
 comments: true
 ---
+
 {%-include _links.md -%}
+
+
 The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <http://pandoc.org>. 
 
 Based on a “_(df)modified_” markdown sources, this dissertation template can deal with many outputs dialect basically supported by [Pandoc]:
