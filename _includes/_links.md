@@ -16,3 +16,10 @@
 [pp]: https://cdsoft.fr/pp/ "PP is a generic Preprocessor (with Pandoc in mind)"
 [Ruby]: https:/www.ruby-lang.org "Ruby is a dynamic, interpreted, reflective, object-oriented, general-purpose programming language. "
 [SASS]: https://github.com/sass/ruby-sass "Sass (Syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS)."
+
+[travis-ci]: https://travis-ci.com/dfolio/dfolio.github.io "Travis status"
+[github-io]: http://github.com/dfolio/dfolio.github.io
+[pandoc-df-thesis-template-github]: http://github.com/dfolio/pandoc-df-thesis-template
+[pandoc-df-thesis-template-doc]: http://dfolio.github.io/docs/pandoc-df-thesis-template/ "pandoc-df-thesis-template documentations"
+
+
