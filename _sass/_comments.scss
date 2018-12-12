@@ -45,3 +45,32 @@
   color: theme-color("danger");
   font-weight: bold;
 }
+
+
+//rating
+.rating-star {
+	width: 24px;
+	color: #EBBD5B;
+	vertical-align: middle;
+}
+
+.rating-radio {
+	display: none;
+}
+
+.rating-radio + .rating-radio-label .rating-radio-star--off {
+	display: none;
+}
+
+.rating-radio:checked ~ .rating-radio-label .rating-radio-star--on {
+	display: none;
+}
+
+.rating-radio:checked ~ .rating-radio-label .rating-radio-star--off {
+	display: inline-block;
+}
+
+.rating-select {
+	margin-bottom: 20px;
+}
+
