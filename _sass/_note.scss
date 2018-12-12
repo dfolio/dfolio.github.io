@@ -83,7 +83,8 @@ body{
 }
 
 .warning {
-  @include note-variant-before(rgba(darken($warning, 25%), 0.66), darken($warning, 20%), lighten($warning, 80%), "‼");
+  @include note-variant-before(rgba(darken($warning, 20%), 0.8), darken($warning, 20%), lighten($warning, 98%), "‼");
+  font-weight: 500;
 }
 
 .disclaimer,

@@ -53,7 +53,8 @@ toc_label: On this page
 
 {%- if page.share-%}{%include social-share.html %}{%- endif -%}
 <!-- include post_pagination.html -->
-{% if jekyll.environment == 'production' and page.comments %}
+{%comment%}jekyll.environment == 'production' and{%endcomment%}
+{% if page.comments %}
 {% include comments.html %}
 {% endif %}
     </article>
