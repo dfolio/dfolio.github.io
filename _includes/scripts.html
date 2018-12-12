@@ -13,14 +13,13 @@
 {%-endfor-%}
 {%-endif-%}
 
-{%-if page.tooltip-%}
+{%-if page.tooltip or page.popover or page.comments-%}
 <script>
-$(function () { $('[data-toggle="tooltip"]').tooltip() })
-</script>
+{%-if page.tooltip-%}$(function () { $('[data-toggle="tooltip"]').tooltip() }){%-endif-%}
+{%-if page.popover-%}$(function () { $('[data-toggle="popover"]').popover() }){%-endif-%}
+{%-if page.comments-%}
+{%-include script_staticman.html -%}
 {%-endif-%}
-{%-if page.popover-%}
-<script>
-$(function () { $('[data-toggle="popover"]').popover() })
 </script>
 {%-endif-%}
 
