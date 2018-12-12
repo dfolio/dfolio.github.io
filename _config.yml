@@ -52,6 +52,12 @@ social:
     - "https://plus.google.com/+DavidFOLIO"
     - "http://dfolio.free.fr"
 
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message','rating']
+  branch                 : "master"
+  requiredFields         : ['name', 'email', 'message']
+  endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
+  
 # Site Footer
 footer:
   links: *links
@@ -118,7 +124,10 @@ defaults:
       type:                  docs
     values:
       layout:                docs
+      collection_details:   true
+      comments:              true
       toc:                   true
+      share:                 true
   # _pandoc-df-thesis-template
   - scope:
       path:                  ""
@@ -126,6 +135,9 @@ defaults:
     values:
       layout:                docs
       toc:                   true
+      comments:              false
+      share:                 false
+      collapse:              false
 
 # Build settings
 
@@ -177,6 +189,7 @@ exclude:
   - log
   - node_modules
   - package.json
+  - Makefile
   - Rakefile
   - README
   - tmp
