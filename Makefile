@@ -191,7 +191,7 @@ endef
 # Jekyll invocations
 # $(call run-jekyll,<command>,[opts])
 define run-jekyll
-$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,$2,))
+$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,"$2",))
 endef
 define run-proof
 $(call echo-run,$(PROOFER),$1); $(call run-bundle,exec, $(PROOFER) $(if $2,$2,) $1)
@@ -213,7 +213,7 @@ MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
 ################################################################################
 # Dependancies
 BUILD_DEPS    += Gemfile.lock  package-lock.json
-SERVE_DEPS    += $(BUILD_DEPS) _includes/collapse.css
+SERVE_DEPS    += $(BUILD_DEPS) _includes/collapse.css _includes/comments.css
 
 # Cleanable files/directories
 clean_dirs    +=$(LOCAL_DIR)
@@ -230,7 +230,6 @@ clean_bundle  +=.bundle Gemfile.lock
 all:build
 
 
-
 #$(QUIET)$(echo_dt) "MD:'$(MD)"
 test:
 	$(QUIET)$(echo_dt) "MD:'$(MD)"
@@ -244,13 +243,21 @@ test:
 b: build;
 build $(LOCAL_DIR): $(BUILD_DEPS)
 	$(QUIET)$(call echo-build,$(JEKYLL),local)
+	$(call run-jekyll,build, --destination "$(LOCAL_DIR)")  \
+			$(call echo-end,local)
+
+# Build for production environment 
+.PHONY: prod
+p: prod;
+prod:clean $(BUILD_DEPS)
+	$(QUIET)JEKYLL_ENV=production $(call echo-build,$(JEKYLL),local)
 	$(call run-jekyll,build,--destination "$(LOCAL_DIR)")  \
 			$(call echo-end,local)
 
 s: serve;
 serve: $(SERVE_DEPS) | $(LOCAL_DIR)
 	$(QUIET)$(call echo-build,$(JEKYLL),serve)
-	$(call run-jekyll,serve, --watch --incremental)
+	$(call run-jekyll,serve,  --watch --incremental)
 	
 USE_PROOFER := $(if $(shell $(WHICH) $(PROOFER) 2>/dev/null),yes,)
 check:
@@ -259,7 +266,7 @@ check:
 			$(call echo-end,doctor)
 ifneq ($(USE_PROOFER),)
 	$(call run-proof,$(LOCAL_DIR),\
-	--check-html --http-status-ignore 999 --internal-domains localhost:4000 --assume-extension)		
+	--check-html --http-status-ignore 999 --internal-domains localhost:4000 --assume-extension)	$(LOCAL_DIR)
 endif
 
 changelog:
@@ -315,6 +322,8 @@ update-node: package-lock.json
 #
 .PHONY: clean
 clean: clean-dirs clean-node clean-bundle 
+	$(QUIET)$(call run-bundle,clean) \
+
 clean-dirs:
 	$(QUIET)$(echo_dt) "$(magenta) Clean generated dirs:'$(clean_dirs)'$(reset)"
 	$(QUIET)$(RM) -r $(clean_dirs)
