@@ -5,21 +5,18 @@
 {%- assign vers= page.version| default: site.version -%}
 {%- assign vsuff = '?v=' | append: vers -%}
 <!-- Custom CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | append: vsuff}}">
+<link rel="stylesheet" href="{{ site.css| default: '/assets/css/main.css' | relative_url | append: vsuff}}">
 {%-for css in layout.css-%}
 <link rel="stylesheet" href="{{ css | absolute_url | append: vsuff}}">
 {%- endfor -%}
 {%-for css in page.css-%}
 <link rel="stylesheet" href="{{ css | absolute_url | append: vsuff  }}">
 {%- endfor -%}
-{%- if page.style -%}
-<style>
-{{page.style | scssify}}
-</style>
-{%- endif -%}
-{%- if page.collapse -%}
-<style>
-{%- include collapse.css -%}
-</style>
-{%- endif -%}
 
+{%- if page.style or page.collapse or page.comments-%}
+<style>
+{%if page.collapse%}{%- include collapse.css -%}{%- endif -%}
+{%if page.comments%}{%- include comments.css -%}{%- endif -%}
+{%if page.style   %}{{- page.style | scssify -}}{%- endif -%}
+</style>
+{%- endif -%}

@@ -10,6 +10,7 @@ toc: false
 share: true
 collection_details: true
 github: "https://github.com/dfolio/pandoc-df-thesis-template"
+comments: true
 ---
 {%-include _links.md -%}
 The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <http://pandoc.org>. 

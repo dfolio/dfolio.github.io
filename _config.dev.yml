@@ -19,3 +19,7 @@ atom:
   postDirs:
     - _newsletters
   defaultPostDir: _drafts
+  
+
+staticman:
+  endpoint               : http://localhost:8080/v2/entry/ # URL of your own deployment with trailing slash, will

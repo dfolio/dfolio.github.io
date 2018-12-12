@@ -155,7 +155,7 @@ $issue: $red;
 $example: #e0cb52;
 $disclaimer: $orange;
 //Download
-$download-bg: darken(rgba(theme-color("primary"),.8),20%);
+$download-bg: rgba(darken(theme-color("primary"),20%),.8);
 $download-fg: lighten(theme-color("primary"),60%);
 
 //comments
