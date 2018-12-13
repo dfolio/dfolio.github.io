@@ -191,7 +191,7 @@ endef
 # Jekyll invocations
 # $(call run-jekyll,<command>,[opts])
 define run-jekyll
-$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,"$2",))
+$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,$2,))
 endef
 define run-proof
 $(call echo-run,$(PROOFER),$1); $(call run-bundle,exec, $(PROOFER) $(if $2,$2,) $1)
@@ -251,7 +251,7 @@ build $(LOCAL_DIR): $(BUILD_DEPS)
 p: prod;
 prod:clean $(BUILD_DEPS)
 	$(QUIET)JEKYLL_ENV=production $(call echo-build,$(JEKYLL),local)
-	$(call run-jekyll,build,--destination "$(LOCAL_DIR)")  \
+	$(call run-jekyll,build,--safe --destination "$(LOCAL_DIR)")  \
 			$(call echo-end,local)
 
 s: serve;
@@ -322,7 +322,7 @@ update-node: package-lock.json
 #
 .PHONY: clean
 clean: clean-dirs clean-node clean-bundle 
-	$(QUIET)$(call run-bundle,clean) \
+	$(QUIET)$(call run-bundle,clean --force) \
 
 clean-dirs:
 	$(QUIET)$(echo_dt) "$(magenta) Clean generated dirs:'$(clean_dirs)'$(reset)"
