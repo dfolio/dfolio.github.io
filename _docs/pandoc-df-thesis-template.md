@@ -12,6 +12,7 @@ collection_details: true
 github: "https://github.com/dfolio/pandoc-df-thesis-template"
 travis: https://travis-ci.com/dfolio/dfolio.github.io.svg?branch=master
 comments: true
+popover: false
 ---
 
 {%-include _links.md -%}
