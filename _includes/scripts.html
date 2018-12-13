@@ -1,29 +1,67 @@
+{%comment%}
+  page has:
+  - math |mathjax => mathjax
+  - collapse => bootstrap + jquery
+  - comments => jquery
+  - popover | tooltip =>  bootstrap + popover 
+{%endcomment%}
 
+{%-assign enable_math=false-%}
+{%-assign enable_popover=false-%}
+{%-assign enable_bootstrap=false-%}
+{%-assign enable_jquery=false-%}
+{%-if page.math==true or page.mathjax==true -%}{%assign enable_math=true%}{%-endif-%}
+{%-if page.popover or page.tooltip-%}{%assign enable_popover=true%}{%-endif-%}
+{%-if enable_popover or page.bootstrap or page.collapse-%}{%assign enable_bootstrap=true%}{%-endif-%}
+{%-if enable_bootstrap or page.comments-%}{%assign enable_jquery=true %}{%-endif-%}
+
+{%-if enable_math-%}
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({TeX:{equationNumbers: { autoNumber: "all"}}});
 </script>
+{%-endif-%}
 
 {%- for js in site.js_cdn -%}
-<script {%if js.async%}async{%endif%} {%if js.defer%}defer{%endif%} src="{{-js.url-}}" {%if js.hash%}integrity="{{-js.hash-}}" crossorigin="anonymous"{%endif%}></script>
+{% case js.name %}
+  {% when 'mathjax' %}
+  {%-if enable_math-%}
+    {%include script_cdn.html url=js.url async=js.async defer=js.defer hash=js.hash %}
+  {%-endif-%}
+  {% when 'jquery' %}
+  {%-if enable_jquery-%}
+    {%include script_cdn.html url=js.url async=js.async defer=js.defer hash=js.hash %}
+  {%-endif-%}
+  {% when 'popper' %}
+  {%-if enable_popover-%}
+    {%include script_cdn.html url=js.url async=js.async defer=js.defer hash=js.hash %}
+  {%-endif-%}
+  {% when 'bootstrap' %}
+  {%-if enable_bootstrap-%}
+    {%include script_cdn.html url=js.url async=js.async defer=js.defer hash=js.hash %}
+  {%-endif-%}
+  {% else -%}
+    {%include script_cdn.html url=js.url async=js.async defer=js.defer hash=js.hash %}
+{% endcase %}
 {%-endfor-%}
-{%-assign bootstrap=page.bootstrap|default: page.bootstrap_js | default: false-%}
-{%- if bootstrap or page.collapse or page.popover or page.tooltip -%}
-{%- for js in site.js_bootstrap -%}
-<script {%if js.async%}async{%endif%} {%if js.defer%}defer{%endif%} src="{{-js.url-}}" {%if js.hash%}integrity="{{-js.hash-}}" crossorigin="anonymous"{%endif%}></script>
-{%-endfor-%}
+
+{%-if enable_jquery -%}
+  {%capture script_content%}
+  {%-if page.tooltip-%}$(function () { $('[data-toggle="tooltip"]').tooltip() }){%-endif-%}
+  {%-if page.popover-%}$(function () { $('[data-toggle="popover"]').popover() }){%-endif-%}
+  {%-if page.comments-%}
+  {%-include script_staticman.html -%}
+  {%-endif-%}
+  {%endcapture script_content%}
 {%-endif-%}
 
-{%-if page.tooltip or page.popover or page.comments-%}
+{%capture script_content%}
+  {{script_content}}
+  {%- include script_sw.html -%} 
+{%endcapture script_content%}
+
 <script>
-{%-if page.tooltip-%}$(function () { $('[data-toggle="tooltip"]').tooltip() }){%-endif-%}
-{%-if page.popover-%}$(function () { $('[data-toggle="popover"]').popover() }){%-endif-%}
-{%-if page.comments-%}
-{%-include script_staticman.html -%}
-{%-endif-%}
+{%- include compress.html content=script_content -%}
 </script>
-{%-endif-%}
-
-{%- include script_sw.html -%} 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,3 +71,5 @@
 <![endif]-->
 
 {%- include analytics.html -%} 
+
+<div class="offline-ready d-none">Site is Ready for Offline Use</div>

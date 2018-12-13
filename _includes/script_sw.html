@@ -1,5 +1,4 @@
 {% if jekyll.environment == 'production' %}
-<script defer type='text/javascript'>
 function showOfflineToast() {
   let offlineToast = document.querySelector('.offline-ready');
   offlineToast.classList.add('active');
@@ -29,6 +28,4 @@ if (navigator.serviceWorker) {
     });
   });
 }
-</script>
-<div class="offline-ready d-none">Site is Ready for Offline Use</div>
 {%-endif%}
