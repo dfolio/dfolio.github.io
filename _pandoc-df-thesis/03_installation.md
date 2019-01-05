@@ -31,4 +31,6 @@ Prior to use the pandoc-df-thesis-template the following applications must be av
 - A [LaTeX] distribution (e.g. [TeXLive](http://www.tug.org/texlive/), [MiKTeX](https://miktex.org/), [MacTeX](https://tug.org/mactex/)…)
    - Also recommended: [LuaLateX](http://www.luatex.org/), [BibLatex](https://github.com/plk/biblatex/) (with `biber`), [glossaries](http://www.ctan.org/pkg/glossaries/) packages
    
-## Useful pre-requires
+## Useful (recommanded) pre-requires
+
+## Optional pre-requires

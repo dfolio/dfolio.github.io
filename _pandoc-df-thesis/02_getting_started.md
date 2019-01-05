@@ -9,6 +9,10 @@ toc: true
 
 {%-include _links.md -%}
 
+{: .note .info}
+For detailled instruction for [the installation process]({% link _pandoc-df-thesis/03_installation.md %} "Installation steps") and for [the build process]({% link _pandoc-df-thesis/03_installation.md %} "build steps") go to their corresponding pages.
+
+
 1. Install or check if the following pre-requires are available:
    - [Pandoc] for converting the [Markdown] to the output format of your choice.
      - Also recommended: [Pandoc-citeproc](https://github.com/jgm/pandoc-citeproc), [Pandoc-crossref](http://lierdakil.github.io/pandoc-crossref/), .
