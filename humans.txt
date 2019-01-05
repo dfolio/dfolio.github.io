@@ -1,0 +1,15 @@
+/* TEAM */
+Author: David FOLIO
+Site    : http://dfolio.github.io
+Location: Bourges, France.
+
+/* SITE */
+Languages : English / French
+Doctype   : HTML5
+Standards : HTML5, CSS3, JavaScript
+Software  : Jekyll, 
+Components: Bootstrap, JQuery, FontAwesome
+Code      : http://github.com/dfolio/dfolio.github.io
+Hosting   : GitHub.com
+
+
