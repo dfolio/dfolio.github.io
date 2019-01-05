@@ -17,14 +17,14 @@ toc_label: On this page
 </aside>
 
 <main class="col-12 col-md-3 col-xl-10 page-main" >
-  <article class="py-2 pl-2" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="py-2 pl-2 h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="{{ seo_title }}">
     <meta itemprop="description" content="{{ seo_description}}">
     <meta itemprop="datePublished" content="{{ cdate | date_to_xmlschema }}">
     <meta itemprop="dateModified"  content="{{ mdate | date_to_xmlschema }}">
     
     <header class="page-header">
-      <h1 id="page-title" class="title page-title" itemprop="headline">{{ page.title | smartify}}</h1>
+      <h1 id="page-title" class="title p-name page-title" itemprop="headline"><a class="u-url" href="page.url" rel="canonical">{{ page.title | smartify}}</a></h1>
     </header>
 
     <section  class="page-content" itemprop="text">
@@ -35,19 +35,18 @@ toc_label: On this page
           {% include_cached toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
         </nav>
       </aside>
-      <div class="col-12 col-xl-10 px-2 docs-content">
+      <div class="col-12 col-xl-10 px-2 e-content docs-content">
     {%else%}
-      <div class="col-12 pl-2 docs-content">
+      <div class="col-12 pl-2 e-content docs-content ">
     {% endif %}
         {{ content }}
       </div>
     </section>
 
     <footer class="page-footer docs-footer">
-      <p class="footer-author">⌨ &copy;<a href="{{site.author.url}}" rel="author">{{page.author| default: site.author.name}}</a></p>
-      <!-- {{mdate}} > {{cdate}} ??-->
+      <p class="footer-author p-author h-card">⌨ &copy;<a class="p-name" href="{{site.author.url}}" rel="author">{{page.author| default: site.author.name}}</a></p>
       <p class="docs-date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>
-      Published on <time datetime="{{ cdate | date_to_xmlschema }}">{{ cdate | date: "%B %d, %Y" }}</time>
+      Published on <time  class="dt-published" datetime="{{ cdate | date_to_xmlschema }}">{{ cdate | date: "%B %d, %Y" }}</time>
       {%if mdate > cdate %} and Updated on <time datetime="{{ mdate | date_to_xmlschema }}">{{ mdate | date: "%B %d, %Y" }}</time>{% endif %}</p>
       {%- if page.share-%}{%include social-share.html %}{%- endif -%}
     </footer>
