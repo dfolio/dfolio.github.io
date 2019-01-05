@@ -246,6 +246,11 @@ build $(LOCAL_DIR): $(BUILD_DEPS)
 	$(call run-jekyll,build, --destination "$(LOCAL_DIR)")  \
 			$(call echo-end,local)
 
+profile:
+	$(QUIET)$(call echo-build,$(JEKYLL),profile)
+	$(call run-jekyll,build,--destination "$(LOCAL_DIR)" --profile)  \
+			$(call echo-end,local)
+
 # Build for production environment 
 .PHONY: prod
 p: prod;
