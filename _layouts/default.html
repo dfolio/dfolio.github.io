@@ -4,17 +4,17 @@
 <html lang="{{- lang | default: page.lang | default: site.lang | default: 'en'-}}">
 {%- include head.html -%}
 <body id="body" >
-  <div class="container-fluid" >
+ <div class="container-fluid" >
   {%- include masthead.html -%}
 
-<div  class="clearfix container-fluid" id="default-content">
-  <div class="row flex-xl-nowrap py-2 justify-content-center" role="main">
-    {{ content }}
+  <div  class="clearfix container-fluid" id="default-content">
+    <div class="row flex-xl-nowrap py-2 justify-content-center" role="main">
+      {{ content }}
+    </div>
   </div>
-</div>
 
-{%- include_cached footer.html -%}
-</div>
-{%- include scripts.html -%}
+  {%- include_cached footer.html page=page -%}
+ </div>
+ {%- include scripts.html-%}
 </body>
 </html>

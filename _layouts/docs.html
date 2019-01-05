@@ -11,51 +11,51 @@ toc_label: On this page
 {%- if seo_description -%}{%- assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once -%}{%- endif -%}
 {%-endunless-%}
 {%assign cdate= page.date_publish| default: page.date_created |default: 'now' %}
-{%assign mtime= page.path | file_mtime %}
-{%assign mdate= page.date_lastmod| default: mtime %}
-  <aside class="col-12 col-md-3 col-xl-2 page-leftbar d-print-none">
-    {% include sidebar.html %}
-  </aside>
+{%assign mdate= page.date_lastmod | default: page.last_modified_at| default: cdate %}
+<aside class="col-12 col-md-3 col-xl-2 p-O page-leftbar d-print-none">
+  {% include sidebar.html %}
+</aside>
 
-  <main class="col-12 col-md-3 col-xl-10 page-main" >
-    <article class="py-2 pl-2" itemscope itemtype="https://schema.org/CreativeWork">
-      <meta itemprop="headline" content="{{ seo_title }}">
-      <meta itemprop="description" content="{{ seo_description}}">
-      <meta itemprop="datePublished" content="{{ cdate | date_to_xmlschema }}">
-      <meta itemprop="dateModified" content="{{ mdate | date_to_xmlschema }}">
-<header class="page-header">
-<h1 id="page-title" class="title page-title" itemprop="headline">{{ page.title | smartify}}</h1>
-</header>
+<main class="col-12 col-md-3 col-xl-10 page-main" >
+  <article class="py-2 pl-2" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="{{ seo_title }}">
+    <meta itemprop="description" content="{{ seo_description}}">
+    <meta itemprop="datePublished" content="{{ cdate | date_to_xmlschema }}">
+    <meta itemprop="dateModified"  content="{{ mdate | date_to_xmlschema }}">
+    
+    <header class="page-header">
+      <h1 id="page-title" class="title page-title" itemprop="headline">{{ page.title | smartify}}</h1>
+    </header>
 
-<section  class="page-content" itemprop="text">
-{% if page.toc %}
-  <aside class="d-none d-xl-block col-xl-2 sidebar-right d-print-none">
-    <nav class="page-toc">
-      <header><h7 class="toc-title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: layout.toc_label | default: "" }}</h7></header>
-      {% include_cached toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
-    </nav>
-  </aside>
-  <div class="col-12 col-xl-10 px-2 docs-content">
-{%else%}
-  <div class="col-12 pl-2 docs-content">
-{% endif %}
-    {{ content }}
-  </div>
-</section>
+    <section  class="page-content" itemprop="text">
+    {% if page.toc %}
+      <aside class="d-none d-xl-block col-xl-2 sidebar-right d-print-none">
+        <nav class="page-toc">
+          <header><h7 class="toc-title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: layout.toc_label | default: "" }}</h7></header>
+          {% include_cached toc.html sanitize=true html=content h_min=1 h_max=6 class="nav-toc" item_class="nav-toc-item"%}
+        </nav>
+      </aside>
+      <div class="col-12 col-xl-10 px-2 docs-content">
+    {%else%}
+      <div class="col-12 pl-2 docs-content">
+    {% endif %}
+        {{ content }}
+      </div>
+    </section>
 
-<footer class="page-footer docs-footer">
-  <p class="footer-author">⌨ &copy;<a href="{{site.author.url}}" rel="author">{{page.author| default: site.author.name}}</a></p>
-  <p class="docs-date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>
-  Published on <time datetime="{{ cdate | date_to_xmlschema }}">{{ cdate | date: "%B %d, %Y" }}</time>
-  {%if cdate != mdate %} and Updated on <time datetime="{{ mdate | date_to_xmlschema }}">{{ mdate | date: "%B %d, %Y" }}</time>{% endif %}
-  </p>
-</footer>
+    <footer class="page-footer docs-footer">
+      <p class="footer-author">⌨ &copy;<a href="{{site.author.url}}" rel="author">{{page.author| default: site.author.name}}</a></p>
+      <!-- {{mdate}} > {{cdate}} ??-->
+      <p class="docs-date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      Published on <time datetime="{{ cdate | date_to_xmlschema }}">{{ cdate | date: "%B %d, %Y" }}</time>
+      {%if mdate > cdate %} and Updated on <time datetime="{{ mdate | date_to_xmlschema }}">{{ mdate | date: "%B %d, %Y" }}</time>{% endif %}</p>
+      {%- if page.share-%}{%include social-share.html %}{%- endif -%}
+    </footer>
 
-{%- if page.share-%}{%include social-share.html %}{%- endif -%}
-<!-- include post_pagination.html -->
-{%comment%}jekyll.environment == 'production' and{%endcomment%}
-{% if page.comments %}
-{% include comments.html %}
-{% endif %}
-    </article>
-  </main>
+    <!-- include post_pagination.html -->
+    {%comment%}jekyll.environment == 'production' and{%endcomment%}
+    {% if page.comments %}
+    {% include comments.html %}
+    {% endif %}
+  </article>
+</main>
