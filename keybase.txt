@@ -1,0 +1,57 @@
+==================================================================
+https://keybase.io/dfolio
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://dfolio.github.io
+  * I am dfolio (https://keybase.io/dfolio) on keybase.
+  * I have a public key ASCp1RdBlghp3lJaNQ3sGCgIJgm6emaI8D7AOe18_ql0Qwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a9d51741960869de525a350dec1828082609ba7a6688f03ec039ed7cfea974430a",
+      "host": "keybase.io",
+      "kid": "0120a9d51741960869de525a350dec1828082609ba7a6688f03ec039ed7cfea974430a",
+      "uid": "a5105c78cdbc9616e337914c9b185819",
+      "username": "dfolio"
+    },
+    "merkle_root": {
+      "ctime": 1546704837,
+      "hash": "255fecee09103a631012ee90eea73f23df5fcaa25ef4362417f0c122b767f902518e73334d3fa3e02f881f16b3ca2c584ede5f66741e8d78edd162be58ca19a7",
+      "hash_meta": "0c212e1129e80b8f0f538ba1cbfd1498814825a361d7ad9a4d5de04d9ebabec1",
+      "seqno": 4236595
+    },
+    "service": {
+      "entropy": "8E4qSisEC/4yaIfwfwykT4LO",
+      "hostname": "dfolio.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.10.1"
+  },
+  "ctime": 1546704858,
+  "expire_in": 504576000,
+  "prev": "6818a7dd19353f1662a4674d58bae5c6e4e102db561c3cb66ddd34176b9a8777",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqdUXQZYIad5SWjUN7BgoCCYJunpmiPA+wDntfP6pdEMKp3BheWxvYWTESpcCBsQgaBin3Rk1PxZipGdNWLrlxuThAttWHDy2bd00F2uah3fEIBNjZvxfomJ/4IjVfd0HGMdCPQkrv5rxqK0LMZC/gslPAgHCo3NpZ8RAeFvVqa2wAK6liwRQaEt3H/AQwOZBPHamPpXN7ZaFvom+djdTcdzQwRXeB9Txnu+akhz6OtHHoWecMJM3E/A2BahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHmtJoGh9WDijJYNu6J4+/brR23Yu4yR0RBWNzLyyTbao3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dfolio
+
+==================================================================
+
