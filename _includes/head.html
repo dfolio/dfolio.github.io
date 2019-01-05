@@ -82,9 +82,12 @@
   {%- if site.yandex_site_verification -%}<meta name="yandex-verification" content="{{ site.yandex_site_verification }}">{% endif %}
   {%- if site.naver_site_verification -%}<meta name="naver-site-verification" content="{{ site.naver_site_verification }}">{% endif %}
 
-  <link rel="webmention" href="https://webmention.io/dfolio.github.io/webmention" >
-  <link rel="pingback" href="https://webmention.io/dfolio.github.io/xmlrpc" >
-
+  <link rel="author" href="/humans.txt" >
+  {%- if site.webmentions.username -%}
+  <link rel="webmention" href="https://webmention.io/{{-site.webmentions.username-}}/webmention" >
+  <link rel="pingback" href="https://webmention.io/{{-site.webmentions.username-}}/xmlrpc" >
+  {%- endif -%}
+  
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
