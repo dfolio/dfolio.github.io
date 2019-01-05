@@ -1,8 +1,8 @@
 <!--sidebar -->
-<div class="sidebar sidebar-left">
+<div class="clearfix sidebar sidebar-left">
   <nav class="navbar sidebar-nav">
     <ul class="nav lit-group sidebar-nav-list">
-    {%for d in site.docs %}
+    {%for d in site.sidebar %}
     {%-assign active= ''-%}
     {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%endif%}
     {%if d.collection_details  %}

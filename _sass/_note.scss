@@ -70,7 +70,7 @@ body{
   &::before, & > .marker {
     text-transform: uppercase;
     font-weight: $font-weight-bold;
-    content: "Example " counter(example) " ";
+    content➲: "Example " counter(example) " ";
   }
   pre,
   .highlight{
@@ -78,24 +78,28 @@ body{
   }
 }
 
+.success {
+  @include note-variant-before(rgba(lighten($success, 55%), 0.8), darken($success, 10%), $success, "★");
+}
+
 .info {
-  @include note-variant-before(rgba(lighten($info, 55%), 0.8), darken($info, 20%), $info, "ⓘ");
+  @include note-variant-before(rgba(lighten($info, 66%), 0.8), darken($info, 10%), $info, "ⓘ ");
+}
+
+.important {
+  @include note-variant-before(rgba(lighten($important, 66%), 0.8), darken($important, 10%), $important, "➯");//➲
+}
+
+.disclaimer{
+  @include note-variant-before(rgba(lighten($disclaimer, 66%), 0.8), darken($disclaimer, 10%), $disclaimer, " ❕");
 }
 
 .warning {
-  @include note-variant-before(rgba(darken($warning, 20%), 0.8), darken($warning, 20%), lighten($warning, 98%), "‼");
+  @include note-variant-before(rgba(lighten($warning, 45%), 0.9), darken($warning, 5%), $warning, "‼");
   font-weight: 500;
 }
 
-.disclaimer,
-.important {
-  @include note-variant-before(rgba(lighten($disclaimer, 55%), 0.8), darken($disclaimer, 20%), $disclaimer, "‼");
-}
-
 .danger {
-  @include note-variant-before(rgba(lighten($danger, 55%), 0.8), darken($danger, 20%), $danger, "⚠");
+  @include note-variant-before(rgba(lighten($danger, 45%), 0.9), darken($danger, 5%), $danger, "⚠");
 }
 
-.success {
-  @include note-variant-before(rgba(lighten($success, 55%), 0.8), darken($success, 20%), $success, "★");
-}

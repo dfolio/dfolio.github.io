@@ -2,9 +2,10 @@
   position: relative;
   padding: $padding-y $padding-x;
   margin-bottom: $margin-bottom;
-  margin-left: $spacer;
+  margin-left: $spacer*1.5;
   border: $border-width solid transparent;
-
+  width:80%;
+  
   @include border-radius($border-radius);
 
   font-size: $font-size-footnote;
@@ -30,7 +31,11 @@
 
   .note-link,
   a {
-    color: darken($color, 40%);
+    //color: darken($color, 40%);
+    color: mix($link-hover-color-accent, darken($color, 40%), 33%);
+    background: inherit;
+    font-weight: bolder;
+    text-shadow: 1px 1px 4px rgba(lighten($background,40%), 0.9);
   }
 
   hr {
@@ -49,11 +54,19 @@
   @if $before {
     &::before {
       display: flex;
-      align-items: center;
+      align-items: right;
+      text-align: right;
+      float: left;
+      position: relative;
+      top: -$note-padding-y*2;
+      left: -$spacer*1.667;
       height: 0;
+      /*
+      display: flex;
+      */
       content: $before;
-      margin-left: -$spacer*2;
-      color: rgba(darken($color, 40%), 0.8);
+      //margin-left: -$spacer*2;
+      color: rgba(darken($color, 10%), 0.9);
       font: $font-weight-bold (2 * $font-size-base / 1) $font-family-serif;
     }
   }

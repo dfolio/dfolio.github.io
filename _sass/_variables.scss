@@ -10,9 +10,6 @@ $enable-rounded: true;
 $enable-shadows: true;
 $enable-gradients: true;
 $enable-transitions: true;
-$enable-hover-media-query: false;
-
-// Deprecated, no longer affects any compiled CSS
 $enable-grid-classes: true;
 $enable-print-styles: true;
 $enable-print-dark: true;
@@ -46,10 +43,16 @@ $Light: rgba(#efefef, 0.8);
 //$primary: rgba($BlueDark, 1);
 //$secondary: $TurquoiseLight;
 $accent: $Coquelicot;
-$success: $green;
+$info:          $cyan !default;
+$success:       $green !default;
+$quote: silver;
+$danger:        $red !default;
+$issue:         $Coquelicot;
+$example: #e0cb52;
+$disclaimer: $yellow;
+$warning: $orange;
+$important: $primary;
 
-// accentuation & active
-$danger: $Coquelicot;
 $light: $Light;
 $dark: $Dark;
 $download: $BlueLight;
@@ -63,6 +66,9 @@ $theme-colors: map-merge(
     "secondary":  $secondary,
     "success":    $success,
     "info":       $info,
+    "example":    $example,
+    "important":  $important,
+    "disclaimer": $disclaimer,
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
@@ -92,7 +98,8 @@ $masthead-box-shadow: 0 0.5rem 1rem rgba($masthead-bg, 0.8), inset 0 -1px 0 rgba
 $site-footer-height: 3rem;
 
 // Sidebar
-$sidebar-top: $masthead-height + $site-footer-height + 2*$spacer;
+$sidebar-top: $masthead-height;
+$sidebar-voffset: ($sidebar-top + $site-footer-height + $spacer);
 
 // Links
 // Style anchor elements.
@@ -150,10 +157,6 @@ $alert-border-level: -9 !default;
 $alert-color-level: 6 !default;
 
 // blockQuote, note, example
-$quote: silver;
-$issue: $red;
-$example: #e0cb52;
-$disclaimer: $orange;
 //Download
 $download-bg: rgba(darken(theme-color("primary"),20%),.8);
 $download-fg: lighten(theme-color("primary"),60%);

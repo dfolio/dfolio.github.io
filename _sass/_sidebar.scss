@@ -1,14 +1,18 @@
 .sidebar {
-  @include clearfix;
-
-  // Override collapse behaviors
+  order: 0;
   @include media-breakpoint-up(md) {
     display: block !important;
+    @supports (position: sticky) {
+      position: sticky;
+      top: $sidebar-top;
+      height: calc(100vh - #{$sidebar-voffset});
+      z-index: 1000;
+    }
   }
-
+/*
   > * {
     margin: $spacer/2 auto ;
-  }
+  }*/
 
   p,
   li {
@@ -17,24 +21,23 @@
 }
 
 .sidebar-left {
+  //color: $masthead-fg;
+  //@include gradient-bg($masthead-bg);
   @include media-breakpoint-down(md) {
     position: relative;
+    top:0;
     font-size: 90%;
-
+    /*
     @supports (transform-style: preserve-3d) {
       transform: translate3d(0, 0, 0);
     }
+    */
     @include make-row;
   }
 
-  @supports (position: sticky) {
-    position: sticky;
-    top: $spacer;
-    z-index: 999;
-    height: calc(100vh - #{$sidebar-top});
-    overflow-y: auto;
+  @include media-breakpoint-up(xl) {
+    flex: 0 1 320px;
   }
-
   border-right: 1px solid rgba($main-color-bg, 0.2);
 }
 
@@ -42,11 +45,14 @@
   @supports (position: sticky) {
     overflow-y: auto;
   }
-
-  background: rgba($body-bg, 0.4);
-
-  // Override collapse behaviors
+  //@include gradient-bg(rgba($body-bg, 0.4));
   @include media-breakpoint-up(md) {
+    @supports (position: sticky) {
+      position: sticky;
+      max-height: calc(100vh - #{$sidebar-voffset});
+    overflow-y: auto;
+    }
+    // Override collapse behaviors
     display: block !important;
   }
   @include media-breakpoint-down(md) {
@@ -90,7 +96,7 @@
     padding: 0;
   }
   .download {
-    background-color: rgba($download-bg,.2);
+    //background-color: rgba($download-bg,.2);
     @include gradient-bg($download-bg);
     @include border-radius($btn-border-radius);
     @include box-shadow($box-shadow);
@@ -127,14 +133,18 @@
   text-decoration: none;
 
   @include transition($link-transition);
-  @include hover-focus-active {
-    color: $link-hover-color-accent;
+  @include hover {
+    color: mix($link-hover-color-accent, $nav-link-color, 40%);
+    background-color: inherit;
     font-weight: $font-weight-bold;
   }
   
+  a{color:inherit;}
+  
   @include media-breakpoint-up(xl) {
-    &.active::after{
+   /* &.active::after{
       content: "►";
     }
+    */
   }
 }
