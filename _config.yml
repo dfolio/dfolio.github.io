@@ -103,10 +103,10 @@ analytics:
 
 # Collections
 collections:
-  docs:
+  sidebar:
     output:                  true
     permalink:               /:collection/:path/
-  pandoc-df-thesis-template:
+  pandoc-df-thesis:
     output:                  true
     permalink:               /docs/:collection/:path/
 
@@ -118,10 +118,10 @@ defaults:
       type:                  posts
     values:
       layout:                post
-  # _docs
+  # _sidebar
   - scope:
       path:                  ""
-      type:                  docs
+      type:                  sidebar
     values:
       layout:                docs
       collection_details:   true
@@ -131,7 +131,7 @@ defaults:
   # _pandoc-df-thesis-template
   - scope:
       path:                  ""
-      type:                  pandoc-df-thesis-template
+      type:                  pandoc-df-thesis
     values:
       layout:                docs
       toc:                   true
