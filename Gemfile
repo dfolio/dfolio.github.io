@@ -34,5 +34,5 @@ group :development do
   gem 'jekyll-admin'
 end
 
-gem 'jekyll-webmention_io',  :group => [:jekyll_plugins, :development]
+#gem 'jekyll-webmention_io',  :group => [:jekyll_plugins, :development]
 
