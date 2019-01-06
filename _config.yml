@@ -39,7 +39,8 @@ links: &links
 author:
   name             :         "David Folio"
   url              :         "http://dfolio.free.fr"
-  avatar           :         "/assets/media/dfolio.png"
+  image            : &image  "/assets/media/dfolio.png"
+  avatar           : *image
   bio              :         "I am an amazing person."
   location         :         "France"
   links            :         *links
@@ -52,12 +53,11 @@ social:
     - "https://plus.google.com/+DavidFOLIO"
     - "http://dfolio.free.fr"
 
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message','rating']
-  branch                 : "master"
-  requiredFields         : ['name', 'email', 'message']
-  endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
-  
+webmentions: 
+  provider: "webmention.herokuapp.com"
+  username: dfolio.github.io
+#
+
 # Site Footer
 footer:
   links: *links
@@ -100,6 +100,11 @@ analytics:
   google:
     tracking_id          : "UA-464536-9" # Replace this with your ID, or delete
     anonymize_ip         : false
+
+
+feed:
+  collections:
+    - pandoc-df-thesis
 
 # Collections
 collections:
@@ -161,6 +166,7 @@ kramdown:
   hard_wrap:                 false
   entity_output:             as_char
   smart_quotes:              lsquo,rsquo,ldquo,rdquo
+  typographic_symbols:        {hellip: ...}
   syntax_highlighter:        rouge
 
 
@@ -204,6 +210,7 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-include-cache
+  - jekyll-feed
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-github-metadata
@@ -211,3 +218,4 @@ whitelist:
   - jekyll-sitemap
   - jemoji
   - jekyll-include-cache
+  - jekyll-feed

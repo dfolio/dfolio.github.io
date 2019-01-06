@@ -23,3 +23,21 @@ atom:
 
 staticman:
   endpoint               : http://localhost:8080/v2/entry/ # URL of your own deployment with trailing slash, will
+  
+webmentions:  
+#  provider: "jekyll-webmention_io "
+  API_KEY: OEX5Uhxp5sZL_lvLfJ3ruw
+  cache_folder: _data/webmentions
+  cache_bad_uris_for: 5
+  legacy_domains:
+    - https://dfolio.github.io/
+    - http://dfolio.github.io/
+  pause_lookups: false
+  pages: false
+  collections:
+    - pandoc-df-thesis
+    - sidebar
+  js:
+    destination: _data/webmentions/js
+    uglify: false
+    deploy: false  
