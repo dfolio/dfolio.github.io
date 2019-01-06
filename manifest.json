@@ -26,5 +26,10 @@ permalink: manifest.json
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/",
+    "use_cache": false
+  }
 }
