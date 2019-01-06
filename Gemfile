@@ -17,6 +17,7 @@ gem "github-pages", group: :jekyll_plugins
 group :jekyll_plugins do
 #  gem "github-pages"
   gem 'jekyll-sitemap', "~> 1.1"
+  gem 'jekyll-feed'
 #  gem 'jekyll-toc'
 #  gem 'jekyll-scholar'
 #  gem 'jekyll-redirect-from'
@@ -29,5 +30,9 @@ end
 
 group :development do
   gem 'html-proofer'
+  gem 'bundler-audit'
+  gem 'jekyll-admin'
 end
+
+gem 'jekyll-webmention_io',  :group => [:jekyll_plugins, :development]
 
