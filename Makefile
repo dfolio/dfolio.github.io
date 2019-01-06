@@ -188,10 +188,11 @@ define run-bundle
 $(call echo-run,$(BUNDLE),$1,$2); $(BUNDLE) $1 $(if $2,$2,)
 endef
 
+LOCAL:= --config _config.yml,_config.dev.yml --destination $(LOCAL_DIR)
 # Jekyll invocations
 # $(call run-jekyll,<command>,[opts])
 define run-jekyll
-$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,$2,))
+$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,$2,) $(if $3,$(LOCAL),))
 endef
 define run-proof
 $(call echo-run,$(PROOFER),$1); $(call run-bundle,exec, $(PROOFER) $(if $2,$2,) $1)
@@ -243,12 +244,12 @@ test:
 b: build;
 build $(LOCAL_DIR): $(BUILD_DEPS)
 	$(QUIET)$(call echo-build,$(JEKYLL),local)
-	$(call run-jekyll,build, --destination "$(LOCAL_DIR)")  \
+	$(call run-jekyll,build,,1)  \
 			$(call echo-end,local)
 
 profile:
 	$(QUIET)$(call echo-build,$(JEKYLL),profile)
-	$(call run-jekyll,build,--destination "$(LOCAL_DIR)" --profile)  \
+	$(call run-jekyll,build, --profile,1)  \
 			$(call echo-end,local)
 
 # Build for production environment 
@@ -256,13 +257,13 @@ profile:
 p: prod;
 prod:clean $(BUILD_DEPS)
 	$(QUIET)JEKYLL_ENV=production $(call echo-build,$(JEKYLL),local)
-	$(call run-jekyll,build,--safe --destination "$(LOCAL_DIR)")  \
+	$(call run-jekyll,build,--safe )  \
 			$(call echo-end,local)
 
 s: serve;
 serve: $(SERVE_DEPS) | $(LOCAL_DIR)
 	$(QUIET)$(call echo-build,$(JEKYLL),serve)
-	$(call run-jekyll,serve,  --watch --incremental)
+	$(call run-jekyll,serve,  --watch --incremental,1)
 	
 USE_PROOFER := $(if $(shell $(WHICH) $(PROOFER) 2>/dev/null),yes,)
 check:
