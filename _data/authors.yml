@@ -1,0 +1,32 @@
+dfolio:
+  '@context': http://schema.org
+  '@type': Person
+  '@id': "http://dfolio.free.fr/#dfolio"
+  name: David FOLIO
+  familyName: Folio
+  givenName: David
+  email: dfolio@free.fr
+  url: http://dfolio.free.fr
+  image: /assets/david_folio.png
+  nationality: France
+  birthDate: 1979-09-17
+  birthPlace: "Reunion Island (France)"
+  description: "I am a research professor, and I to like share various stuffs related to my activities and hobbies!"
+  sameAs:
+    - https://github.com/dfolio
+    - https://plus.google.com/+DavidFOLIO
+    - https://scholar.google.fr/citations?user=XQVc6JMAAAAJ
+    - https://orcid.org/0000-0001-9430-6091
+    - https://publons.com/a/1136300/
+    - https://www.researcherid.com/rid/D-5808-2013
+    - https://insa-centrevaldeloire.academia.edu/DavidFolio
+    - https://www.mendeley.com/profiles/david-folio/
+    - https://www.researchgate.net/profile/David_Folio
+    - https://viadeo.com/fr/profile/david.folio
+  jobTitle: "Associate Professor"
+  workLocation: 
+    '@context': http://schema.org
+    '@type': Place
+    name: "Bourges, France"
+  affiliation:
+    '@ref': "http://dfolio.free.fr/#INSA"
