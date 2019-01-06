@@ -1,13 +1,13 @@
 <div class="clearfix container-fluid" role="banner">
-  <div class="navbar sticky-top masthead">
+  <div class="navbar sticky-top h-card masthead">
     <header  class="col-12 col-md-3 align-items-center">
-      <div class="col-md-auto"><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="col-md-auto"><a class="m-name fn site-title" href="{{ '/' | relative_url }}" rel="me">{{ site.title }}</a>
       </div>
     </header>
     <div class="col-12 col-md-9 flex-xl-nowrap masthead-navbar"  role="navigation">
       <nav class="col-12 navbar navbar-nav-scroll navbar-nav-main" id="masthead-nav">
         <ul class="navbar-nav flex-row">
-        {%for d in site.docs %}
+        {%for d in site.sidebar %}
         {%-assign active= ''-%}
         {%-if page.url==d.url-%}{%-assign active= 'active'-%}{%-endif-%}
         <li class="nav-item"><a class="nav-link {{active}}" href="{{d.url}}" title="{{ d.excerpt| default: d.title}}">{{d.title}}</a></li>

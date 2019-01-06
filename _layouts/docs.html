@@ -23,10 +23,9 @@ toc_label: On this page
     <meta itemprop="datePublished" content="{{ cdate | date_to_xmlschema }}">
     <meta itemprop="dateModified"  content="{{ mdate | date_to_xmlschema }}">
     
-    <header class="page-header">
-      <h1 id="page-title" class="title p-name page-title" itemprop="headline"><a class="u-url" href="page.url" rel="canonical">{{ page.title | smartify}}</a></h1>
+    <header class="entry-header page-header">
+      <h1 id="page-title" class="title p-name page-title" itemprop="headline"><a class="u-url" href="page.url" rel="canonical"><i class="fas fa-link" aria-hidden="true"></i><span class="sr-only">permalink</span></a>  {{ page.title | smartify}}</h1>
     </header>
-
     <section  class="page-content" itemprop="text">
     {% if page.toc %}
       <aside class="d-none d-xl-block col-xl-2 sidebar-right d-print-none">

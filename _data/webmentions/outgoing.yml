@@ -1,0 +1,69 @@
+---
+https://dfolio.github.io/404.html:
+  https://github.com/: false
+  https://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js: false
+  ? https://github.com/dfolio/dfolio.github.io/issues/new?title=Missing%20Page&body=I%20found%20a%20mixing%20page%20&labels[]=bug&assignee=dfolio
+  : false
+https://dfolio.github.io/assets/css/collapse.css: {}
+https://dfolio.github.io/assets/css/comments.css: {}
+https://dfolio.github.io/docs/: {}
+https://dfolio.github.io/:
+  https://schema.org/Person: false
+  https://dfolio.github.io: false
+  https://schema.org/Place: false
+  https://dfolio.github.io/docs/pandoc-df-thesis/: false
+  http://pandoc.org: false
+  http://pandoc.org</a>.: false
+  https://github.com/dfolio/pandoc-df-thesis-template: false
+https://dfolio.github.io/assets/css/main.css:
+  "//syntax_highlighter": false
+https://dfolio.github.io/manifest.json: {}
+https://dfolio.github.io/sw.js: {}
+https://dfolio.github.io/assets/css/style.css: {}
+https://dfolio.github.io/docs/pandoc-df-thesis/:
+  http://pandoc.org>.: false
+  https://github.com/dfolio/pandoc-df-thesis/issues: false
+  https://github.com/dfolio/pandoc-df-thesis/: false
+  https://github.com/dfolio/pandoc-df-thesis-template/blob/master/LICENSE: false
+https://dfolio.github.io/docs/pandoc-df-thesis-template/preamble/:
+  https://daringfireball.net/projects/markdown/: false
+https://dfolio.github.io/docs/pandoc-df-thesis-template/df-markdown/:
+  https://jekyllrb.com/docs/liquid/: false
+  https://en.wikipedia.org/wiki/DNA: false
+  https://ctan.org/pkg/siunitx>: false
+https://dfolio.github.io/docs/pandoc-df-thesis-template/getting-started/:
+  https://github.com/jgm/pandoc-citeproc: false
+  http://lierdakil.github.io/pandoc-crossref/: false
+  http://www.tug.org/texlive/: false
+  https://tug.org/mactex/: false
+  http://www.luatex.org/: false
+  https://github.com/plk/biblatex/: false
+  http://www.ctan.org/pkg/glossaries/: false
+  http://www.sagehill.net/book-description.html: false
+  https://www.w3.org/TR/xslt/: false
+  http://xmlsoft.org/XSLT/xsltproc.html: false
+  https://www.w3schools.com/css/: false
+  https://github.com/svg/svgo: false
+  https://getbootstrap.com: false
+  https://github.com/dfolio/pandoc-df-thesis-template: false
+  https://github.com/: false
+  https://github.com/dfolio/pandoc-df-thesis-template.git: false
+  https://github.com/dfolio/pandoc-df-thesis-template/zipball/master: false
+  https://github.com/dfolio/pandoc-df-thesis-template/tarball/master: false
+  https://atom.io: false
+  https://www.sublimetext.com/: false
+  https://github.com/dfolio/pandoc-df-thesis-template/issues: false
+  https://github.com/dfolio/pandoc-df-thesis-template/: false
+https://dfolio.github.io/docs/pandoc-df-thesis-template/installation/:
+  https://pandoc.org/installing.html: false
+  https://github.com/jgm/pandoc-citeproc: false
+  http://lierdakil.github.io/pandoc-crossref/: false
+  https://cdsoft.fr/pp/pp.tgz: false
+  http://www.tug.org/texlive/: false
+  https://miktex.org/: false
+  https://tug.org/mactex/: false
+  http://www.luatex.org/: false
+  https://github.com/plk/biblatex/: false
+  http://www.ctan.org/pkg/glossaries/: false
+https://dfolio.github.io/docs/pandoc-df-thesis-template/configurations/: {}
+https://dfolio.github.io/docs/pandoc-df-thesis-template/organization/: {}

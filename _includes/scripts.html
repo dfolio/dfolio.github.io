@@ -48,9 +48,6 @@
   {%capture script_content%}
   {%-if page.tooltip-%}$(function () { $('[data-toggle="tooltip"]').tooltip() }){%-endif-%}
   {%-if page.popover-%}$(function () { $('[data-toggle="popover"]').popover() }){%-endif-%}
-  {%-if page.comments-%}
-  {%-include script_comments.html -%}
-  {%-endif-%}
   {%endcapture script_content%}
 {%-endif-%}
 
@@ -72,4 +69,5 @@
 
 {%- include analytics.html -%} 
 
+{%-if page.comments-%}{%-include script_comments.html -%}{%-endif-%}
 <div class="offline-ready d-none">Site is Ready for Offline Use</div>

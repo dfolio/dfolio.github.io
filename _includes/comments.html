@@ -1,121 +1,77 @@
-<div class="clearfix container-fluid page-comments">
-  <section class="col12" id="static-comments">
-    {% if site.repository and site.staticman.branch %}
+
+{%- if page.comments -%}
+<section class="clearfix container-fluid page-comments"  id="leave-comment">
+  <header> 
+    <h2 class="page-comments-title " id="title-leave-comment">Leave  Comments/Reactions</h2>
+   </header>
+    <p> You can react to this page in different way:</p>
+    <ul class="flex">
+    {%- if page.share-%}
+    <li class="mb-2">
+    {%include social-share.html label="Share it! on your social networks: " nav_class=' ' %}
+    </li>
+    {%- endif -%}
+
+{%comment%}
+<a  class="btn btn-link btn-post" href="#page-social-share" rel="share" role="button"> Share it! <i class="fas fa-share-alt"></i></a> on your social networks 
+{%endcomment%}
+
+    {%- if site.repository-%}
+    {%- assign gh_comment_id=page.comments.gh_comment_id| page.gh_comment_id-%}
+    {%- if gh_comment_id>0-%}
+    <li class="mb-2"><a class="btn btn-secondary btn-post" href="https://github.com/{{site.repository}}/issues/{{-gh_comment_id-}}" rel="noopener" role="button">Post a comment on <i class="fab fa-fw fa-github"></i> GitHub</a> <a class="btn btn-post" href="https://github.com/{{site.repository}}/issues/{{-gh_comment_id-}}" target="_blank" rel="noopener" role="button"><i class="fas fa-external-link-alt"></i><span class="sr-only">post on Gthub</span></a>
+    </li>
+    {%- endif -%}
+    {%- endif -%}
+    {%- if site.webmentions-%}
+    <li class="mb-2">
+      <form class="webmention-form" method="post" action=""https://webmention.io/{{site.webmentions.username}}/webmention">
+      <div>Have you already published a <a href="https://indieweb.org/responses">response</a> to this? </div>
+      <div class="form-group">
+      <label for="webmention-source">
+      Let me know the <abbr title="Uniform Resource Locator">URL</abbr>:</label>
+      <input class="url" type="url" name="source" id="webmention-source" placeholder="URL / permalink of your article">
+	      <input type="hidden" name="target" value="{{page.url}}"">
+	      <button class="btn btn-secondary btn-post" type="submit">Send Webmention</button>  
+	      <p><small>(want to know more on <a href="http://indiewebcamp.com/webmention">webmention</a>?)</small></p>
+	      </div>
+      </form>
+    </li>
+    {%- endif -%}
+ 
+   </ul>
+</section>
+{% endif %}
 
 
-      <!-- Start new comment form -->
-      <div class="container-fluid page-comments-form">
-        <h4 class="page-comments-title">Leave a Comment</h4>
-        <p class="small">Your email address will not be published. Required fields are marked<span class="required">*</span></p>
-        {%if jekyll.environment == 'production'%}
-          {%capture staticman_url%} {{site.staticman.endpoint | default: 'https://api.staticman.net/v2/entry/'}}{{ site.repository }}/{{ site.staticman.branch}}{%endcapture staticman_url%}
-        {%else%}
-        {%capture staticman_url%} {{site.staticman.endpoint |default: 'http://localhost:8080/v2/entry/'}}{{ site.repository }}/{{ site.staticman.branch}}{%endcapture staticman_url%}
-        {%endif%}
-        <form id="new_comment" class="page-comments-form js-form form" method="post" action="{{staticman_url}}/comments">
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-              <label for="comment-form-name"><strong>Name/Pseudo</strong><sup class="required">*</sup></label>
-              <div class="input-group">
-               <div class="input-group-prepend"><span class="input-group-text" id="comment-form-name-p"><i class="fas fa-user-check"></i><span class="sr-only">@</span></span></div>
-              <input class="form-control" type="text" id="comment-form-name" name="fields[name]" tabindex="2" aria-describedby="comment-form-name-p"/>
-              </div>
-              </div>
-              <div class="form-group">
-              <label for="comment-form-email">Email address<sup class="required">*</sup> <small>(to guess an avatar from <a href="https://www.gravatar.com/" rel="nofollow">gravatar</a>)</small></label>
-              <div class="input-group">
-               <div class="input-group-prepend"><span class="input-group-text" id="comment-form-email-p"><i class="fas fa-at"></i><span class="sr-only">@</span></span></div>
-              <input class="form-control" type="email" id="comment-form-email" name="fields[email]" tabindex="3" aria-describedby="comment-form-email-p"/>
-              </div>
-              </div>
-              <div class="form-group">
-              <label for="comment-form-url">Website (optional)</label>
-              <div class="input-group">
-              <div class="input-group-prepend"><span class="input-group-text" id="comment-form-url-p"><i class="fas fa-globe"></i><span class="sr-only">https://</span></span></div>
-              <input class="form-control" type="url" id="comment-form-url" name="fields[url]" tabindex="4" aria-describedby="comment-form-url-p" placeholder="https://"/>
-              </div>
-            </div>
-            <div class="form-group hidden" style="display: none;">
-              <input type="hidden" name="options[parent]" value="" id="comment-form-parent">
-              <input type="hidden" name="options[slug]" value="{{ page.slug }}">
-              <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
-              <input class="form-control" type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
-            </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <label for="comment-form-message"><i class="fas fa-comment"></i> <strong>Comment</strong><sup class="required">*</sup></label>
-                <textarea class="form-control" type="text" rows="4" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
-                <div class="small help-block"><a href="https://daringfireball.net/projects/markdown/">Markdown is supported.</a></div>
-                <div class="form-group">
-                
-                <fieldset class="field-group rating-select">
-                  <span class="label">(optional) Rating </span>
-                  <label class="rating-radio-label" for="movie-form[star-1]">
-                  <i class="fas fa-star fw rating-star rating-radio-star--on">star</i>
-                  </label>
-                  <input class="rating-radio" type="radio" value="1" name="fields[rating]" id="movie-form[star-1]" checked>
-                  
-                  <label class="rating-radio-label" for="movie-form[star-2]">
-                  <i class="fas fa-star fw rating-star rating-radio-star--off">star_border</i>
-                  <i class="fas fa-star fw rating-star rating-radio-star--on">star</i>
-                  </label>
-                  <input class="rating-radio" type="radio" value="2" name="fields[rating]" id="movie-form[star-2]">
-                  
-                  <label class="rating-radio-label" for="movie-form[star-3]">
-                    <i class="fas fa-star fw rating-star rating-radio-star--off">star_border</i>
-                    <i class="fas fa-star fw rating-star rating-radio-star--on">star</i>
-                  </label>
-                  <input class="rating-radio" type="radio" value="3" name="fields[rating]" id="movie-form[star-3]">
 
-                  <label class="rating-radio-label" for="movie-form[star-4]">
-                    <i class="fas fa-star fw rating-star rating-radio-star--off">star_border</i>
-                    <i class="fas fa-star fw rating-star rating-radio-star--on">star</i>
-                  </label>
-                  <input class="rating-radio" type="radio" value="4" name="fields[rating]" id="movie-form[star-4]">
-
-                  <label class="rating-radio-label" for="movie-form[star-5]">
-                    <i class="fas fa-star fw rating-star rating-radio-star--off">star_border</i>
-                    <i class="fas fa-star fw rating-star rating-radio-star--on">star</i>
-                  </label>
-                  <input class="rating-radio" type="radio" value="5" name="fields[rating]" id="movie-form[star-5]">
-                </fieldset>
-                
-                </div>
-                <div class="sticky-bottom">
-                <button type="submit" id="comment-form-submit" tabindex="5" class="btn btn-primary">Submit Comment</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Start comment form alert messaging -->
-          <p class="hidden js-notice">
-            <strong class="js-notice-text"></strong>
-          </p>
-          <!-- End comment form alert messaging -->
-        </form>
-      </div>
-      <!-- End new comment form -->
-      
-      <!-- Start static comments -->
-      <div class="js-comments">
-        {% if site.data.comments[page.slug] %}
-          <h4 class="page-comments-title">{{site.data.comments[page.slug].size}} Comments</h4>
-          {%- assign comments = site.data.comments[page.slug] | sort -%}
-          {% for comment in comments %}
-            {% assign email = comment[1].email %}
-            {% assign name = comment[1].name %}
-            {% assign url = comment[1].url %}
-            {% assign date = comment[1].date %}
-            {% assign message = comment[1].message %}
-            {% assign rating = comment[1].rating %}
-            {% include comment.html index=forloop.index email=email name=name url=url date=date message=message rating=rating%}
-          {% endfor %}
-        {% endif %}
-      </div>
-      <!-- End static comments -->
-    {% endif %}
+{%- if site.webmentions.provider=="jekyll-webmention_io " -%}
+{%- capture webmentions_value -%}{% webmention_count page.url %}{% endcapture -%}
+{%- assign webmentions_int = webmentions_value | plus: 0 -%}
+{%- capture likes -%}{% webmention_count page.url likes %}{%- endcapture -%}
+{%- assign likes_int = likes | plus: 0 -%}
+{%- capture reposts -%}{% webmention_count page.url reposts %}{%- endcapture -%}
+{%- assign reposts_int = reposts | plus: 0 -%}
+<section class="clearfix container-fluid page-comments"  id="webmentions">
+  <header> 
+    <h2 class="page-comments-title " id="title-webmentions">{{ webmentions_int }} Webmention{% if webmentions_int > 1 %}s{% endif %}</h2>
+  </header>
+{% if likes_int > 0 %}
+  <section>
+    <h3>{{ likes }} like{% if likes_int > 1 %}s{% endif %}</h3>
+    {% webmention_likes page.url %}
   </section>
-</div>
+{%endif%}
+{% if reposts_int > 0 %}
+  <section>
+    <h3>{{ reposts }} repost{% if reposts_int > 1 %}s{% endif %}</h3>
+    {% webmention_reposts page.url %}
+  </section>
+{% endif %}
+
+{% if likes_int > 0 or reposts_int > 0 %}
+  <h3>Other Webmentions</h3>
+{% endif %}
+{% webmentions page.url posts replies links %}
+</[Github pages][doc]>
+{% endif %}

@@ -11,7 +11,9 @@ share: true
 collection_details: true
 github: "https://github.com/dfolio/pandoc-df-thesis-template"
 travis: https://travis-ci.com/dfolio/dfolio.github.io.svg?branch=master
-comments: true
+comments: 
+  gh_comment_id: 2
+
 popover: false
 ---
 
