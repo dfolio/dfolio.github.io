@@ -8,11 +8,7 @@
         <ul class="nav nav-social" id="site-social">
           <li class="nav-item mr-2"><a class="nav-link" href="https://github.com/dfolio" rel="me"><i class="fab fa-fw fa-github" aria-hidden="true"></i>github.com/dfolio</a></li>
     {%- if site.footer.links -%}
-      {%- for link in site.footer.links -%}
-        {%- if link.label and link.url -%}
-          <li class="nav-item mr-2"><a class="nav-link" href="{{ link.url }}" rel="noopener me" title="Visit us also on {{link.label}}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-        {%- endif -%}
-      {%- endfor -%}
+      {%include rel-me.html %}
     {%- endif -%}
         </ul>
      </div>

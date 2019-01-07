@@ -1,0 +1,10 @@
+{%-assign item_class=include.item_class| default: 'nav-item mr-2' -%}
+{%-assign a_class=include.anchor_class| default: 'nav-link' -%}
+{%- if site.footer.links -%}
+  {%- for link in site.footer.links -%}
+    {%- if link.label and link.url -%}
+      <li class="{{item_class}}"><a class="{{a_class}}" href="{{ link.url }}" rel="noopener me" title="Visit me also on {{link.label}}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+<li class="{{item_class}}"><a class="{{a_class}}" href="{{site.url}}/feed.xml" {{new_win}} title="Get the feed"><i class="fas fa-rss"></i><span class="sr-only">Get the feed</span></a></li>

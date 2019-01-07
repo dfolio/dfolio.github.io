@@ -4,14 +4,8 @@
 {%-endfor-%}
 {%- assign vers= page.version| default: site.version -%}
 {%- assign vsuff = '?v=' | append: vers -%}
-<!-- Custom CSS -->
-<link rel="stylesheet" href="{{ site.css| default: '/assets/css/main.css' | relative_url | append: vsuff}}">
-{%-for css in layout.css-%}
-<link rel="stylesheet" href="{{ css | absolute_url | append: vsuff}}">
-{%- endfor -%}
-{%-for css in page.css-%}
-<link rel="stylesheet" href="{{ css | absolute_url | append: vsuff  }}">
-{%- endfor -%}
+<!-- Site CSS -->
+<link rel="stylesheet" href="{{ styles_pge.css | default: layout.css| default: site.data.site.css|default: site.css| default: '/assets/css/main.css' | relative_url | append: vsuff}}">
 
 {%- if page.style or page.collapse or page.comments-%}
 <style>

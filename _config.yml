@@ -56,7 +56,6 @@ social:
 webmentions: 
   provider: "webmention.herokuapp.com"
   username: dfolio.github.io
-#
 
 # Site Footer
 footer:

@@ -1,23 +1,43 @@
 ---
 layout: default
+css: /assets/css/home.css
 ---
 
-<main class="col-10 mx-auto site-home" id="home" >
-  <article class="home" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
-    {% if page.date_lastmod %}<meta itemprop="dateModified" content="{{ page.date_lastmod | date: "%B %d, %Y" }}">{% endif %}
-    <header class="page-header">
-      <h1 id="page-title" class="title page-title" itemprop="headline">{{ page.title  | smartify}}</h1>
+<main class="p-0 m-0 container-fluid" id="home-main" itemscope itemtype="https://schema.org/CreativeWork">
+  <section class="row align-items-center h-card home-section">
+    
+    <header class="home-hero page-header mx-auto" >
+      {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+      {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+      {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
+      {% if page.date_lastmod %}<meta itemprop="dateModified" content="{{ page.date_lastmod | date: "%B %d, %Y" }}">{% endif %}
+      {%if page.image%}<img src="{{page.image}}" alt="dfolio logo" class="u-logo" itemprop="image">{%endif%}
+      <h1 class="page-title" id="page-title" itemprop="headline">{{ page.title | smartify }}</h1>
+      {% if page.description %}<p class="lead">{{ page.description | smartify }}</p>{% endif %}
+      
+      <ul class="nav home-rel-me">      
+      {%include rel-me.html %}
+      </ul>
+     
     </header>
-
-    <section class="page-content" itemprop="text">
-      <div class="col-12 home-content">
-        {{ content }}
-      </div>
-    </section>
-  </article>
-
-{%include social-share.html %}
+    
+    <article class="row justify-content-center jumbotron page-content" itemprop="text">
+    <div class="col-10 mx-auto">
+          {{ content }}
+    </div>
+    </article>
+    <footer>
+    
+    </footer>
+  </section>
 </main>
+
+<!-- 
+col-10 mx-auto
+
+  <div class="row justify-content-center p-md-6" >
+  {%- assign share_on=include.label| default: "Share on"-%}
+{%- assign aside_class=include.aside_class| default: "social-share"-%}
+{%- assign nav_class=include.nav_class| default: "nav-social"-%}
+  </div>
+-->
