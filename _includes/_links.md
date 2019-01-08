@@ -28,6 +28,7 @@
 [pandoc-df-thesis-template-github]: http://github.com/dfolio/pandoc-df-thesis-template
 [pandoc-df-thesis-template-doc]: http://dfolio.github.io/docs/pandoc-df-thesis-template/ "pandoc-df-thesis-template documentations"
 
+[pandoc-df-thesis-template-share]: http://dfolio.github.io/docs/pandoc-df-thesis-template/#leave-comment "share/react to the pandoc-df-thesis template"
 
 
 
