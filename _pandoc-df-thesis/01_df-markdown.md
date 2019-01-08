@@ -1,5 +1,5 @@
 ---
-title: "df-Extended Markdown"
+title: "Quick overview of df-Extended Markdown"
 permalink: /docs/pandoc-df-thesis-template/df-markdown/
 excerpt: "The pandoc-df-thesis extended Markdown"
 group: Getting Started
@@ -31,7 +31,7 @@ Such simple feature is not available in [Markdown].
 With [Pandoc] if only [LaTeX] output is used the above macros' definition can be used, but with lost of the other format outputs...
 
 Hence, I've heard of [PP]: a generic Preprocessor (with [Pandoc] in mind).
-The idea is then simple: use [PP] to pre-process a “df)-extended” [Markdown] markup with macros, and then use [Pandoc] to build in the desired dialect.
+The idea is then simple: use [PP] to pre-process a “(df)-extended” [Markdown] markup with macros, and then use [Pandoc] to build in the desired dialect.
 To do so, we first have to define a set of [PP] macros, such as:
 
 ``` tex
@@ -78,14 +78,15 @@ This is achieved within the `_data/glossaries.pp` file, which provide two comman
     > A basic example of defining a new glossary entry is as follows with the
     > [PP] markup
     > ```
-    \GlossEntry{cell}{cell}
+    > \GlossEntry{cell}{cell}
+    > ```
 ~~~~~~~~~~~~~~
 The cell is the basic structural, functional, and biological unit of all known living organisms.
 A cell is the smallest unit of life. Cells are often called the "building blocks of life".
 ~~~~~~~~~~~~~~
     > ```
     {: .example :}
-
+    
     Here again you can simply use `\<label>` (e.g. `\cell`) to refer to the glossary entry.
 
 
@@ -184,7 +185,7 @@ and reproduction of all known living organisms and many viruses.
 - full version '\DNAfull'
 ```
 
-(sample text from <cite>[Wikipedia](https://en.wikipedia.org/wiki/DNA)</cite>.)
+(sample text from  <cite> <i class="fab fa-wikipedia-w"></i> [ Wikipedia](https://en.wikipedia.org/wiki/DNA)</cite>.)
 
 The above df-extended-markdown will be pre-processed with [PP] for an [HTML] output format as:
 

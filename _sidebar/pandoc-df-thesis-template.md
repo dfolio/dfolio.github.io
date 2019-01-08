@@ -49,5 +49,15 @@ For any troubleshooting read, and (eventually) [create an issue](https://github.
 
 ## Contribute
 
-Feel free (under the [CC-By-4.0 terms](https://github.com/dfolio/pandoc-df-thesis-template/blob/master/LICENSE)) to modify/adapt this template for your own purpose (I will appreciate some feedback :+1:).
+Feel free (under the [CC-By-4.0 terms](https://github.com/dfolio/pandoc-df-thesis-template/blob/master/LICENSE){: rel="license"}) to modify/adapt this template for your own purpose (I will appreciate some  [me your feedbacks][pandoc-df-thesis-template-share]  :+1:).  To this aim you can:
+
+1. [Fork it](http://github.com/dfolio/pandoc-df-thesis-template/fork) : go to the [pandoc-df-thesis repository](http://github.com/dfolio/pandoc-df-thesis-template)   and hit the fork button in the upper right corner.
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new [Pull Request](https://github.com/dfolio/pandoc-df-thesis-template/pulls) with your contributions
+6. Please give [me your feedbacks][pandoc-df-thesis-template-share] or [share the template][pandoc-df-thesis-template-share] on your social-networks (show the [Github pages][doc] [documentations][pandoc-df-thesis-template-share] for this)
+
+
+For any troubleshooting read, and (eventually) [create an issue][this-issues] on [pandoc-df-thesis-template][this-repo] [GitHub] repository.
 
