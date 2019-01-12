@@ -4,6 +4,12 @@
 {%-endfor-%}
 {%- assign vers= page.version| default: site.version -%}
 {%- assign vsuff = '?v=' | append: vers -%}
+
+{%- assign vers= page.version| default: site.version -%}
+{%- assign vsuff = '?v=' | append: vers -%}
+{%-if page.comments-%}{%- assign vsuff = vsuff | append: "&comments" -%}{%- endif -%}
+{%-if page.collapse-%}{%- assign vsuff = vsuff | append: "&collapse" -%}{%- endif -%}
+
 <!-- Site CSS -->
 <link rel="stylesheet" href="{{ styles_pge.css | default: layout.css| default: site.data.site.css|default: site.css| default: '/assets/css/main.css' | relative_url | append: vsuff}}">
 

@@ -3,8 +3,9 @@
 {%- if site.footer.links -%}
   {%- for link in site.footer.links -%}
     {%- if link.label and link.url -%}
-      <li class="{{item_class}}"><a class="{{a_class}}" href="{{ link.url }}" rel="noopener me" title="Visit me also on {{link.label}}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+      <li class="{{item_class}}"><a class="{{a_class}} u-url" href="{{ link.url }}" rel="noopener noreferrer me" target="_blank" title="Visit me also on {{link.label}}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
-<li class="{{item_class}}"><a class="{{a_class}}" href="{{site.url}}/feed.xml" {{new_win}} title="Get the feed"><i class="fas fa-rss"></i><span class="sr-only">Get the feed</span></a></li>
+<li class="{{item_class}}"><a class="{{a_class}}" href="{{site.url}}/feed.xml" rel="noopener noreferrer me" target="_blank" title="Get the feed"><i class="fas fa-rss"></i><span class="sr-only">Get the feed</span></a></li>
+
