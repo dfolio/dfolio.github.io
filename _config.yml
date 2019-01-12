@@ -230,3 +230,10 @@ whitelist:
   - jemoji
   - jekyll-include-cache
   - jekyll-feed
+
+optional_front_matter:
+  enabled:          false
+readme_index:
+  enabled:          false
+titles_from_headings:
+  enabled:          false
