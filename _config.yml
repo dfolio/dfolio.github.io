@@ -15,6 +15,7 @@ theme_color             :    "#ffffff"
 # Site settings
 baseurl                :     ""
 url                    :     "https://dfolio.github.io/"
+#github-metadata
 repository             :     "dfolio/dfolio.github.io"
 
 encoding:                    "utf-8"
@@ -22,15 +23,21 @@ timezone:                    Europe/Paris
 
 # Site links
 links: &links
-  - label:                 "GitHub"
-    icon:                  "fab fa-fw fa-github"
-    url:                   "https://dfolio.github.io/"
+  - label:               "GitHub Page"
+    icon:                "fab fa-fw fa-github"
+    url:                 "https://dfolio.github.io/"
+  - label:               "GitHub Repo"
+    icon:                "fab fa-fw fa-github"
+    url:                 "https://github.com/dfolio/dfolio.github.io/"
   - label:                 "Facebook"
     icon:                  "fab fa-fw fa-facebook-square"
     # url:
   - label:                 "Google+"
     icon:                  "fab fa-fw fa-google-plus"
     url:                   "https://plus.google.com/+DavidFOLIO"
+  - label:                 "keybase"
+    icon:                  "fab fa-fw fa-keybase"
+    url:                   "https://keybase.io/dfolio"
   - label:                 "Website"
     icon:                  "fas fa-fw fa-link"
     url:                   "http://dfolio.free.fr"
@@ -122,6 +129,9 @@ defaults:
       type:                  posts
     values:
       layout:                post
+      comments:              true
+      edit:                  false
+      share:                 true
   # _sidebar
   - scope:
       path:                  ""
@@ -130,6 +140,7 @@ defaults:
       layout:                docs
       collection_details:   true
       comments:              true
+      edit:                  false
       toc:                   true
       share:                 true
   # _pandoc-df-thesis-template
@@ -140,8 +151,9 @@ defaults:
       layout:                docs
       toc:                   true
       comments:              false
-      share:                 false
       collapse:              false
+      edit:                  true
+      share:                 true
 
 # Build settings
 
