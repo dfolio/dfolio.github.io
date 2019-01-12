@@ -32,6 +32,7 @@ group :development do
   gem 'html-proofer'
   gem 'bundler-audit'
   gem 'jekyll-admin'
+#  gem 'github_changelog_generator', require: false
 end
 
 #gem 'jekyll-webmention_io',  :group => [:jekyll_plugins, :development]
