@@ -1,4 +1,4 @@
-{% if jekyll.environment == 'production' %}
+{% if jekyll.environment == 'production' or true %}
 function showOfflineToast() {
   let offlineToast = document.querySelector('.offline-ready');
   offlineToast.classList.add('active');
