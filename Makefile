@@ -13,8 +13,10 @@ ASSETS_VENDOR_DIR ?= $(ASSETS_DIR)/vendor
 FAVICO_DIR    ?=$(ASSETS_DIR)/favicons
 SUBDIRS       ?=_docs _pandoc-df-thesis-template
 LOCAL_DIR     ?=_site
+SW            ?= sw.js
 # created by npm (nodejs)
 NODEDIR       ?=node_modules
+
 ################################################################################
 # EXTERNAL PROGRAMS:
 # = ESSENTIAL PROGRAMS
@@ -25,6 +27,7 @@ JEKYLL    ?= jekyll
 NPM       ?= npm
 PROOFER   ?= htmlproofer
 RSYNC     ?= rsync 
+WORKBOX   ?= workbox 
 # == Basic Shell Utilities
 CAT       ?= cat
 CP        ?= cp -f
@@ -44,7 +47,7 @@ ZIP       ?= zip
 
 ################################################################################
 # Default FLAGS
-
+JEKYLL_FLAGS  ?= --safe 
 RSYNC_FLAGS   ?= -r -t -p -o -g -l -c -z -u -s -a
 # Turn on final version of the document
 ifdef PROD
@@ -65,6 +68,7 @@ endif
 ifdef VERBOSE
 RSYNC_FLAGS += --verbose -h --progress
 WRITE_LOG   ?= 1
+JEKYLL_FLAGS+= --verbose
 else
 RSYNC_FLAGS += --quiet
 endif
@@ -171,7 +175,7 @@ echo-failure  = $(echo_dt) "$(red)$(bold)$1$(reset)"
 
 
 # $(call echo-build,<target>,[<run number>])
-echo-build    = $(echo_dt) "\t$(blue)$(bold)==Build==$(reset)$(blue)\t$2$(if $3, ($3),)...$(reset)"
+echo-build    = $(echo_dt) "\t$(blue)$(bold)==Build==$(reset)$(blue) $1\t$2$(if $3, ($3),)...$(reset)"
 # $(call echo-run,<prog>,<arg>)
 echo-run      = $(echo_dt) "\t$(cyan)>>$(bold)Run $1$(reset)$(cyan)$(if $2,\t$2,)...$(reset)"
 echo-copy     = $(echo_dt) "\t$(cyan)>>Copy $1$(if $2,\t$2 $(if $3,--> $3,),)...$(reset)"
@@ -192,7 +196,7 @@ LOCAL:= --config _config.yml,_config.dev.yml --destination $(LOCAL_DIR)
 # Jekyll invocations
 # $(call run-jekyll,<command>,[opts])
 define run-jekyll
-$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(if $2,$2,) $(if $3,$(LOCAL),))
+$(call echo-run,$(JEKYLL),$1); $(call run-bundle,exec, $(JEKYLL) $1 $(JEKYLL_FLAGS) $(if $2,$2,) $(if $3,$(LOCAL),))
 endef
 define run-proof
 $(call echo-run,$(PROOFER),$1); $(call run-bundle,exec, $(PROOFER) $(if $2,$2,) $1)
@@ -213,7 +217,7 @@ MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
 
 ################################################################################
 # Dependancies
-BUILD_DEPS    += Gemfile.lock  package-lock.json
+BUILD_DEPS    += Gemfile.lock  package-lock.json $(SW)
 SERVE_DEPS    += $(BUILD_DEPS) _includes/collapse.css _includes/comments.css
 
 # Cleanable files/directories
@@ -249,7 +253,7 @@ build $(LOCAL_DIR): $(BUILD_DEPS)
 
 profile:
 	$(QUIET)$(call echo-build,$(JEKYLL),profile)
-	$(call run-jekyll,build, --profile,1)  \
+	$(call run-jekyll,build,--safe --profile,1)  \
 			$(call echo-end,local)
 
 # Build for production environment 
@@ -257,13 +261,13 @@ profile:
 p: prod;
 prod:clean $(BUILD_DEPS)
 	$(QUIET)JEKYLL_ENV=production $(call echo-build,$(JEKYLL),local)
-	$(call run-jekyll,build,--safe )  \
+	$(call run-jekyll,build)  \
 			$(call echo-end,local)
 
 s: serve;
 serve: $(SERVE_DEPS) | $(LOCAL_DIR)
 	$(QUIET)$(call echo-build,$(JEKYLL),serve)
-	$(call run-jekyll,serve,  --watch --incremental,1)
+	$(call run-jekyll,serve, --watch --incremental,1)
 	
 USE_PROOFER := $(if $(shell $(WHICH) $(PROOFER) 2>/dev/null),yes,)
 check:
@@ -275,8 +279,21 @@ ifneq ($(USE_PROOFER),)
 	--check-html --http-status-ignore 999 --internal-domains localhost:4000 --assume-extension)	$(LOCAL_DIR)
 endif
 
-changelog:
-	$(QUIET)$(ECHO) "git log  --pretty --decorate"
+
+USE_WORKBOX := $(if $(shell $(WHICH) $(WORKBOX) 2>/dev/null),yes,)
+.PHONY: sw
+ifneq ($(USE_WORKBOX),)
+sw $(SW): workbox-config.js _layouts/sw.js
+	$(QUIET)$(call echo-build,$(WORKBOX),ws.js)
+	$(WORKBOX) injectManifest
+else
+sw $(SW):
+	$(QUIET)$(call echo-warning, "workbox is not available on your system")
+endif
+
+
+
+#	$(QUIET)$(ECHO) "git log  --pretty --decorate"
 #https://github.com/github-changelog-generator/github-changelog-generator
 ################################################################################
 # INTERMEDIATE TARGETS

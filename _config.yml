@@ -107,7 +107,10 @@ analytics:
     tracking_id          : "UA-464536-9" # Replace this with your ID, or delete
     anonymize_ip         : false
 
-
+serviceWorker:
+  workbox:
+    url: https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js
+    version: 3.6.1
 feed:
   collections:
     - pandoc-df-thesis
@@ -210,6 +213,9 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - workbox-config.js
+  - staticman.yml
+
 
 keep_files:
   - .git
