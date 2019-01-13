@@ -1,22 +1,20 @@
 {%- assign share_on=include.label| default: "Share on"-%}
+{%- assign id=include.id| default: "page-social-share"-%}
 {%- assign aside_class=include.aside_class| default: "social-share"-%}
 {%- assign nav_class=include.nav_class| default: "nav-social"-%}
 {%- assign page_url= page.url | absolute_url | url_encode-%}
 {%- assign page_title= page.title | url_encode-%}
 {%- assign page_text= page.excerpt| default: page.title | url_encode-%}
-{%- assign new_win='onclick="window.open(this.href); return false;"'-%}
-{%comment%}
-onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-{%endcomment%}
-<aside class="d-print-none {{ aside_class }}" id="page-social-share">
-    <ul class="nav {{nav_class}}">
-      <li class="nav-text"><i class="fas fa-share-alt-square"></i> {{share_on}} </li>
-      <li class="mr-2"><a href="https://twitter.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&{% endif %}text={{page_text}}%20{{ page_url }}" class="nav-link btn btn-twitter" {{new_win}} title="{{ share_on }} Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="sr-only"> Twitter</span></a></li>
-      <li class="mr-2"><a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" class="nav-link btn btn-facebook" {{new_win}} title="{{ share_on }} Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="sr-only"> Facebook</span></a></li>
-      <li class="mr-2"><a href="https://plus.google.com/share?url={{ page_url }}" class="nav-link btn btn-google-plus" {{new_win}} title="{{ share_on }} Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span class="sr-only"> Google+</span></a></li>
-      <li class="mr-2"><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page_url }}" class="nav-link btn btn-linkedin" {{new_win}} title="{{ share_on }} LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="sr-only"> LinkedIn</span></a></li>
-      <li class="mr-2"><a class="nav-link btn btn-pinterest" href="https://pinterest.com/pin/create/button/?url={{page_url}}&description={{page_text}}" {{new_win}} title="Pin it"><i class="fab fa-fw fa-pinterest-square" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
-      <li class="mr-2"><a class="nav-link btn btn-pocket" href="https://getpocket.com/save?url={{page_url}}&title={{page_title}}" {{new_win}} title="Add to Pocket"><i class="fab fa-fw fa-get-pocket" aria-hidden="true"></i><span class="sr-only">Add to Pocket</span></a></li>
-      <li class="mr-2"><a class="nav-link btn btn-reddit" href="https://www.reddit.com/submit?url={{page_url}}&title={{page_title}}" {{new_win}} title="{{ share_on }} Reddit"><i class="fab fa-fw fa-reddit-square" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
-    </ul>
+{%- assign aattr='rel="noopener noreferrer" target="_blank"'-%}
+<aside class="d-print-none {{ aside_class }}" id="{{id}}">
+  <ul class="nav {{nav_class}}">
+    <li class="nav-text"><i class="fas fa-share-alt-square"></i> {{share_on}} </li>
+    <li class="mr-2"><a href="https://twitter.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&{% endif %}text={{page_text}}%20{{ page_url }}" class="nav-link btn btn-twitter" {{aattr}} title="{{ share_on }} Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="sr-only"> Twitter</span></a></li>
+    <li class="mr-2"><a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" class="nav-link btn btn-facebook" {{aattr}} title="{{ share_on }} Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="sr-only"> Facebook</span></a></li>
+    <li class="mr-2"><a href="https://plus.google.com/share?url={{ page_url }}" class="nav-link btn btn-google-plus" {{aattr}} title="{{ share_on }} Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span class="sr-only"> Google+</span></a></li>
+    <li class="mr-2"><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page_url }}" class="nav-link btn btn-linkedin" {{aattr}} title="{{ share_on }} LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="sr-only"> LinkedIn</span></a></li>
+    <li class="mr-2"><a class="nav-link btn btn-pinterest" href="https://pinterest.com/pin/create/button/?url={{page_url}}&description={{page_text}}" {{aattr}} title="Pin it"><i class="fab fa-fw fa-pinterest-square" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+    <li class="mr-2"><a class="nav-link btn btn-pocket" href="https://getpocket.com/save?url={{page_url}}&title={{page_title}}" {{aattr}} title="Add to Pocket"><i class="fab fa-fw fa-get-pocket" aria-hidden="true"></i><span class="sr-only">Add to Pocket</span></a></li>
+    <li class="mr-2"><a class="nav-link btn btn-reddit" href="https://www.reddit.com/submit?url={{page_url}}&title={{page_title}}" {{aattr}} title="{{ share_on }} Reddit"><i class="fab fa-fw fa-reddit-square" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a></li>
+  </ul>
 </aside>
