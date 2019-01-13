@@ -48,7 +48,7 @@ toc_label: On this page
       Published on <time  class="dt-published" datetime="{{ cdate | date_to_xmlschema }}">{{ cdate | date: "%B %d, %Y" }}</time>
       {%if mdate > cdate %} and Updated on <time datetime="{{ mdate | date_to_xmlschema }}">{{ mdate | date: "%B %d, %Y" }}</time>{% endif %}</p>
       {%- if page.edit-%}
-      <p class="page-edit">This site is open source. {% github_edit_link "Improve this page" %}</p>
+      <p class="page-edit">This site is open source: improve this page {% github_edit_link "by suggesting edits" %}</p>
       {%- endif -%}
       {%- if page.share-%}{%include social-share.html %}{%- endif -%}
     </footer>
