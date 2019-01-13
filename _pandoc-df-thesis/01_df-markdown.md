@@ -1,6 +1,6 @@
 ---
 title: "Quick overview of df-Extended Markdown"
-permalink: /docs/pandoc-df-thesis-template/df-markdown/
+permalink: /docs/pandoc-df-thesis/df-markdown/
 excerpt: "The pandoc-df-thesis extended Markdown"
 group: Getting Started
 date_created: 2018-12-04 09:56:15.1543913775 +0100

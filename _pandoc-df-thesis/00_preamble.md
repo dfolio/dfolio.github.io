@@ -1,6 +1,6 @@
 ---
 title: "Preamble"
-permalink: /docs/pandoc-df-thesis-template/preamble/
+permalink: /docs/pandoc-df-thesis/preamble/
 excerpt: "The motivation behind pandoc-df-thesis-template."
 group: Getting Started
 date_created: 2018-12-02 17:17:49 +0100

@@ -1,6 +1,6 @@
 ---
 title: "Organization"
-permalink: /docs/pandoc-df-thesis-template/organization/
+permalink: /docs/pandoc-df-thesis/organization/
 excerpt: "How the template is organized."
 group: Getting Started
 date_created: 2018-12-11 07:36:13.1544510173 +0100
