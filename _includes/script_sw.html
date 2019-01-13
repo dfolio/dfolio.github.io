@@ -1,4 +1,6 @@
 {% if jekyll.environment == 'production' or true %}
+{%- assign vers= page.version| default: site.version -%}
+{%- assign vsuff = '?v=' | append: vers -%}
 function showOfflineToast() {
   let offlineToast = document.querySelector('.offline-ready');
   offlineToast.classList.add('active');
@@ -8,20 +10,22 @@ function showOfflineToast() {
 }
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register('/sw.js').then(function(reg) {
-    if (!reg.installing) return;
-    console.log("[*] ServiceWorker is installing...");
-    var worker = reg.installing;
-    worker.addEventListener('statechange', function() {
-        if (worker.state == 'redundant') {
-            console.log('[*] Install failed');
+    reg.onupdatefound = function() {
+      var installingWorker = reg.installing;
+      installingWorker.onstatechange = function() {
+        switch (installingWorker.state) {
+          case 'installed':
+            if (navigator.serviceWorker.controller) {
+              var event = document.createEvent('Event');
+              event.initEvent('sw.update', true, true);
+              window.dispatchEvent(event);
+            }
+            break;
         }
-        if (worker.state == 'installed') {
-            console.log('[*] Install successful!');
-        }
-        if (worker.state == 'activated' && !navigator.serviceWorker.controller) {
-          showOfflineToast();
-        }
-    });
+      };
+    };
+  }).catch(function(e) {
+  console.error('Error during service worker registration:', e);
   });
 }
 {%-endif%}

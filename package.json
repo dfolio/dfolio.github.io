@@ -23,5 +23,8 @@
   "homepage": "https://github.com/dfolio/dfolio.github.io#readme",
   "dependencies": {
     "bootstrap": "^4.1.0"
+  },
+  "devDependencies": {
+    "workbox-cli": "^3.5.0"
   }
 }
