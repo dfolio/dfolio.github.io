@@ -165,10 +165,6 @@ if (workbox) {
     "revision": "3190bd489a9d7e56fe63c4b6ca38708a"
   },
   {
-    "url": "tests/index.html",
-    "revision": "6b1e3ab82df79689bf97baac384a9972"
-  },
-  {
     "url": "manifest.json",
     "revision": "c1248989bfa6485d9bafb2d0ac8fd304"
   },
