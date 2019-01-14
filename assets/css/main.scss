@@ -18,3 +18,15 @@ html {
 @import "needed";
 //syntax_highlighter
 @import "syntax";
+
+{%if page.comments%}
+@import "comments";
+{%endif%}
+{%if page.collapse%}
+@import "collapse";
+{%endif%}
+
+{%comment%}
+@if $enable-var-styles {
+}
+{%endcomment%}
