@@ -1,6 +1,7 @@
 _site/
+_web/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-#node_modules/
+node_modules/
 .github_changelog_generator
