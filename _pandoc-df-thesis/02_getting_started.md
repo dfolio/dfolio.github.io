@@ -1,6 +1,6 @@
 ---
 title: "Quick-Start Guide"
-permalink: /docs/pandoc-df-thesis-template/getting-started/
+permalink: /docs/pandoc-df-thesis/getting-started/
 excerpt: "How to quickly install and setup pandoc-df-thesis-template."
 group: Getting Started
 date_created: 2018-12-02 18:33:18 +0100

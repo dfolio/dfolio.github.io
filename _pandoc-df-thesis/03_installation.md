@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-permalink: /docs/pandoc-df-thesis-template/installation/
+permalink: /docs/pandoc-df-thesis/installation/
 excerpt: "How to install pandoc-df-thesis-template."
 group: Getting Started
 date_created: 2018-12-04 08:17:17.1543907837 +0100

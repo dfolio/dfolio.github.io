@@ -18,7 +18,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "assets/css/collapse.css",
-    "revision": "235d1e476b95f4436ece1fd85950c9d7"
+    "revision": "4b4fc1e247e252e3db8f05f5d1530403"
   },
   {
     "url": "assets/css/comments.css",
@@ -26,11 +26,11 @@ if (workbox) {
   },
   {
     "url": "assets/css/home.css",
-    "revision": "ca6216c3becd713a9c5800f7a96f9120"
+    "revision": "87a7c69bd025f1c3b458a2ab5eb454f4"
   },
   {
     "url": "assets/css/main.css",
-    "revision": "06bbcc0588aed784e6c1ac4bc1b5dfe1"
+    "revision": "45e75ba4ba78c36e9a5efb121cb3cb1f"
   },
   {
     "url": "assets/css/style.css",
@@ -129,32 +129,32 @@ if (workbox) {
     "revision": "e634288ee06a41051bfd7078ed886e42"
   },
   {
-    "url": "docs/pandoc-df-thesis-template/configurations/index.html",
-    "revision": "8c8c0d5c7c834cb22f51cc6c19dc55df"
+    "url": "docs/pandoc-df-thesis/configurations/index.html",
+    "revision": "94f85668b3ec87ff1335a4ac82f6e284"
   },
   {
-    "url": "docs/pandoc-df-thesis-template/df-markdown/index.html",
-    "revision": "287adbe478bca55607db2bf7a44b792b"
+    "url": "docs/pandoc-df-thesis/df-markdown/index.html",
+    "revision": "3ecde637e6362a0139595571c182a12e"
   },
   {
-    "url": "docs/pandoc-df-thesis-template/getting-started/index.html",
-    "revision": "e84097d8a7d32e068c5030f013ff460f"
-  },
-  {
-    "url": "docs/pandoc-df-thesis-template/installation/index.html",
-    "revision": "17cfc3521ea30ede44b7ab20bdf9ab11"
-  },
-  {
-    "url": "docs/pandoc-df-thesis-template/organization/index.html",
-    "revision": "778d373f837e3a31da1739e72a6f014d"
-  },
-  {
-    "url": "docs/pandoc-df-thesis-template/preamble/index.html",
-    "revision": "2edb7aed8e7301f13077a654ba2d445c"
+    "url": "docs/pandoc-df-thesis/getting-started/index.html",
+    "revision": "15a1d48b23deb2fa6474986b4037d450"
   },
   {
     "url": "docs/pandoc-df-thesis/index.html",
-    "revision": "a6b607a18b94c66cb5d8d496bf1022d2"
+    "revision": "222e4a92e3ca224909862f094b8fb206"
+  },
+  {
+    "url": "docs/pandoc-df-thesis/installation/index.html",
+    "revision": "52a08ab1a32392c992cc5c689506cca2"
+  },
+  {
+    "url": "docs/pandoc-df-thesis/organization/index.html",
+    "revision": "4c9e204dbb129ac24ef963678643c860"
+  },
+  {
+    "url": "docs/pandoc-df-thesis/preamble/index.html",
+    "revision": "92c6328988e5cd0bd69696c6b9301780"
   },
   {
     "url": "index.html",
@@ -163,10 +163,6 @@ if (workbox) {
   {
     "url": "offline.html",
     "revision": "3190bd489a9d7e56fe63c4b6ca38708a"
-  },
-  {
-    "url": "tests/index.html",
-    "revision": "6b1e3ab82df79689bf97baac384a9972"
   },
   {
     "url": "manifest.json",

@@ -17,14 +17,16 @@
   ],
   "author": "dfolio",
   "license": "CC-BY-4.0",
+  "private": true,
   "bugs": {
     "url": "https://github.com/dfolio/dfolio.github.io/issues"
   },
-  "homepage": "https://github.com/dfolio/dfolio.github.io#readme",
+  "homepage": "https://dfolio/dfolio.github.io",
   "dependencies": {
-    "bootstrap": "^4.1.0"
+    "penthouse": "^1.10.2",
+    "workbox-cli": "^3.5.0"
   },
   "devDependencies": {
-    "workbox-cli": "^3.5.0"
+    "bootstrap": "^4.2.1"
   }
 }

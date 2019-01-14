@@ -1,6 +1,6 @@
 ---
 title: "Configuration"
-permalink: /docs/pandoc-df-thesis-template/configurations/
+permalink: /docs/pandoc-df-thesis/configurations/
 excerpt: "Configuring the pandoc-df-thesis"
 group: Customization
 date_created: 2018-12-04 09:56:15.1543913775 +0100
