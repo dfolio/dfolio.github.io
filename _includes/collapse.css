@@ -122,10 +122,10 @@ input.btn-toggle-round-flat + .btn-toggle-lbl:after {
 }
 
 input.btn-toggle-round-flat:checked + .btn-toggle-lbl {
-  background-color: #28a745;
+  background-color: #336622;
 }
 
 input.btn-toggle-round-flat:checked + .btn-toggle-lbl:after {
   margin-left: 1.25rem;
-  background-color: #28a745;
+  background-color: #336622;
 }
