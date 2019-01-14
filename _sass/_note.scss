@@ -78,6 +78,7 @@ body{
   }
 }
 
+//@mixin note-variant($background, $border, $color) 
 .success {
   @include note-variant-before(rgba(lighten($success, 55%), 0.8), darken($success, 10%), $success, "★");
 }
@@ -95,11 +96,11 @@ body{
 }
 
 .warning {
-  @include note-variant-before(rgba(lighten($warning, 45%), 0.9), darken($warning, 5%), $warning, "‼");
+  @include note-variant-before(rgba(lighten($warning, 66%), 0.9), darken($warning, 5%), $warning, "‼");
   font-weight: 500;
 }
 
 .danger {
-  @include note-variant-before(rgba(lighten($danger, 45%), 0.9), darken($danger, 5%), $danger, "⚠");
+  @include note-variant-before(rgba(lighten($danger, 66%), 0.9), darken($danger, 5%), $danger, "⚠");
 }
 

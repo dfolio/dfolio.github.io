@@ -40,18 +40,18 @@ $Canary: rgba(#ff9, 1);
 $Dark: rgba(#24292e, 1);
 $Light: rgba(#efefef, 0.8);
 
-//$primary: rgba($BlueDark, 1);
+$primary:       rgba(#3344dd, 1);//WCAG compliant
 //$secondary: $TurquoiseLight;
-$accent: $Coquelicot;
-$info:          $cyan !default;
-$success:       $green !default;
-$quote: silver;
+$accent:        rgba(#bb1122,1); //WCAG compliant
+$info:          rgba(#36C,1);
+$success:       rgba(#362,1);
+$quote:         rgba(#666,1);
 $danger:        $red !default;
 $issue:         $Coquelicot;
-$example: #e0cb52;
-$disclaimer: $yellow;
-$warning: $orange;
-$important: $primary;
+$example:       #e0cb52;
+$disclaimer:    darken($yellow,10%);
+$warning:       darken($orange,10%);
+$important:     $primary;
 
 $light: $Light;
 $dark: $Dark;
@@ -193,6 +193,7 @@ $btn-toggle-xy: 2px;
 $footnote-rule: 2px solid $BlueDark;
 
 // syntax highlighting
+$code-color:                        darken($pink,20%);
 $base00: #f8f8f8 !default;//
 $base01: #2e3c43 !default;//unused?
 $base02: #314549 !default;//unused?

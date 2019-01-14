@@ -25,6 +25,7 @@ GEM       ?= gem
 BUNDLE    ?= bundle
 JEKYLL    ?= jekyll
 NPM       ?= npm
+NPX       ?= npx
 PROOFER   ?= htmlproofer
 RSYNC     ?= rsync 
 WORKBOX   ?= workbox 
@@ -211,6 +212,10 @@ define run-node
 $(call echo-run,$(NPM),$1); $(strip $(NPM)) $1 $(if $2,$2,)
 endef
 
+define exec-node
+$(call echo-run,$(NPX),$1); $(strip $(NPX)) $1 $(if $2,$2,)
+endef
+
 ################################################################################
 # Files of Insterests
 MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
@@ -285,7 +290,7 @@ USE_WORKBOX := $(if $(shell $(WHICH) $(WORKBOX) 2>/dev/null),yes,)
 ifneq ($(USE_WORKBOX),)
 sw $(SW): workbox-config.js _layouts/sw.js
 	$(QUIET)$(call echo-build,$(WORKBOX),ws.js)
-	$(WORKBOX) injectManifest
+	$(call exec-node,$(WORKBOX), injectManifest)
 else
 sw $(SW):
 	$(QUIET)$(call echo-warning, "workbox is not available on your system")
@@ -303,6 +308,12 @@ $(LOCAL_DIR)/assets/css/%.css: $(ASSETS_DIR)/css/%.scss | $(LOCAL_DIR)
 _includes/%.css:$(LOCAL_DIR)/assets/css/%.css 
 	$(QUIET)$(call echo-copy,$<,$@,$*)
 	$(call copy-if-exists,$<,$@)
+################################################################################
+bootstrap:$(NODEDIR)/bootstrap/
+	$(QUIET)$(call  echo-copy,$<,$@,$*)
+	$(call copy-if-exists,$(NODEDIR)/bootstrap/,assets/vendor/bootstrap)
+
+
 
 ################################################################################
 # PREPARE TARGETS

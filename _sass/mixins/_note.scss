@@ -32,10 +32,10 @@
   .note-link,
   a {
     //color: darken($color, 40%);
-    color: mix($link-hover-color-accent, darken($color, 40%), 33%);
+    color: mix($link-hover-color-accent, darken($color, 33%), 33%);
     background: inherit;
     font-weight: bolder;
-    text-shadow: 1px 1px 4px rgba(lighten($background,40%), 0.9);
+    text-shadow: 1px 1px 4px rgba(lighten($color,66%), 0.9);
   }
 
   hr {
