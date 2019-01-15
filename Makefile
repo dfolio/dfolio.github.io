@@ -223,7 +223,8 @@ MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
 ################################################################################
 # Dependancies
 BUILD_DEPS    += Gemfile.lock  package-lock.json $(SW)
-SERVE_DEPS    += $(BUILD_DEPS) _includes/collapse.css _includes/comments.css
+SERVE_DEPS    += $(BUILD_DEPS) 
+#_includes/collapse.css _includes/comments.css
 
 # Cleanable files/directories
 clean_dirs    +=$(LOCAL_DIR)

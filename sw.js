@@ -26,11 +26,11 @@ if (workbox) {
   },
   {
     "url": "assets/css/home.css",
-    "revision": "87a7c69bd025f1c3b458a2ab5eb454f4"
+    "revision": "905ce73c715c6712a06b100a044c9875"
   },
   {
     "url": "assets/css/main.css",
-    "revision": "45e75ba4ba78c36e9a5efb121cb3cb1f"
+    "revision": "940fd72eb78b622ec097754eddb5eb4b"
   },
   {
     "url": "assets/css/style.css",
@@ -122,43 +122,43 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "7fc8acaa77a516d02570549009db338d"
+    "revision": "6809afa83648a6df8cb0b06ed0e7dee5"
   },
   {
     "url": "docs/index.html",
-    "revision": "e634288ee06a41051bfd7078ed886e42"
+    "revision": "6522c85f3be989a2812af353cf22fd86"
   },
   {
     "url": "docs/pandoc-df-thesis/configurations/index.html",
-    "revision": "94f85668b3ec87ff1335a4ac82f6e284"
+    "revision": "a8d4335e42fb84999204e5dd0611c2d9"
   },
   {
     "url": "docs/pandoc-df-thesis/df-markdown/index.html",
-    "revision": "3ecde637e6362a0139595571c182a12e"
+    "revision": "4419366f49fa20f2b9c6b2c103401cfc"
   },
   {
     "url": "docs/pandoc-df-thesis/getting-started/index.html",
-    "revision": "15a1d48b23deb2fa6474986b4037d450"
+    "revision": "5c11d4c3a3dfd956af5f1ce5f17d6d4b"
   },
   {
     "url": "docs/pandoc-df-thesis/index.html",
-    "revision": "222e4a92e3ca224909862f094b8fb206"
+    "revision": "898be87e025ddc1b7a98638ca2216a00"
   },
   {
     "url": "docs/pandoc-df-thesis/installation/index.html",
-    "revision": "52a08ab1a32392c992cc5c689506cca2"
+    "revision": "e825ba6bab24bc91d5ffa06acb780560"
   },
   {
     "url": "docs/pandoc-df-thesis/organization/index.html",
-    "revision": "4c9e204dbb129ac24ef963678643c860"
+    "revision": "190be9a56c9337f3797b03a96e57dd19"
   },
   {
     "url": "docs/pandoc-df-thesis/preamble/index.html",
-    "revision": "92c6328988e5cd0bd69696c6b9301780"
+    "revision": "24fc0bbd81ea38922da72e1232194dee"
   },
   {
     "url": "index.html",
-    "revision": "bcbd737edbd57d21baba08cad1190fa9"
+    "revision": "1805b1224416df37114d20535df772e0"
   },
   {
     "url": "offline.html",
