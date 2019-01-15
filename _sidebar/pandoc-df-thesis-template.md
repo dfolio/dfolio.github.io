@@ -20,7 +20,7 @@ popover: false
 {%-include _links.md -%}
 
 
-The D. Folio (df) template for writing a thesis dissertation using [Pandoc], <http://pandoc.org>. 
+The D. Folio (df) template for writing a thesis dissertation using [Pandoc]. 
 
 Based on the “_(df)modified_” [Markdown] sources, this dissertation template can deal with many outputs dialect basically supported by [Pandoc]:
 
