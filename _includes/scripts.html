@@ -5,7 +5,6 @@
   - comments => jquery
   - popover | tooltip =>  bootstrap + popover 
 {%endcomment%}
-
 {%-assign enable_math=false-%}
 {%-assign enable_popover=false-%}
 {%-assign enable_bootstrap=false-%}
@@ -14,7 +13,6 @@
 {%-if page.popover or page.tooltip-%}{%assign enable_popover=true%}{%-endif-%}
 {%-if enable_popover or page.bootstrap or page.collapse-%}{%assign enable_bootstrap=true%}{%-endif-%}
 {%-if enable_bootstrap or page.comments-%}{%assign enable_jquery=true %}{%-endif-%}
-
 {%-if enable_math-%}
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({TeX:{equationNumbers: { autoNumber: "all"}}});

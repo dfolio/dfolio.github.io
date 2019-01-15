@@ -19,14 +19,12 @@ html {
 //syntax_highlighter
 @import "syntax";
 
-{%if page.comments%}
+//now add all in main.css for critical-css
 @import "comments";
-{%endif%}
-{%if page.collapse%}
 @import "collapse";
-{%endif%}
 
 {%comment%}
+
 @if $enable-var-styles {
 }
 {%endcomment%}
