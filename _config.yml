@@ -1,5 +1,5 @@
 #theme:                      jekyll-theme-tactile
-version: 1.2.1
+version: 1.2.2
 # Global site settings
 locale                  :    "en-US"
 lang                    :    "en"
@@ -110,7 +110,7 @@ analytics:
 serviceWorker:
   workbox:
     url: https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js
-    version: 3.6.1
+    version: 1.2.2
 feed:
   collections:
     - pandoc-df-thesis
