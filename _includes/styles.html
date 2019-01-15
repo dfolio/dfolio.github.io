@@ -1,22 +1,33 @@
-<!-- CDN css -->
 {%- for cdn in site.css_cdn -%}
 <link rel="stylesheet" href="{{cdn.url}}" {%if cdn.hash %} integrity="{{cdn.hash}}" crossorigin="anonymous"{%endif%}>
 {%-endfor-%}
 {%- assign vers= page.version| default: site.version -%}
 {%- assign vsuff = '?v=' | append: vers -%}
-
-{%- assign vers= page.version| default: site.version -%}
-{%- assign vsuff = '?v=' | append: vers -%}
-{%-if page.comments-%}{%- assign vsuff = vsuff | append: "&comments" -%}{%- endif -%}
-{%-if page.collapse-%}{%- assign vsuff = vsuff | append: "&collapse" -%}{%- endif -%}
-
-<!-- Site CSS -->
-<link rel="stylesheet" href="{{ styles_pge.css | default: layout.css| default: site.data.site.css|default: site.css| default: '/assets/css/main.css' | relative_url | append: vsuff}}">
-
-{%- if page.style or page.collapse or page.comments-%}
+{%- assign fcss = styles_pge.css | default: layout.css| default: site.data.site.css|default: site.css| default: '/assets/css/main.css' | relative_url | append: vsuff-%}
+{%- assign pname = page.ref}
+{%- assign pname = pname | default: page.url | remove: site.baseurl | remove: site.url | remove: '.html' | strip | split:"/" | last -%}
+{%-if pname-%}{%-capture css-critical -%}
+css/critical/{{pname}}.css
+{%-endcapture css-critical -%}{%- endif -%}
+{%-capture incss -%}
+{%-if css-critical-%}{%-include {{css-critical}} -%}{%- endif -%}
+{%-if page.style-%}{{- page.style| scssify -}}{%- endif -%}
+{%-endcapture incss -%}
+{%-if incss-%}
 <style>
-{%if page.collapse%}{%- include collapse.css -%}{%- endif -%}
-{%if page.comments%}{%- include comments.css -%}{%- endif -%}
-{%if page.style   %}{{- page.style | scssify -}}{%- endif -%}
+{{incss }}
 </style>
+<link rel="preload" href="{{ fcss }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
 {%- endif -%}
+<link rel="stylesheet" href="{{ fcss }}">
+{%-if incss-%}
+</noscript><script>
+{%-include script_loadcss.js -%}
+</script>
+{%- endif -%}
+
+
+
+
+

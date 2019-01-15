@@ -30,7 +30,9 @@
 
   <title>{{ seo_title | default: site.title }}</title>
 
-  {%- if author -%}<meta name="author" content="{{ author.name | default: author }}">{%- endif -%}
+  {%- if author -%}<meta name="author" content="{{ author.name | default: author }}">
+  <meta content="{{ site.url }}/about/" property="article:author">
+  {%- endif -%}
   {%- if seo_description -%}
   <meta name="description" content="{{ seo_description }}">
   <meta property="og:description" content="{{ seo_description }}">
@@ -50,12 +52,14 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
   <meta property="og:url" content="{{ canonical_url }}">
-
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ "/feed.xml" }}" />
-
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+    
   {%- if paginator.previous_page -%}<link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">{% endif %}
   {%- if paginator.next_page -%}<link rel="next" href="{{ paginator.next_page_path | absolute_url }}">{% endif %}
+
+  {%- include styles.html -%}
 
   {% if seo_logo %}
   <script type="application/ld+json">
@@ -87,12 +91,14 @@
 
   <link rel="author" href="/humans.txt" >
   {%- if site.webmentions.username -%}
-  <link rel="webmention" href="https://webmention.io/{{-site.webmentions.username-}}/webmention" >
-  <link rel="webmention" href="https://webmention.herokuapp.com/api/webmention" />
-  <link rel="pingback" href="https://webmention.io/{{-site.webmentions.username-}}/xmlrpc" >
   <link rel="dns-prefetch" href="https://webmention.io">
   <link rel="preconnect" href="https://webmention.io">
   <link rel="preconnect" href="ws://webmention.io:8080">
+  <link rel="dns-prefetch" href="https://webmention.herokuapp.com">
+  <link rel="preconnect" href="https://webmention.herokuapp.com">
+  <link rel="pingback" href="https://webmention.io/{{-site.webmentions.username-}}/xmlrpc">
+  <link rel="webmention" href="https://webmention.io/{{-site.webmentions.username-}}/webmention">
+  <link rel="webmention" href="https://webmention.herokuapp.com/api/webmention" >
   {%- endif -%}
   
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
@@ -104,6 +110,4 @@
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-
-  {%- include styles.html -%}
 </head>
