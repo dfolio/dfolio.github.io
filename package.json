@@ -23,10 +23,10 @@
   },
   "homepage": "https://dfolio/dfolio.github.io",
   "dependencies": {
-    "penthouse": "^1.10.2",
+    "penthouse": "^1.11.1",
     "workbox-cli": "^3.5.0"
   },
   "devDependencies": {
-    "bootstrap": "^4.2.1"
+    "bootstrap": "^4.3.1"
   }
 }

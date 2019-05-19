@@ -344,12 +344,12 @@ update:update-bundle
 
 update-gem:update-bundle;
 update-bundle: Gemfile.lock
-	$(QUIET)$(call run-bundle,upgrade) \
+	$(QUIET)$(call run-bundle,update) \
 	$(call echo-end,$(BUNDLE) upgraded)
 
 .SECONDARY:update-node
 update-node: package-lock.json
-	$(QUIET)$(call run-node,upgrade) \
+	$(QUIET)$(call run-node,update) \
 	$(call echo-end,$(NODE) upgraded)
 
 ################################################################################
