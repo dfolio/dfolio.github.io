@@ -10,7 +10,7 @@ collapse: true
 
 {%-include _links.md -%}
 
-Obviously, layouts, and data files are all placed in their default locations. Bibliographies, media and stylesheets in `assets`, and a few development related files in the project's root directory.
+Obviously, layouts, and data files are all placed in their default locations. Bibliographies, media and style-sheets in `assets`, and a few development related files in the project's root directory.
 
 If you have just downloaded or cloned the template without any modification, you should get the following structure:
 {%capture code%}
