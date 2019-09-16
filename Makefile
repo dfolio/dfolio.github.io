@@ -6,7 +6,7 @@
 ################################################################################
 
 ################################################################################
-# Important Subdirs 
+# Important Subdirs
 ASSETS_DIR    ?=assets
 JS_DIR        ?=$(ASSETS_DIR)/js
 ASSETS_VENDOR_DIR ?= $(ASSETS_DIR)/vendor
@@ -20,15 +20,15 @@ NODEDIR       ?=node_modules
 ################################################################################
 # EXTERNAL PROGRAMS:
 # = ESSENTIAL PROGRAMS
-# == Usefull external program 
+# == Usefull external program
 GEM       ?= gem
 BUNDLE    ?= bundle
 JEKYLL    ?= jekyll
 NPM       ?= npm
 NPX       ?= npx
 PROOFER   ?= htmlproofer
-RSYNC     ?= rsync 
-WORKBOX   ?= workbox 
+RSYNC     ?= rsync
+WORKBOX   ?= workbox
 # == Basic Shell Utilities
 CAT       ?= cat
 CP        ?= cp -f
@@ -48,7 +48,7 @@ ZIP       ?= zip
 
 ################################################################################
 # Default FLAGS
-JEKYLL_FLAGS  ?= --safe 
+JEKYLL_FLAGS  ?= --safe
 RSYNC_FLAGS   ?= -r -t -p -o -g -l -c -z -u -s -a
 # Turn on final version of the document
 ifdef PROD
@@ -56,7 +56,7 @@ undefine VERBOSE
 undefine DRAFT
 undefine KEEP_TEMP
 endif
-# Manage quiet/verbose mode 
+# Manage quiet/verbose mode
 ifndef VERBOSE
 QUIET  := @
 endif
@@ -119,15 +119,15 @@ clean-files    = \
 # Returns the list of files that is not in $(wildcard $(neverclean))
 cleanable-files = $(filter-out $(wildcard $(neverclean)), $1)
 
-# Use RSYNC instead of simple CP to allow remote copying 
+# Use RSYNC instead of simple CP to allow remote copying
 USE_RSYNC := $(if $(shell $(WHICH) $(RSYNC) 2>/dev/null),yes,)
 define copy-helper
 $(if $(USE_RSYNC),\
   $(RSYNC) $(RSYNC_FLAGS) '$(strip $1)' '$(strip $2)',\
   $(CP) '$(strip $1)' '$(strip $2)' )
 endef
-# Copy source to destination only if source exist 
-define copy-if-exists  
+# Copy source to destination only if source exist
+define copy-if-exists
 $(call test-exists,$1) && $(call copy-helper,$1,$2) || \
   $(call echo-error, " '$1' does not exist and cannot be copied to '$2'")
 endef
@@ -182,8 +182,8 @@ echo-run      = $(echo_dt) "\t$(cyan)>>$(bold)Run $1$(reset)$(cyan)$(if $2,\t$2,
 echo-copy     = $(echo_dt) "\t$(cyan)>>Copy $1$(if $2,\t$2 $(if $3,--> $3,),)...$(reset)"
 
 define echo-end-build
-&& $(call echo-success,Successfully build $1") ||
-$(call echo-failure, Fail to build $1!!!") 
+&& $(call echo-success,Successfully build $1) ||
+$(call echo-failure, Fail to build $1!!!)
 endef
 
 
@@ -223,12 +223,12 @@ MD= $(foreach DIR,$(SUBDIRS), $(wildcard $(DIR)/*.md))
 ################################################################################
 # Dependancies
 BUILD_DEPS    += Gemfile.lock  package-lock.json $(SW)
-SERVE_DEPS    += $(BUILD_DEPS) 
+SERVE_DEPS    += $(BUILD_DEPS)
 #_includes/collapse.css _includes/comments.css
 
 # Cleanable files/directories
 clean_dirs    +=$(LOCAL_DIR)
-clean_node    +=node_modules package-lock.json 
+clean_node    +=node_modules package-lock.json
 clean_bundle  +=.bundle Gemfile.lock
 
 ###############################################################################
@@ -249,7 +249,7 @@ test:
 # MAIN TARGETS
 #
 
-# Build local 
+# Build local
 .PHONY: build
 b: build;
 build $(LOCAL_DIR): $(BUILD_DEPS)
@@ -262,7 +262,7 @@ profile:
 	$(call run-jekyll,build,--safe --profile,1)  \
 			$(call echo-end,local)
 
-# Build for production environment 
+# Build for production environment
 .PHONY: prod
 p: prod;
 prod:clean $(BUILD_DEPS)
@@ -274,7 +274,7 @@ s: serve;
 serve: $(SERVE_DEPS) | $(LOCAL_DIR)
 	$(QUIET)$(call echo-build,$(JEKYLL),serve)
 	$(call run-jekyll,serve, --watch --incremental,1)
-	
+
 USE_PROOFER := $(if $(shell $(WHICH) $(PROOFER) 2>/dev/null),yes,)
 check:
 	$(QUIET)$(call echo-build,$(JEKYLL),doctor)
@@ -306,7 +306,7 @@ endif
 $(LOCAL_DIR)/assets/css/%.css: $(ASSETS_DIR)/css/%.scss | $(LOCAL_DIR)
 	$(QUIET)$(call echo-copy,$<,$@,$*)
 
-_includes/%.css:$(LOCAL_DIR)/assets/css/%.css 
+_includes/%.css:$(LOCAL_DIR)/assets/css/%.css
 	$(QUIET)$(call echo-copy,$<,$@,$*)
 	$(call copy-if-exists,$<,$@)
 ################################################################################
@@ -345,18 +345,18 @@ update:update-bundle
 update-gem:update-bundle;
 update-bundle: Gemfile.lock
 	$(QUIET)$(call run-bundle,update) \
-	$(call echo-end,$(BUNDLE) upgraded)
+	$(call echo-end,$(BUNDLE) update)
 
 .SECONDARY:update-node
 update-node: package-lock.json
 	$(QUIET)$(call run-node,update) \
-	$(call echo-end,$(NODE) upgraded)
+	$(call echo-end,$(NODE) updated)
 
 ################################################################################
 # CLEAN TARGETS
 #
 .PHONY: clean
-clean: clean-dirs clean-node clean-bundle 
+clean: clean-dirs clean-node clean-bundle
 	$(QUIET)$(call run-bundle,clean --force) \
 
 clean-dirs:
@@ -376,5 +376,3 @@ dist: clean
 VERSION !=$(CAT) VERSION
 version:
 	$(QUIET)$(call echo-info,"version: v$(VERSION)")
-	
-

@@ -26,6 +26,7 @@ staticman:
   
 webmentions:  
 #  provider: "jekyll-webmention_io "
+#https://webmention.io/dfolio.github.io/webmention
   API_KEY: OEX5Uhxp5sZL_lvLfJ3ruw
   cache_folder: _data/webmentions
   cache_bad_uris_for: 5
