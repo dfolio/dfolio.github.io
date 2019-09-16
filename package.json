@@ -24,7 +24,8 @@
   "homepage": "https://dfolio/dfolio.github.io",
   "dependencies": {
     "penthouse": "^1.11.1",
-    "workbox-cli": "^3.5.0"
+    "workbox-cli": "^3.5.0",
+    "lodash.template": ">=4.5.0"
   },
   "devDependencies": {
     "bootstrap": "^4.3.1"
