@@ -8,6 +8,7 @@ source "https://rubygems.org"
 gem "bundler", "~> 1.12"
 #gem "jekyll", "~> 3.7.3"
 gem "netrc"
+gem "nokogiri", ">= 1.10.4" # github security alert 
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.

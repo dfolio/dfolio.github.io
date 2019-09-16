@@ -295,6 +295,7 @@ DEPENDENCIES
   jekyll-sitemap (~> 1.1)
   jemoji
   netrc
+  nokogiri (>= 1.10.4)
 
 BUNDLED WITH
    1.17.3
