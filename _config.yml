@@ -32,9 +32,6 @@ links: &links
   - label:                 "Facebook"
     icon:                  "fab fa-fw fa-facebook-square"
     # url:
-  - label:                 "Google+"
-    icon:                  "fab fa-fw fa-google-plus"
-    url:                   "https://plus.google.com/+DavidFOLIO"
   - label:                 "keybase"
     icon:                  "fab fa-fw fa-keybase"
     url:                   "https://keybase.io/dfolio"
