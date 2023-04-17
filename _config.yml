@@ -40,12 +40,12 @@ links: &links
     url:                   "https://keybase.io/dfolio"
   - label:                 "Website"
     icon:                  "fas fa-fw fa-link"
-    url:                   "http://dfolio.free.fr"
+    url:                   "https://dfolio.fr"
 
 # Site Author
 author:
   name             :         "David Folio"
-  url              :         "http://dfolio.free.fr"
+  url              :         "https://dfolio.fr"
   image            : &image  "/assets/media/dfolio.png"
   avatar           : *image
   bio              :         "I am an amazing person."
@@ -57,8 +57,7 @@ social:
   name: "David Folio"
   links:
     - "https://dfolio.github.io/"
-    - "https://plus.google.com/+DavidFOLIO"
-    - "http://dfolio.free.fr"
+    - "https://dfolio.fr"
 
 webmentions: 
   provider: "webmention.herokuapp.com"
